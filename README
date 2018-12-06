@@ -1,0 +1,165 @@
+
+ATTENTION: This is an early version of the TODTLER implementation. Please do not
+hesitate to contact Jan Van Haaren <jan.vanhaaren@cs.kuleuven.be> in case you
+encounter any difficulties in using the software or find any errors.
+
+
+This package contains a Java implementation of the Two-Order-Deep Transfer
+Learning (TODTLER) algorithm, which performs deep transfer learning in the
+context of Markov logic networks.
+
+For further details on TODTLER, please refer to:
+
+  Jan Van Haaren, Andrey Kolobov, and Jesse Davis. "TODTLER: Two-Order-Deep
+  Transfer Learning", Proceedings of the Twenty-Ninth AAAI Conference on
+  Artificial Intelligence, 2015.
+
+
+--------------------------------------------------------------------------------
+CONTENT
+--------------------------------------------------------------------------------
+
+ * source/
+    The source code of TODTLER's Java implementation.
+
+ * libraries/
+    The libraries used by TODTLER's Java implementation.
+
+ * alchemy/
+    A modified version of Alchemy, which is used as a subroutine.
+      <http://alchemy.cs.washington.edu>
+
+ * example/
+    A few example databases and predicate declaration files. Both the databases
+    and predicate declaration files are in the Alchemy format.
+
+ * score.sh
+    A Bash script to compute the pseudo-log-likelihood of the candidate models.
+
+ * build.xml
+    An Ant build file that provides tasks to compile the Java source code and
+    to generate two executable JAR files from the resulting class files.
+
+ * todtler-generator.jar
+    The algorithm for generating the first-order Markov logic clauses.
+
+ * todtler-learner.jar
+    The algorithm for combining the knowledge acquired from the source and
+    target domain as well as learning the target domain model. This algorithm
+    uses a modified version of Alchemy as a subroutine.
+
+
+--------------------------------------------------------------------------------
+MINIMUM REQUIREMENTS
+--------------------------------------------------------------------------------
+
+ * Java 1.7 JRE or newer to run TODTLER.
+     <http://www.oracle.com/technetwork/java/javase/downloads/index.html>
+
+ * Java 1.7 JDK or newer to compile TODTLER's source code.
+     <http://www.oracle.com/technetwork/java/javase/downloads/index.html>
+
+ * Apache Ant 1.7.0 or newer to execute the build file.
+     <http://ant.apache.org/bindownload.cgi>
+
+
+--------------------------------------------------------------------------------
+SETUP
+--------------------------------------------------------------------------------
+
+ 1. Compile the Java source code in source/ as follows:
+
+    ant jar                 (from the root directory)
+
+    This command creates the executable JAR files.
+
+
+ 2. Compile the C++ source code in alchemy/src/ as follows:
+
+    make learnstruct        (from the alchemy/src/ directory)
+
+
+ 3. Add the directory containing the learnstruct binary to your path variable.
+
+
+--------------------------------------------------------------------------------
+USAGE
+--------------------------------------------------------------------------------
+
+ 1. Generate the first-order clauses for both the source and the target domain.
+    Run either the executable JAR file todtler-generator.jar or the class
+    generator.ClauseGenerator. Running the code without command-line arguments
+    will show an overview of the required and optional parameters.
+
+    Example:
+
+    java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/twitter.mln -templateFile twitter-templates.csv -formulaFile twitter-formulas.csv -formulaDirectory clauses/twitter
+
+java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/yeast.mln -templateFile yeast-templates.csv -formulaFile yeast-formulas.csv -formulaDirectory clauses/yeast
+
+java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/imdb.mln -templateFile imdb-templates.csv -formulaFile imdb-formulas.csv -formulaDirectory clauses/imdb
+
+    This command generates all valid first-order Markov logic clauses containing
+    at most three literals and three variables. It creates a candidate model for
+    each clause, which consists of the predicate declarations and the clause.
+
+
+ 2. Compute a score for each first-order clause using Alchemy.
+    Compute the pseudo-log-likelihood of each candidate model.
+
+    Example:
+
+    ./score.sh /path/to/models
+
+    This command computes the pseudo-log-likelihood of each candidate model in
+    the given directory. The *-output.log log files are used in the third step.
+
+
+ 3. Learn the target domain model.
+    Run either the executable JAR file todtler-learner.jar or the class
+    learner.StructureLearner. Running the code without command-line arguments
+    will show an overview of the required and optional parameters.
+
+    Example:
+
+    java -jar todtler-learner.jar -sourceDirectory clauses/yeast -targetDirectory clauses/twitter -templateFileSource yeast-templates.csv -formulaFileSource yeast-formulas.csv -templateFileTarget twitter-templates.csv -formulaFileTarget twitter-formulas.csv -outputDirectory models/yeast-twitter -domainFile domains/twitter.mln -train domains/twitter-fold1.db -ne AccountType
+
+    In a first step, this command first computes a ranking of second-order
+    clauses for the source domain and a ranking of first-order clauses for the
+    target domain, and then adapts the target domain ranking using the source
+    domain ranking.
+
+    In a second step, this command learns the target domain model by stepping
+    down the re-arranged ranking of first-order clauses and adding those clauses
+    that improve the pseudo-log-likelihood of the target domain model.
+
+    Probabilities are computed using MC-SAT
+    ./infer -i output-iteration182.mln -r teste.result -e twitter-test.db -q AccountType
+
+
+
+--------------------------------------------------------------------------------
+LICENSE
+--------------------------------------------------------------------------------
+
+The modified BSD license, which is included in LICENSE, applies to all source
+code and other files in this package.
+
+
+--------------------------------------------------------------------------------
+AUTHORS
+--------------------------------------------------------------------------------
+
+  * Jan Van Haaren <jan.vanhaaren@cs.kuleuven.be>
+      <http://people.cs.kuleuven.be/~jan.vanhaaren>  
+
+  * Andrey Kolobov <akolobov@microsoft.com>
+      <http://people.cs.kuleuven.be/~jan.vanhaaren>  
+
+  * Jesse Davis <jesse.davis@cs.kuleuven.be>
+      <http://people.cs.kuleuven.be/~jesse.davis>
+
+
+The content of this package was last modified on Wednesday 17 June 2015.
+
+

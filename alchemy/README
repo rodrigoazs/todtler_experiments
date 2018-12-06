@@ -1,0 +1,10 @@
+By using Alchemy, you agree to accept the license agreement in license.txt
+
+src/ contains source code and a makefile.
+doc/ contains a change log, and a manual in PDF, PostScript and html formats.
+exdata/ contains a simple example of Alchemy input files.
+papers/ contains papers related to Alchemy.
+bin/ is used to contain compiled executables.
+
+Please refer to the change log at http://www.cs.washington.edu/ai/alchemy/
+for the latest changes to Alchemy.

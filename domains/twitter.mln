@@ -1,0 +1,3 @@
+AccountType(account,+type)
+Tweets(account,+word)
+Follows(account,account)

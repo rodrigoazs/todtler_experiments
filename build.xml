@@ -1,0 +1,43 @@
+<project name="Two-Order-Deep Transfer Learning" default="jar">
+
+    <!-- Specifies the path to the libraries -->
+    <fileset dir="libraries" id="dependencies">
+        <include name="*.jar"/>
+    </fileset>
+    <path id="libraries">
+        <fileset refid="dependencies" />
+    </path>
+
+    <!-- Generates the executable jar-files -->
+    <target name="jar">
+        <antcall target="classes" />
+        <jar destfile="todtler-generator.jar" basedir="classes">
+            <zipgroupfileset refid="dependencies" />
+            <manifest>
+                <attribute name="Main-Class" value="generator.ClauseGenerator"/>
+            </manifest>
+        </jar>
+        <jar destfile="todtler-learner.jar" basedir="classes">
+            <zipgroupfileset refid="dependencies" />
+            <manifest>
+                <attribute name="Main-Class" value="learner.StructureLearner"/>
+            </manifest>
+        </jar>
+    </target>
+
+    <!-- Compiles the source code to class files -->
+    <target name="classes">
+        <mkdir dir="classes" />
+        <javac includeantruntime="false" target="1.7" srcdir="source" destdir="classes">
+            <classpath refid="libraries" />
+        </javac>
+    </target>
+
+    <!-- Removes the class files and jar-file -->
+    <target name="clean">
+        <delete file="todtler-generator.jar" />
+        <delete file="todtler-learner.jar" />
+        <delete dir="classes" />
+    </target>
+
+</project>
