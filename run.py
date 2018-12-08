@@ -138,13 +138,17 @@ def do_experiment(identifier, source, target, predicate):
         start = time.time()
         exp_number = count_dir + 1
         
+        print('Doing experiment number ' + str(exp_number))
+        
         gen_source_bk(source) 
         gen_train_files(source, source_data)
         
+        print('Generating templates for source domain')
         templating = time.time()        
         CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + source + '.mln -templateFile ' + source + '-templates.csv -formulaFile ' + source + '-formulas.csv -formulaDirectory clauses/' + source + ' > todtler-generator.txt 2>&1)'
         call_process(CALL)
         json['Generating source template time'] = time.time() - templating
+        print('Time taken: %s' % json['Generating source template time'])
         
         write_to_file(score(source, len(source_data)), 'score.sh')
         
@@ -152,13 +156,19 @@ def do_experiment(identifier, source, target, predicate):
         gen_source_bk(target)  
         gen_train_files(target, target_data)
         
+        print('Generating templates for target domain')
         templating = time.time()  
         CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + target + '.mln -templateFile ' + target + '-templates.csv -formulaFile ' + target + '-formulas.csv -formulaDirectory clauses/' + target + ' > todtler-generator.txt 2>&1)'
         call_process(CALL)
         json['Generating target template time'] = time.time() - templating
+        print('Time taken: %s' % json['Generating target template time'])
         
+        print('Scoring clauses')
+        scoring = time.time()
         CALL = '(./score.sh > score.txt 2>&1)'
         call_process(CALL)
+        scoring = time.time() - scoring
+        print('Time taken: %s' % scoring)
         
         json['Learning time'] = []
         
@@ -167,10 +177,14 @@ def do_experiment(identifier, source, target, predicate):
             experiment_path = 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1)
             create_dir(experiment_path)
             
+            print('Learning fold ' + str(i+1))
+            
             learning = time.time()
             CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory models/' + source + '-' + target + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate + ' > todtler-learner.txt 2>&1)'
             call_process(CALL)
-            json['Learning time'].append(time.time() - learning)
+            learning = time.time() - learning
+            json['Learning time'].append(learning)
+            print('Time taken: %s' % learning)
             
             last = get_last_model('models/' + source + '-' + target)
             shutil.copyfile('models/' + source + '-' + target + '/model-'+ str(last) + '.mln', 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1) + '/model.mln')
@@ -178,6 +192,7 @@ def do_experiment(identifier, source, target, predicate):
 
         end = time.time()
         json['Total experiment time'] = end - start
+        print('Total experiment time taken %s' % json['Total experiment time'])
         save_experiment(json, experiment_title, exp_number)
     delete_train_files()
     
@@ -272,6 +287,15 @@ bk = {
         }
         
 experiments = [
+            {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
+            {'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
+            #{'id': '17', 'source':'yeast', 'target':'twitter', 'predicate':'location', 'to_predicate':'tweets'},
+            #{'id': '18', 'source':'yeast', 'target':'twitter', 'predicate':'enzyme', 'to_predicate':'tweets'},
+            #{'id': '19', 'source':'yeast', 'target':'twitter', 'predicate':'function', 'to_predicate':'tweets'},
+            #{'id': '20', 'source':'yeast', 'target':'twitter', 'predicate':'phenotype', 'to_predicate':'tweets'},
+            #{'id': '21', 'source':'yeast', 'target':'twitter', 'predicate':'complex', 'to_predicate':'tweets'},
+            {'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
+            {'id': '23', 'source':'twitter', 'target':'yeast', 'predicate':'follows', 'to_predicate':'Interaction'},
             {'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
             {'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
             #{'id': '3', 'source':'imdb', 'target':'uwcse', 'predicate':'movie', 'to_predicate':'publication'},
@@ -286,15 +310,6 @@ experiments = [
             #{'id': '12', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'samebib'},
             #{'id': '13', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'sameauthor'},
             #{'id': '14', 'source':'uwcse', 'target':'cora', 'predicate':'advisedby', 'to_predicate':'sametitle'},
-            {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
-            {'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
-            #{'id': '17', 'source':'yeast', 'target':'twitter', 'predicate':'location', 'to_predicate':'tweets'},
-            #{'id': '18', 'source':'yeast', 'target':'twitter', 'predicate':'enzyme', 'to_predicate':'tweets'},
-            #{'id': '19', 'source':'yeast', 'target':'twitter', 'predicate':'function', 'to_predicate':'tweets'},
-            #{'id': '20', 'source':'yeast', 'target':'twitter', 'predicate':'phenotype', 'to_predicate':'tweets'},
-            #{'id': '21', 'source':'yeast', 'target':'twitter', 'predicate':'complex', 'to_predicate':'tweets'},
-            {'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
-            {'id': '23', 'source':'twitter', 'target':'yeast', 'predicate':'follows', 'to_predicate':'Interaction'},
             #{'id': '24', 'source':'twitter', 'target':'yeast', 'predicate':'tweets', 'to_predicate':'location'},
             #{'id': '25', 'source':'twitter', 'target':'yeast', 'predicate':'tweets', 'to_predicate':'enzyme'},
             #{'id': '26', 'source':'twitter', 'target':'yeast', 'predicate':'tweets', 'to_predicate':'function'},
@@ -325,7 +340,7 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 10
+n_runs = 12
 folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):
@@ -347,12 +362,12 @@ while results['save']['n_runs'] < n_runs:
     experiment = results['save']['experiment'] % len(experiments)
     experiment_title = experiments[experiment]['id'] + '_' + experiments[experiment]['source'] + '_' + experiments[experiment]['target']
     print('Run: ' + str(results['save']['n_runs']) + ' ' + experiment_title)
-    try:
-        do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['to_predicate'])
-    except Exception as e:
-        print(e)
-        print('Error in experiment of ' + experiment_title)
-        pass
+    #try:
+    do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['to_predicate'])
+    #except Exception as e:
+        #print(e)
+        #print('Error in experiment of ' + experiment_title)
+        #pass
     results['save']['experiment'] += 1
     results['save']['n_runs'] += 1
     save(results)
