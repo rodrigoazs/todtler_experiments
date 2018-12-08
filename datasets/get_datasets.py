@@ -118,5 +118,18 @@ class datasets:
                                 continue
                             if len(example) > 2:
                                 continue
+                        if dataset == 'twitter':
+                            if relation == 'tweets':
+                                example = [example[0], '"' + example[1].lower() + '"']
+                                facts[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
+                                continue
+                            if relation == 'typeaccount':
+                                continue
+                        if dataset == 'yeast':
+                            if relation == 'classprotein':
+                                continue
+                        if dataset == 'nell_finances':
+                            if relation in ['ceoof', 'ceoeconomicsector']:
+                                continue
                         facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')                           
         return facts

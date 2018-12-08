@@ -362,12 +362,12 @@ while results['save']['n_runs'] < n_runs:
     experiment = results['save']['experiment'] % len(experiments)
     experiment_title = experiments[experiment]['id'] + '_' + experiments[experiment]['source'] + '_' + experiments[experiment]['target']
     print('Run: ' + str(results['save']['n_runs']) + ' ' + experiment_title)
-    #try:
-    do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['to_predicate'])
-    #except Exception as e:
-        #print(e)
-        #print('Error in experiment of ' + experiment_title)
-        #pass
+    try:
+        do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['to_predicate'])
+    except Exception as e:
+        print(e)
+        print('Error in experiment of ' + experiment_title)
+        pass
     results['save']['experiment'] += 1
     results['save']['n_runs'] += 1
     save(results)
