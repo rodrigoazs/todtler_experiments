@@ -154,7 +154,7 @@ def do_experiment(identifier, source, target, predicate):
     experiment_title = identifier + '_' + source + '_' + target
     create_dir('experiments/' + experiment_title)
     count_dir = count_directories('experiments/' + experiment_title)
-    if count_dir < len(target_data):
+    if count_dir < len(source_data):
         start = time.time()
         exp_number = count_dir + 1
         
