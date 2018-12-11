@@ -108,12 +108,30 @@ def get_last_model(path):
     last = 0
     for item in test:
         if item.startswith('model-') and item.endswith('.mln'):
+            #print(item)
             n = re.sub('[^\d]', '', item)
             if n:
                 n = int(n)
                 if n > last:
                     last = n
+        #else:
+            #os.remove(path + '/' + item)
+    #print('last is '+ str(last))
     return last
+    
+def remove_all_but(path, last):
+    test = os.listdir(path)
+    for item in test:
+        if item != 'model-' + str(last) + '.mln':
+            print(path + '/' + item)
+            os.remove(path + '/' + item)
+    
+def copy_all_models(path, experiment_path):
+    test = os.listdir(path)
+    for item in test:
+        if item.startswith('model-') and item.endswith('.mln'):
+            print('copying '+ item)
+            shutil.copyfile(path + '/' + item, experiment_path + '/' + item)            
 
 def gen_train_files(source, data):
     count = 1
@@ -174,22 +192,28 @@ def do_experiment(identifier, source, target, predicate):
         json['Learning time'] = []
         
         for i in range(len(target_data)):
-            delete_models()
+            #delete_models()
             experiment_path = 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1)
             create_dir(experiment_path)
             
             print('Learning fold ' + str(i+1))
             
             learning = time.time()
-            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory models/' + source + '-' + target + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate + ' > todtler-learner.txt 2>&1)'
+            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate + ' > todtler-learner.txt 2>&1)'
             call_process(CALL)
             learning = time.time() - learning
             json['Learning time'].append(learning)
             print('Time taken: %s' % learning)
             
-            last = get_last_model('models/' + source + '-' + target)
-            shutil.copyfile('models/' + source + '-' + target + '/model-'+ str(last) + '.mln', 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1) + '/model.mln')
-            delete_models()
+            last = get_last_model(experiment_path)
+            remove_all_but(experiment_path, last)
+            #print('copying')
+            #shutil.copyfile('models/' + source + '-' + target + '/model-'+ str(last) + '.mln', experiment_path + '/model.mln')
+            #print('copying')
+            #copy_all_models('models/' + source + '-' + target, experiment_path)
+            #print('deleting')
+            #delete_models()
+            #print('deleted')
 
         end = time.time()
         json['Total experiment time'] = end - start
@@ -288,6 +312,7 @@ bk = {
         }
         
 experiments = [
+            {'id': '0', 'source':'dummy', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
             {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
             {'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
             #{'id': '17', 'source':'yeast', 'target':'twitter', 'predicate':'location', 'to_predicate':'tweets'},
