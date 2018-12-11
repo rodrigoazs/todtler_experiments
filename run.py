@@ -107,11 +107,12 @@ def get_last_model(path):
     test = os.listdir(path)
     last = 0
     for item in test:
-        if item.startswith('model-'):
+        if item.startswith('model-') and item.endswith('.mln'):
             n = re.sub('[^\d]', '', item)
-            n = int(n)
-            if n > last:
-                last = n
+            if n:
+                n = int(n)
+                if n > last:
+                    last = n
     return last
 
 def gen_train_files(source, data):
@@ -233,9 +234,9 @@ bk = {
                   'Follows(account,account)'],
       'yeast': ['Location(protein,loc)',
                 'Interaction(protein,protein)',
-                'Proteinclass(protein,+class)',
+                'Proteinclass(protein,class)',
                 'Enzyme(protein,enz)',
-                'Function(protein,fun)',
+                'Function(protein,+fun)',
                 'Complex(protein,com)',
                 'Phenotype(protein,phe)'],
       'nell_sports': ['Athleteledsportsteam(athlete,sportsteam)',
