@@ -149,11 +149,12 @@ def do_experiment(identifier, source, target, predicate):
     json = {}
     delete_train_files()
     source_data = datasets.load(source)
+    target_data = datasets.load(target)
     
     experiment_title = identifier + '_' + source + '_' + target
     create_dir('experiments/' + experiment_title)
     count_dir = count_directories('experiments/' + experiment_title)
-    if count_dir < len(source_data):
+    if count_dir < len(target_data):
         start = time.time()
         exp_number = count_dir + 1
         
@@ -171,7 +172,6 @@ def do_experiment(identifier, source, target, predicate):
         
         write_to_file(score(source, len(source_data)), 'score.sh')
         
-        target_data = datasets.load(target)
         gen_source_bk(target)  
         gen_train_files(target, target_data)
         
