@@ -149,7 +149,9 @@ def do_experiment(identifier, source, target, predicate):
     json = {}
     delete_train_files()
     source_data = datasets.load(source)
+    source_data = source_data[0]
     target_data = datasets.load(target)
+    target_data = target_data[0]
     
     experiment_title = identifier + '_' + source + '_' + target
     create_dir('experiments/' + experiment_title)
