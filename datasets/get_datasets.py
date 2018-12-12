@@ -73,6 +73,52 @@ class datasets:
         ret.append(temp)
         random.seed(None)
         return ret
+        
+    def balance_neg(target, data, size, seed=None):
+        '''Receives [facts, pos, neg] and balance neg according to pos'''
+        ret = copy.deepcopy(data)
+        neg = []
+        random.seed(seed)
+        random.shuffle(ret)
+        ret = ret[:size]
+        random.seed(None)
+        for entities in ret:
+            example = [x.capitalize() for x in entities]
+            neg.append(target.capitalize() + '(' + ','.join(example) + ')')
+        return neg
+        
+    def get_neg(target, data):
+        '''Receives [facts, pos, neg] and return neg'''
+        ret = copy.deepcopy(data)
+        neg = []
+        for entities in ret:
+            example = [x.capitalize() for x in entities]
+            neg.append(target.capitalize() + '(' + ','.join(example) + ')')
+        return neg
+        
+    def generate_neg(target, data, amount=1, seed=None):
+        '''Receives [facts, pos, neg] and generates balanced neg examples in neg according to pos'''
+        pos = copy.deepcopy(data)
+        neg = []
+        objects = set()
+        subjects = {}
+        for entities in pos:
+            if entities[0] not in subjects:
+                subjects[entities[0]] = set()
+            subjects[entities[0]].add(entities[1])
+            objects.add(entities[1])
+        random.seed(seed)
+        target_objects = list(objects)
+        for entities in pos:
+            key = entities[0]
+            for j in range(amount):
+                for tr in range(10):
+                    r = random.randint(0, len(target_objects)-1)
+                    if target_objects[r] not in subjects[key]:
+                        neg.append(target.capitalize() + '(' + ','.join([key.capitalize(), target_objects[r].capitalize()]) + ')')
+                        break
+        random.seed(None)
+        return neg
     
     def get_json_dataset(dataset):
         '''Load dataset from json'''
@@ -87,7 +133,7 @@ class datasets:
                 f.write(line + '\n')
         f.close()
     
-    def load(dataset, bk=None):
+    def load(dataset, bk=None, target=None, seed=None, balanced=False):
         '''Load dataset from json and accept only predicates presented in bk'''
         pattern = '^(\w+)\(.*\).$'
         accepted = set()
@@ -99,37 +145,92 @@ class datasets:
                     accepted.add(relation)
         data = datasets.get_json_dataset(dataset)
         facts = []
+        pos = []
+        neg = []
         for i in range(len(data[0])): #positives
             facts.append([])
+            pos.append([])
+            neg.append([])
             for relation, value in data[0][i].items():
                 if not bk or relation in accepted:
-                    for ex in value:
-                        example = [x.capitalize() for x in ex]
-                        if dataset == 'imdb':
-                            if relation in ['actor', 'director']:
-                                facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
-                                continue
-                            if relation == 'female':
-                                facts[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
-                                continue
-                        if dataset == 'uwcse':
-                            if relation in ['student', 'professor']:
-                                facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
-                                continue
-                            if len(example) > 2:
-                                continue
-                        if dataset == 'twitter':
-                            if relation == 'tweets':
-                                example = [example[0], '"' + example[1].lower() + '"']
-                                facts[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
-                                continue
-                            if relation == 'typeaccount':
-                                continue
-                        if dataset == 'yeast':
-                            if relation == 'classprotein':
-                                continue
-                        if dataset == 'nell_finances':
-                            if relation in ['ceoof', 'ceoeconomicsector']:
-                                continue
-                        facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')                           
-        return facts
+                    if not target or relation.lower() != target.lower():
+                        for ex in value:
+                            example = [x.capitalize() for x in ex]
+                            if dataset == 'imdb':
+                                if relation in ['actor', 'director']:
+                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                                if relation == 'female':
+                                    facts[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                            if dataset == 'uwcse':
+                                if relation in ['student', 'professor']:
+                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                                if len(example) > 2:
+                                    continue
+                            if dataset == 'twitter':
+                                if relation == 'tweets':
+                                    example = [example[0], '"' + example[1].lower() + '"']
+                                    facts[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
+                                    continue
+                                if relation == 'typeaccount':
+                                    continue
+                            if dataset == 'yeast':
+                                if relation == 'classprotein':
+                                    continue
+                            if dataset == 'nell_finances':
+                                if relation in ['ceoof', 'ceoeconomicsector']:
+                                    continue
+                            facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
+                    else:
+                        for ex in value:
+                            example = [x.capitalize() for x in ex]
+                            if dataset == 'imdb':
+                                if relation in ['actor', 'director']:
+                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                                if relation == 'female':
+                                    pos[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                            if dataset == 'uwcse':
+                                if relation in ['student', 'professor']:
+                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    continue
+                                if len(example) > 2:
+                                    continue
+                            if dataset == 'twitter':
+                                if relation == 'tweets':
+                                    example = [example[0], '"' + example[1].lower() + '"']
+                                    pos[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
+                                    continue
+                                if relation == 'typeaccount':
+                                    continue
+                            if dataset == 'yeast':
+                                if relation == 'classprotein':
+                                    continue
+                            if dataset == 'nell_finances':
+                                if relation in ['ceoof', 'ceoeconomicsector']:
+                                    continue
+                            pos[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
+        if target:
+            for i in range(len(data[1])): #negatives
+                if target.lower() in data[1][i]:
+                    value = data[1][i][target.lower()]
+                    if balanced:
+                        print('az')
+                        neg[i] = datasets.balance_neg(target.lower(), value, int(balanced * len(data[0][i][target.lower()])), seed=seed)
+                        #if len(neg[i]) > len(data[0][i][target]):
+                        #    # NEW
+                        #    amnt = math.ceil((2 if not balanced else balanced))
+                        #    temp = datasets.generate_neg(target, data[0][i][target], amount=amnt, seed=seed)
+                        #    temp = neg[i] + temp
+                        #    temp = temp[:int(balanced * len(data[0][i][target]))]
+                        #    neg[i] = temp
+                    else:
+                        neg[i] = datasets.get_neg(target.lower(), value)
+                else:
+                    value = data[0][i][target.lower()]
+                    if balanced:
+                        neg[i] = datasets.generate_neg(target.lower(), value, amount=(1 if not balanced else balanced), seed=seed)
+        return [facts, pos, neg]
