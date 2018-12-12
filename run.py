@@ -123,14 +123,14 @@ def remove_all_but(path, last):
     test = os.listdir(path)
     for item in test:
         if item != 'model-' + str(last) + '.mln':
-            print(path + '/' + item)
+            #print(path + '/' + item)
             os.remove(path + '/' + item)
     
 def copy_all_models(path, experiment_path):
     test = os.listdir(path)
     for item in test:
         if item.startswith('model-') and item.endswith('.mln'):
-            print('copying '+ item)
+            #print('copying '+ item)
             shutil.copyfile(path + '/' + item, experiment_path + '/' + item)            
 
 def gen_train_files(source, data):
