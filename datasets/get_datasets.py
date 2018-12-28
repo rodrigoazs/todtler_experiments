@@ -218,7 +218,6 @@ class datasets:
                 if target.lower() in data[1][i]:
                     value = data[1][i][target.lower()]
                     if balanced:
-                        print('az')
                         neg[i] = datasets.balance_neg(target.lower(), value, int(balanced * len(data[0][i][target.lower()])), seed=seed)
                         #if len(neg[i]) > len(data[0][i][target]):
                         #    # NEW

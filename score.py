@@ -139,77 +139,165 @@ def remove_all_but(path, last):
     test = os.listdir(path)
     for item in test:
         if item != 'model-' + str(last) + '.mln':
-            print(path + '/' + item)
+            #print(path + '/' + item)
             os.remove(path + '/' + item)
     
 def copy_all_models(path, experiment_path):
     test = os.listdir(path)
     for item in test:
         if item.startswith('model-') and item.endswith('.mln'):
-            print('copying '+ item)
+            #print('copying '+ item)
             shutil.copyfile(path + '/' + item, experiment_path + '/' + item)            
        
-def gen_test_files(source, data):
+def gen_test_files(source, sdata):
     try:
         os.makedirs('test')
     except:
         pass
     count = 1
-    for data in data:
+    for data in sdata:
         write_to_file(data, 'test/' + source + '-fold' + str(count) + '.db')
         count += 1
+        
+def gen_test_file(data):
+    try:
+        os.makedirs('test')
+    except:
+        pass
+    write_to_file(data, 'test/test.db')
         
 def gen_source_bk(source):
     global bk
     write_to_file(bk[source], 'domains/' + source + '.mln')
     
+def get_test_infer(infer, pos, neg):
+    retPos = []
+    retNeg = []
+    for line in infer:
+        m = re.search('^(\w+\([\w, +"]*\)) (.*)$', line)
+        if m:
+            if m.group(1) in pos:
+                retPos.append(m.group(2) + ' 1')
+            elif m.group(1) in neg:
+                retNeg.append(m.group(2) + ' 0')
+    return retPos + retNeg
+    
+def cll(posProb, negProb):
+    llSum = 0
+    for prob in posProb:
+        if prob == 0:
+            prob = 1e-6
+        llSum += math.log(prob)
+    for prob in negProb:
+        if prob == 1:
+            prob = 1 - 1e-6
+        llSum += math.log(1 - prob)
+    return llSum/(len(posProb) + len(negProb))
+    
+def get_cll(infer, pos, neg):
+    retPos = []
+    retNeg = []
+    for line in infer:
+        m = re.search('^(\w+\([\w, +"]*\)) (.*)$', line)
+        if m:
+            if m.group(1) in pos:
+                retPos.append(results_to_float(m.group(2)))
+            elif m.group(1) in neg:
+                retNeg.append(results_to_float(m.group(2)))
+    return cll(retPos, retNeg)
+
+def results_to_float(string):
+    '''Results can be printed with comma format.'''
+    return float(string.replace(',','.'))
+    
+def get_results(infer, pos, neg):
+    with open('testauc.txt', 'r') as f:
+        text = f.read()
+    PRPattern = 'Area Under the Curve for Precision \- Recall is ([\d\.eE-]+)'
+    ROCPattern = 'Area Under the Curve for ROC is ([\d\.eE-]+)'
+    aucpr = re.findall(PRPattern, text)
+    aucroc = re.findall(ROCPattern, text)
+    print(aucroc)
+    print(aucpr)
+    results = {
+            'AUC ROC': results_to_float(aucroc[0]),
+            'AUC PR': results_to_float(aucpr[0]),
+            'CLL': get_cll(infer, pos, neg),
+        }
+    return results
+    
 def do_experiment(identifier, source, target, predicate):
     global bk
-
     delete_train_files()
-    print(predicate)
-    target_data = datasets.load(target, target=predicate)
-    gen_test_files(target, target_data)
-    
+    tar_data = datasets.load(target, target=predicate, seed=results['save']['seed'], balanced=1)
+    #t_target_data = datasets.load(target)
+    #gen_test_files(target, t_target_data[0])
+    #target_data = tar_data[0]
+    #gen_test_files(target, target_data)
     experiment_title = identifier + '_' + source + '_' + target
     #create_dir('experiments/' + experiment_title)
     count_dir = count_directories('experiments/' + experiment_title)
     for fold in range(count_dir):
         #start = time.time()
         exp_number = fold + 1
-        
-        
         print('Scoring experiment number ' + str(exp_number))
         
         #gen_source_bk(target)
         
-        
-        for i in range(len(target_data)):
+        for i in range(len(tar_data[0])):
             #delete_models()
             experiment_path = 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1)
             
-            print('Scoring fold ' + str(i+1))
+            # Group and shuffle
+            if target not in ['nell_sports', 'nell_finances', 'yago2s']:
+                [tar_train_facts, tar_test_facts] =  datasets.get_kfold_small(i, tar_data[0])
+                [tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, tar_data[1])
+                [tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, tar_data[2])
+            else:
+                [tar_train_facts, tar_test_facts] =  [tar_data[0][0], tar_data[0][0]]
+                to_folds_pos = datasets.split_into_folds(tar_data[1][0], n_folds=n_folds, seed=results['save']['seed'])
+                to_folds_neg = datasets.split_into_folds(tar_data[2][0], n_folds=n_folds, seed=results['save']['seed'])
+                [tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, to_folds_pos)
+                [tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, to_folds_neg)
+                
+            gen_test_file(tar_test_facts)
             
-            #for each fold test on remaining folds
+            print('Scoring fold ' + str(i+1))
+
             inferences = set()
-            remaining = [p for p in range(len(target_data)) if p != i]
-            for p in remaining:
-                print('Scoring fold ' + str(i+1) + ' with fold ' + str(p+1))
-                last = get_last_model(experiment_path)
-                #os.remove('test.result')
-                scoring = time.time()
-                model = fix_symbols_model(read_from_file(experiment_path + '/model.mln'))
-                write_to_file(model, 'model.mln')
-                #CALL = '(./infer -i ' + experiment_path + '/model-' + str(last) + '.mln -r ' + experiment_path + '/fold' + str(p+1) + '.result -e test/' + source + '-fold' + str(p+1) + '.db -q ' + predicate.capitalize() + ' > infer.txt 2>&1)'
-                CALL = '(./infer -i model.mln -r test.result -e test/' + target + '-fold' + str(p+1) + '.db -q ' + predicate.capitalize() + ' > infer.txt 2>&1)'
-                call_process(CALL)
-                scoring = time.time() - scoring
-                print('Time taken: %s' % scoring)
-                content = read_from_file('test.result')
-                inferences = inferences.union(set(content))
-            write_to_file(list(inferences), 'haha.txt')
-            #CALL = '(java -jar auc.jar test.txt list 0)'
-            #call_process(CALL)
+            pos = tar_test_pos
+            neg = tar_test_neg
+            #tgt_data = datasets.load(target, target=predicate, seed=results['save']['seed'], balanced=1)
+            #remaining = [p for p in range(len(target_data)) if p != i]
+            #for p in remaining:
+            #pos = pos.union(tgt_data[1][p])
+            #pos += tgt_data[1][p]
+            #neg = neg.union(tgt_data[2][p])
+            #neg += tgt_data[2][p]
+            #print('Scoring fold ' + str(i+1) + ' with fold ' + str(p+1))
+            #last = get_last_model(experiment_path)
+            #os.remove('test.result')
+            scoring = time.time()
+            model = fix_symbols_model(read_from_file(experiment_path + '/model.mln'))
+            write_to_file(model, 'model.mln')
+            #exs = list(pos)+list(neg)
+            #exs = ','.join(exs)
+            #write_to_file(exs, 'queries.txt')
+            exs = tar_test_pos + tar_test_neg
+            #CALL = '(./infer -i model.mln -ms 1 -r test.result -e test/test.db -q "' + ','.join(exs) + '" > infer.txt 2>&1)'
+            CALL = '(./infer -i model.mln -ms 1 -r test.result -e test/test.db -q '+ predicate +' > infer.txt 2>&1)'
+            call_process(CALL)
+            scoring = time.time() - scoring
+            print('Time taken: %s' % scoring)
+            content = read_from_file('test.result')
+            inferences = inferences.union(set(content))
+            write_to_file(get_test_infer(inferences, pos, neg), 'test.txt')
+            CALL = '(java -jar auc.jar test.txt list 0 > testauc.txt 2>&1)'
+            call_process(CALL)
+            try:
+                print(get_results(inferences, pos, neg))
+            except:
+                pass
     
 bk = {
       'dummy': ['Follows(person,person)',
@@ -219,16 +307,16 @@ bk = {
               'Gender(person,+gender)',
               'Isa(person,+isa)',
               'Movie(movie,person)',
-              'Genre(person,+genre)'],
+              'Genre(person,genre)'],
       'uwcse': ['Isa(person,+isa)',
         'Advisedby(person,person)',
         'Tempadvisedby(person,person)',
         #'Ta(course,person,quarter).',
         'Hasposition(person,faculty)',
         'Publication(title,person)',
-        'Inphase(person,+prequals)',
-        'Courselevel(course,+level)',
-        'Yearsinprogram(person,+year)',
+        'Inphase(person,prequals)',
+        'Courselevel(course,level)',
+        'Yearsinprogram(person,year)',
         'Projectmember(project,person)',
         'Sameproject(project,project)',
         'Samecourse(course,course)',
@@ -243,14 +331,14 @@ bk = {
               'Haswordauthor(author,+word)',
               'Haswordtitle(title,+word)',
               'Haswordvenue(venue,+word)'],
-      'twitter': ['Accounttype(account,+type)',
-                  'Tweets(account,+word)',
+      'twitter': ['Accounttype(account,type)',
+                  'Tweets(account,word)',
                   'Follows(account,account)'],
       'yeast': ['Location(protein,loc)',
                 'Interaction(protein,protein)',
                 'Proteinclass(protein,class)',
                 'Enzyme(protein,enz)',
-                'Function(protein,+fun)',
+                'Function(protein,fun)',
                 'Complex(protein,com)',
                 'Phenotype(protein,phe)'],
       'nell_sports': ['Athleteledsportsteam(athlete,sportsteam)',
@@ -304,7 +392,9 @@ bk = {
 experiments = [
             #{'id': '0', 'source':'dummy', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
             {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
-
+            #{'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
+            #{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
+            #{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
             ]
 
 firstRun = False
