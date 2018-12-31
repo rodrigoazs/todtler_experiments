@@ -133,24 +133,62 @@ def copy_all_models(path, experiment_path):
             #print('copying '+ item)
             shutil.copyfile(path + '/' + item, experiment_path + '/' + item)            
 
-def gen_train_files(source, data):
+def gen_train_files(source, datas):
     count = 1
-    for data in data:
+    for data in datas:
         write_to_file(data, 'domains/' + source + '-fold' + str(count) + '.db')
         count += 1
+        
+def gen_train_file(source, data):
+    try:
+        os.makedirs('domains')
+    except:
+        pass
+    write_to_file(data, 'domains/' + source + '.db')
         
 def gen_source_bk(source):
     global bk
     write_to_file(bk[source], 'domains/' + source + '.mln')
     
-def do_experiment(identifier, source, target, predicate):
+def do_experiment(identifier, source, target, src_predicate, predicate):
     global bk
     
     json = {}
     delete_train_files()
-    source_data = datasets.load(source)
+    
+    if source not in ['nell_sports', 'nell_finances', 'yago2s']:
+        #[tar_train_facts, tar_test_facts] =  datasets.get_kfold_small(i, tar_data[0])
+        #[tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, tar_data[1])
+        #[tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, tar_data[2])
+        source_data = datasets.load(source)
+    else:
+        src_data = source_data = datasets.load(source, target=src_predicate, seed=results['save']['seed'], balanced=1)
+        [src_train_facts, src_test_facts] =  [src_data[0][0], src_data[0][0]]
+        to_folds_pos = datasets.split_into_folds(src_data[1][0], n_folds=n_folds, seed=results['save']['seed'])
+        to_folds_neg = datasets.split_into_folds(src_data[2][0], n_folds=n_folds, seed=results['save']['seed'])
+        #[tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, to_folds_pos)
+        #[tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, to_folds_neg)
+        source_data[0] = [src_train_facts + to_folds_pos[0], src_train_facts + to_folds_pos[1], src_train_facts + to_folds_pos[2]]
+    
+    #source_data = datasets.load(source)
     source_data = source_data[0]
-    target_data = datasets.load(target)
+    
+    if target not in ['nell_sports', 'nell_finances', 'yago2s']:
+        #[tar_train_facts, tar_test_facts] =  datasets.get_kfold_small(i, tar_data[0])
+        #[tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, tar_data[1])
+        #[tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, tar_data[2])
+        target_data = datasets.load(target)
+    else:
+        tar_data = target_data = datasets.load(target, target=predicate, seed=results['save']['seed'], balanced=1)
+        [tar_train_facts, tar_test_facts] =  [tar_data[0][0], tar_data[0][0]]
+        to_folds_pos = datasets.split_into_folds(tar_data[1][0], n_folds=n_folds, seed=results['save']['seed'])
+        to_folds_neg = datasets.split_into_folds(tar_data[2][0], n_folds=n_folds, seed=results['save']['seed'])
+        #[tar_train_pos, tar_test_pos] =  datasets.get_kfold_small(i, to_folds_pos)
+        #[tar_train_neg, tar_test_neg] =  datasets.get_kfold_small(i, to_folds_neg)
+        target_data[0] = [tar_train_facts + to_folds_pos[0], tar_train_facts + to_folds_pos[1], tar_train_facts + to_folds_pos[2]]
+    
+    #target_data = datasets.load(target)
+    #target_data = target_data[0]
     target_data = target_data[0]
     
     experiment_title = identifier + '_' + source + '_' + target
@@ -164,7 +202,7 @@ def do_experiment(identifier, source, target, predicate):
         
         gen_source_bk(source) 
         gen_train_files(source, source_data)
-        
+
         print('Generating templates for source domain')
         templating = time.time()        
         CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + source + '.mln -templateFile ' + source + '-templates.csv -formulaFile ' + source + '-formulas.csv -formulaDirectory clauses/' + source + ' > todtler-generator.txt 2>&1)'
@@ -318,7 +356,7 @@ bk = {
         
 experiments = [
             #{'id': '0', 'source':'dummy', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
-            {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
+            ##{'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
             ##{'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
             #{'id': '17', 'source':'yeast', 'target':'twitter', 'predicate':'location', 'to_predicate':'tweets'},
             #{'id': '18', 'source':'yeast', 'target':'twitter', 'predicate':'enzyme', 'to_predicate':'tweets'},
@@ -352,9 +390,8 @@ experiments = [
             #{'id': '32', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplaysagainstteam', 'to_predicate':'bankboughtbank'},
             #{'id': '33', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'companyceo'},
             #{'id': '34', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'bankchiefexecutiveceo'},
-            #{'id': '35', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'bankchiefexecutiveceo'},
             #{'id': '36', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'companyceo'},
-            #{'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
+            {'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
             #{'id': '38', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamalsoknownas'},
             #{'id': '39', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamplaysagainstteam'},
             #{'id': '40', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'acquired', 'to_predicate':'teamplaysagainstteam'},
@@ -363,7 +400,8 @@ experiments = [
             #{'id': '43', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplayssport'},
             #{'id': '44', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplaysforteam'},
             #{'id': '45', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyceo', 'to_predicate':'athleteplaysforteam'},
-            #{'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
+            {'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
+            {'id': '35', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'bankchiefexecutiveceo'},
             ##{'id': '47', 'source':'yeast', 'target':'facebook', 'predicate':'interaction', 'to_predicate':'Edge'},
             ##{'id': '48', 'source':'twitter', 'target':'facebook', 'predicate':'follows', 'to_predicate':'Edge'},
             ##{'id': '49', 'source':'imdb', 'target':'facebook', 'predicate':'workedunder', 'to_predicate':'Edge'},
@@ -371,8 +409,8 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 4
-folds = 3
+n_runs = 7
+folds = n_folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):
     with open('experiments/transfer_experiment.json', 'r') as fp:
@@ -394,7 +432,7 @@ while results['save']['n_runs'] < n_runs:
     experiment_title = experiments[experiment]['id'] + '_' + experiments[experiment]['source'] + '_' + experiments[experiment]['target']
     print('Run: ' + str(results['save']['n_runs']) + ' ' + experiment_title)
     try:
-        do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['to_predicate'])
+        do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['predicate'], experiments[experiment]['to_predicate'])
     except Exception as e:
         print(e)
         print('Error in experiment of ' + experiment_title)
