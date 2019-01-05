@@ -147,6 +147,7 @@ class datasets:
         facts = []
         pos = []
         neg = []
+        #dummy = set(['Aeddiejemison', 'Atimothypaulperez', 'Acaseyaffleck', 'Amichaeldouglas', 'Averhoevenpauli', 'Amillergeorgei', 'Alewissmith', 'Avolkerranisch', 'Azensmichael', 'Aangelinasarova', 'Asurchadzhievstefani', 'Aluciacammalleri', 'Asciveresmarianna', 'Agrimaldiaurelioi'])
         for i in range(len(data[0])): #positives
             facts.append([])
             pos.append([])
@@ -157,6 +158,8 @@ class datasets:
                         for ex in value:
                             example = [x.capitalize() for x in ex]
                             if dataset == 'imdb':
+                                #if len(dummy.intersection(set(example))) == 0:
+                                #    continue
                                 if relation in ['actor', 'director']:
                                     facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
                                     continue
@@ -187,6 +190,8 @@ class datasets:
                         for ex in value:
                             example = [x.capitalize() for x in ex]
                             if dataset == 'imdb':
+                                #if len(dummy.intersection(set(example))) == 0:
+                                #    continue
                                 if relation in ['actor', 'director']:
                                     pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
                                     continue
