@@ -1,0 +1,21 @@
+//predicate declarations
+Follows(account,account)
+Tweets(account,word)
+Accounttype(account,type)
+
+type = {Fan, Club, News}
+
+-3.52052e-05 Accounttype(a1,a2)
+-0.000298174 Accounttype(a1,a2) v !Accounttype(a1,a3)
+0.00625324 Accounttype(a1,a2) v !Accounttype(a3,a2)
+0.000192559 Accounttype(a1,a2) v Accounttype(a1,a3)
+0.00040379 !Accounttype(a1,a2) v !Accounttype(a1,a3)
+-0.00418349 Accounttype(a1,a2) v Follows(a3,a1)
+0.00075967 !Accounttype(a1,a2) v !Accounttype(a3,a2) v !Follows(a1,a3)
+0.000278105 Accounttype(a1,a2) v Accounttype(a3,a2) v !Follows(a1,a3)
+0.00678371 Accounttype(a1,a2) v !Accounttype(a3,a2) v Follows(a3,a1)
+0.00676054 Accounttype(a1,a2) v !Accounttype(a3,a2) v Follows(a1,a3)
+-0.00257705 !Accounttype(a1,a2) v !Accounttype(a3,a2) v Follows(a1,a3)
+-0.000530472 Accounttype(a1,a2) v !Accounttype(a3,a2) v !Follows(a3,a1)
+-0.000507302 Accounttype(a1,a2) v !Accounttype(a3,a2) v !Follows(a1,a3)
+
