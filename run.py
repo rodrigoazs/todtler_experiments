@@ -229,6 +229,8 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         scoring = time.time() - scoring
         print('Time taken: %s' % scoring)
         
+        raise(Exception('aaa'))
+        
         json['Learning time'] = []
         
         for i in range(len(target_data)):
@@ -321,7 +323,7 @@ bk = {
                         'Companyalsoknownas(company,company)',
                         'Cityhascompanyoffice(city,company)',
                         'Acquired(company,company)',
-                        'Bankbankincountry(person,country)',
+                        'Bankbankincountry(company,country)',
                         'Bankboughtbank(company,company)',
                         'Bankchiefexecutiveceo(company,person)'],
     'facebook': ['Edge(person,person)',
@@ -400,8 +402,8 @@ experiments = [
             #{'id': '43', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplayssport'},
             #{'id': '44', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'bankchiefexecutiveceo', 'to_predicate':'athleteplaysforteam'},
             #{'id': '45', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyceo', 'to_predicate':'athleteplaysforteam'},
-            {'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
-            {'id': '35', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'bankchiefexecutiveceo'},
+            ##{'id': '46', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyeconomicsector', 'to_predicate':'teamplayssport'},
+            ##{'id': '35', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'bankchiefexecutiveceo'},
             ##{'id': '47', 'source':'yeast', 'target':'facebook', 'predicate':'interaction', 'to_predicate':'Edge'},
             ##{'id': '48', 'source':'twitter', 'target':'facebook', 'predicate':'follows', 'to_predicate':'Edge'},
             ##{'id': '49', 'source':'imdb', 'target':'facebook', 'predicate':'workedunder', 'to_predicate':'Edge'},
@@ -409,7 +411,7 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 7
+n_runs = 8
 folds = n_folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):
@@ -431,12 +433,12 @@ while results['save']['n_runs'] < n_runs:
     experiment = results['save']['experiment'] % len(experiments)
     experiment_title = experiments[experiment]['id'] + '_' + experiments[experiment]['source'] + '_' + experiments[experiment]['target']
     print('Run: ' + str(results['save']['n_runs']) + ' ' + experiment_title)
-    try:
-        do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['predicate'], experiments[experiment]['to_predicate'])
-    except Exception as e:
-        print(e)
-        print('Error in experiment of ' + experiment_title)
-        pass
+    #try:
+    do_experiment(experiments[experiment]['id'], experiments[experiment]['source'], experiments[experiment]['target'], experiments[experiment]['predicate'], experiments[experiment]['to_predicate'])
+    #except Exception as e:
+    #    print(e)
+    #    print('Error in experiment of ' + experiment_title)
+    #    pass
     results['save']['experiment'] += 1
     results['save']['n_runs'] += 1
     save(results)
