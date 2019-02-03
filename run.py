@@ -223,7 +223,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         print('Time taken: %s' % json['Generating target template time'])
         
         # sample clauses generated
-        clauses_size = 0.05
+        clauses_size = 0.01
         for clauses_path in ['clauses/' + source, 'clauses/' + target]:
             onlyfiles = [f for f in os.listdir(clauses_path) if os.path.isfile(os.path.join(clauses_path, f))]
             random.shuffle(onlyfiles)
@@ -238,7 +238,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         scoring = time.time() - scoring
         print('Time taken: %s' % scoring)
         
-        #raise(Exception('aaa'))
+        raise(Exception('Scored clauses'))
         
         json['Learning time'] = []
         
