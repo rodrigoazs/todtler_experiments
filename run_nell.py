@@ -238,8 +238,8 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
 #        scoring = time.time() - scoring
 #        print('Time taken: %s' % scoring)
         
-        raise(Exception('Scored clauses'))
-        
+#        raise(Exception('Scored clauses'))
+#        
         json['Learning time'] = []
         
         for i in range(len(target_data)):
