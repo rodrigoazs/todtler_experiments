@@ -1,0 +1,19 @@
+//predicate declarations
+Athleteplaysforteam(athlete,sportsteam)
+Teamplaysinleague(sportsteam,sportsleague)
+Teamplaysagainstteam(sportsteam,sportsteam)
+Athleteplayssport(athlete,sport)
+Teamalsoknownas(sportsteam,sportsteam)
+Athleteledsportsteam(athlete,sportsteam)
+Teamplayssport(sportsteam,sport)
+Athleteplaysinleague(athlete,sportsleague)
+
+-3.19199   Athleteplayssport(a1,a2)
+-4.18081   Teamalsoknownas(a1,a2)
+-4.17396   Athleteplaysforteam(a1,a2)
+-4.14692   Teamplaysagainstteam(a1,a2)
+-4.18183   Athleteledsportsteam(a1,a2)
+-2.83818   Teamplaysinleague(a1,a2)
+-3.56032   Athleteplaysinleague(a1,a2)
+-4.02962   Teamplayssport(a1,a2)
+

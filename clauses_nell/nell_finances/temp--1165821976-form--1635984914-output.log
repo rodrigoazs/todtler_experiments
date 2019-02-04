@@ -1,0 +1,53 @@
+----------------- parameters ----------------
+-i = ./clauses/nell_finances/temp--1165821976-form--1635984914.mln
+-o = ./clauses/nell_finances/temp--1165821976-form--1635984914-output.mln
+-t = domains/nell_sports-fold1.db,domains/nell_sports-fold2.db,domains/nell_sports-fold3.db
+-ne = 
+-multipleDatabases = 1
+-beamSize = 5
+-minWt = 0.05
+-maxRunTime = 604800
+-penalty = 0.001
+-maxVars = 6
+-maxNumPredicates = 6
+-cacheSize = 500
+-noSampleClauses = 0
+-delta = 0.05
+-epsilon = 0.2
+-minClauseSamples = -1
+-maxClauseSamples = 1000
+-noSampleAtoms = 0
+-fractAtoms = 1
+-minAtomSamples = -1
+-maxAtomSamples = 1000
+-noPrior = 0
+-priorMean = 0
+-priorStdDev = 100
+-tightMaxIter = 10
+-tightConvThresh = 0.001
+-looseMaxIter = 10
+-looseConvThresh = 0.01
+-numClausesReEval = 10
+-search = 999
+-noWtPredsEqually = 0
+-startFromEmptyMLN = 1
+-useTightParams = 1
+-tryAllFlips = 0
+-bestGainUnchangedLimit = 2
+-partialPrint = 0
+-timeBased = 0
+-maxRunTime = 604800
+-plusType = 2
+-hrs = 24
+-numClauses = 10000
+-minPllGain = 0
+----------------- end of parameters ----------------
+Parsing MLN and creating domains...
+parsing MLN and creating domain 0...
+ERROR in "domains/nell_sports-fold1.db": line 1, col 20: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
+ERROR occurs after parsing temp--1165821976-form--1635984914.mln47122: type country has no constant. A type must have at least one constant
+ERROR occurs after parsing temp--1165821976-form--1635984914.mln47122: type company has no constant. A type must have at least one constant
+ERROR occurs after parsing temp--1165821976-form--1635984914.mln47122: type sector has no constant. A type must have at least one constant
+ERROR occurs after parsing temp--1165821976-form--1635984914.mln47122: type person has no constant. A type must have at least one constant
+ERROR occurs after parsing temp--1165821976-form--1635984914.mln47122: type city has no constant. A type must have at least one constant
+Num of errors detected = 6

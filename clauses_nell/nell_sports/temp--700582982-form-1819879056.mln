@@ -1,0 +1,10 @@
+Athleteledsportsteam(athlete,sportsteam)
+Athleteplaysforteam(athlete,sportsteam)
+Athleteplaysinleague(athlete,sportsleague)
+Athleteplayssport(athlete,sport)
+Teamalsoknownas(sportsteam,sportsteam)
+Teamplaysagainstteam(sportsteam,sportsteam)
+Teamplaysinleague(sportsteam,sportsleague)
+Teamplayssport(sportsteam,sport)
+
+0 !Athleteledsportsteam(athlete1,sportsteam2) v Athleteplaysforteam(athlete1,sportsteam2) v !Athleteplaysforteam(athlete3,sportsteam2)

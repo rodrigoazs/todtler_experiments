@@ -1,0 +1,12 @@
+Countryhascompanyoffice(country,company)
+Companyeconomicsector(company,sector)
+Economicsectorcompany(sector,company)
+Companyceo(company,person)
+Companyalsoknownas(company,company)
+Cityhascompanyoffice(city,company)
+Acquired(company,company)
+Bankbankincountry(company,country)
+Bankboughtbank(company,company)
+Bankchiefexecutiveceo(company,person)
+
+0 Acquired(company1,company2) v !Acquired(company2,company3) v !Companyalsoknownas(company3,company2)
