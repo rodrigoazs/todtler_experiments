@@ -203,40 +203,40 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         gen_source_bk(source) 
         gen_train_files(source, source_data)
 
-        print('Generating templates for source domain')
-        templating = time.time()        
-        CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + source + '.mln -templateFile ' + source + '-templates.csv -formulaFile ' + source + '-formulas.csv -formulaDirectory clauses/' + source + ' > todtler-generator.txt 2>&1)'
-        call_process(CALL)
-        json['Generating source template time'] = time.time() - templating
-        print('Time taken: %s' % json['Generating source template time'])
-        
-        write_to_file(score(source, len(source_data)), 'score.sh')
-        
-        gen_source_bk(target)  
-        gen_train_files(target, target_data)
-        
-        print('Generating templates for target domain')
-        templating = time.time()  
-        CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + target + '.mln -templateFile ' + target + '-templates.csv -formulaFile ' + target + '-formulas.csv -formulaDirectory clauses/' + target + ' > todtler-generator.txt 2>&1)'
-        call_process(CALL)
-        json['Generating target template time'] = time.time() - templating
-        print('Time taken: %s' % json['Generating target template time'])
-        
-        # sample clauses generated
-        clauses_size = 0.01
-        for clauses_path in ['clauses/' + source, 'clauses/' + target]:
-            onlyfiles = [f for f in os.listdir(clauses_path) if os.path.isfile(os.path.join(clauses_path, f))]
-            random.shuffle(onlyfiles)
-            for file in onlyfiles[int(clauses_size * len(onlyfiles)):]:
-                os.remove(os.path.join(clauses_path, file))
-        #raise(Exception('aaa'))
-        
-        print('Scoring clauses')
-        scoring = time.time()
-        CALL = '(./score.sh > score.txt 2>&1)'
-        call_process(CALL)
-        scoring = time.time() - scoring
-        print('Time taken: %s' % scoring)
+#        print('Generating templates for source domain')
+#        templating = time.time()        
+#        CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + source + '.mln -templateFile ' + source + '-templates.csv -formulaFile ' + source + '-formulas.csv -formulaDirectory clauses/' + source + ' > todtler-generator.txt 2>&1)'
+#        call_process(CALL)
+#        json['Generating source template time'] = time.time() - templating
+#        print('Time taken: %s' % json['Generating source template time'])
+#        
+#        write_to_file(score(source, len(source_data)), 'score.sh')
+#        
+#        gen_source_bk(target)  
+#        gen_train_files(target, target_data)
+#        
+#        print('Generating templates for target domain')
+#        templating = time.time()  
+#        CALL = '(java -jar todtler-generator.jar -maxLiterals 3 -maxVariables 3 -domainFile domains/' + target + '.mln -templateFile ' + target + '-templates.csv -formulaFile ' + target + '-formulas.csv -formulaDirectory clauses/' + target + ' > todtler-generator.txt 2>&1)'
+#        call_process(CALL)
+#        json['Generating target template time'] = time.time() - templating
+#        print('Time taken: %s' % json['Generating target template time'])
+#        
+#        # sample clauses generated
+#        clauses_size = 0.01
+#        for clauses_path in ['clauses/' + source, 'clauses/' + target]:
+#            onlyfiles = [f for f in os.listdir(clauses_path) if os.path.isfile(os.path.join(clauses_path, f))]
+#            random.shuffle(onlyfiles)
+#            for file in onlyfiles[int(clauses_size * len(onlyfiles)):]:
+#                os.remove(os.path.join(clauses_path, file))
+#        #raise(Exception('aaa'))
+#        
+#        print('Scoring clauses')
+#        scoring = time.time()
+#        CALL = '(./score.sh > score.txt 2>&1)'
+#        call_process(CALL)
+#        scoring = time.time() - scoring
+#        print('Time taken: %s' % scoring)
         
         raise(Exception('Scored clauses'))
         
