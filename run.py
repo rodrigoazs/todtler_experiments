@@ -28,8 +28,8 @@ def score(source, n_folds):
             'for inputfile in `find $1 -type f -name "*.mln" ! -name "*output*" ! -empty`; do',
             " logfile=`echo ${inputfile} | sed 's/.mln/-output.log/g'`;",
             " outputfile=`echo ${inputfile} | sed 's/.mln/-output.mln/g'`;",
-            ' echo "learnstruct -i ${inputfile} -o ${outputfile} -t ${databases} -search 999 -penalty 0.001 -minWt 0.05 -fractAtoms 1 -maxAtomSamples 1000 -maxClauseSamples 1000 -tightConvThresh 1e-3 -looseConvThresh 1e-2 -tightMaxIter 10 -plusType 2 -multipleDatabases -startFromEmptyMLN > ${logfile}";',
-            ' ./alchemy/bin/learnstruct -i ${inputfile} -o ${outputfile} -t ${databases} -search 999 -penalty 0.001 -minWt 0.05 -fractAtoms 1 -maxAtomSamples 1000 -maxClauseSamples 1000 -tightConvThresh 1e-3 -looseConvThresh 1e-2 -tightMaxIter 10 -plusType 2 -multipleDatabases -startFromEmptyMLN > ${logfile}',
+            ' echo "learnstruct -i ${inputfile} -o ${outputfile} -t ${databases} -search 999 -penalty 0.001 -minWt 0.05 -fractAtoms 1 -maxAtomSamples 10000 -maxClauseSamples 10000 -tightConvThresh 1e-3 -looseConvThresh 1e-2 -tightMaxIter 10 -plusType 2 -multipleDatabases -startFromEmptyMLN > ${logfile}";',
+            ' ./alchemy/bin/learnstruct -i ${inputfile} -o ${outputfile} -t ${databases} -search 999 -penalty 0.001 -minWt 0.05 -fractAtoms 1 -maxAtomSamples 10000 -maxClauseSamples 10000 -tightConvThresh 1e-3 -looseConvThresh 1e-2 -tightMaxIter 10 -plusType 2 -multipleDatabases -startFromEmptyMLN > ${logfile}',
             'done']
     return text
 
@@ -223,12 +223,12 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         print('Time taken: %s' % json['Generating target template time'])
         
         # sample clauses generated
-        clauses_size = 0.01
-        for clauses_path in ['clauses/' + source, 'clauses/' + target]:
-            onlyfiles = [f for f in os.listdir(clauses_path) if os.path.isfile(os.path.join(clauses_path, f))]
-            random.shuffle(onlyfiles)
-            for file in onlyfiles[int(clauses_size * len(onlyfiles)):]:
-                os.remove(os.path.join(clauses_path, file))
+        #clauses_size = 0.01
+        #for clauses_path in ['clauses/' + source, 'clauses/' + target]:
+        #    onlyfiles = [f for f in os.listdir(clauses_path) if os.path.isfile(os.path.join(clauses_path, f))]
+        #    random.shuffle(onlyfiles)
+        #    for file in onlyfiles[int(clauses_size * len(onlyfiles)):]:
+        #        os.remove(os.path.join(clauses_path, file))
         #raise(Exception('aaa'))
         
         print('Scoring clauses')
@@ -238,7 +238,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         scoring = time.time() - scoring
         print('Time taken: %s' % scoring)
         
-        raise(Exception('Scored clauses'))
+        #raise(Exception('Scored clauses'))
         
         json['Learning time'] = []
         
@@ -248,13 +248,16 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
             create_dir(experiment_path)
             
             print('Learning fold ' + str(i+1))
+            print(predicate)
             
             learning = time.time()
-            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate + ' > todtler-learner.txt 2>&1)'
+            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate.capitalize() + ' > todtler-learner.txt 2>&1)'
             call_process(CALL)
             learning = time.time() - learning
             json['Learning time'].append(learning)
             print('Time taken: %s' % learning)
+            
+            #raise(Exception('ue'))
             
             last = get_last_model(experiment_path)
             remove_all_but(experiment_path, last)
@@ -301,9 +304,9 @@ bk = {
               'Author(class,author)',
               'Title(class,title)',
               'Venue(class,venue)',
-              'Haswordauthor(author,+word)',
-              'Haswordtitle(title,+word)',
-              'Haswordvenue(venue,+word)'],
+              'Haswordauthor(author,word)',
+              'Haswordtitle(title,word)',
+              'Haswordvenue(venue,word)'],
       'twitter': [#'Accounttype(account,+type)',
                   'Accounttype(account,type)',
                   #'Tweets(account,+word)',
@@ -374,7 +377,7 @@ experiments = [
             #{'id': '19', 'source':'yeast', 'target':'twitter', 'predicate':'function', 'to_predicate':'tweets'},
             #{'id': '20', 'source':'yeast', 'target':'twitter', 'predicate':'phenotype', 'to_predicate':'tweets'},
             #{'id': '21', 'source':'yeast', 'target':'twitter', 'predicate':'complex', 'to_predicate':'tweets'},
-            ##{'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
+            {'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
             ##{'id': '23', 'source':'twitter', 'target':'yeast', 'predicate':'follows', 'to_predicate':'Interaction'},
             ##{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
             ##{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
@@ -382,7 +385,8 @@ experiments = [
             #{'id': '4', 'source':'uwcse', 'target':'imdb', 'predicate':'publication', 'to_predicate':'movie'},
             #{'id': '5', 'source':'imdb', 'target':'uwcse', 'predicate':'genre', 'to_predicate':'inphase'},
             #{'id': '6', 'source':'uwcse', 'target':'imdb', 'predicate':'inphase', 'to_predicate':'genre'},
-            ##{'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Samevenue'},
+            {'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Samevenue'},
+            {'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'Workedunder'},
             #{'id': '8', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'samebib'},
             ##{'id': '9', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Sameauthor'},
             #{'id': '10', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'sametitle'},
@@ -402,7 +406,7 @@ experiments = [
             #{'id': '33', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'companyceo'},
             #{'id': '34', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'bankchiefexecutiveceo'},
             #{'id': '36', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'companyceo'},
-            {'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
+            #{'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'Companyeconomicsector'},
             #{'id': '38', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamalsoknownas'},
             #{'id': '39', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamplaysagainstteam'},
             #{'id': '40', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'acquired', 'to_predicate':'teamplaysagainstteam'},
@@ -420,7 +424,7 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 8
+n_runs = 3
 folds = n_folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):

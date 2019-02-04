@@ -55,12 +55,12 @@ def save(data):
 def delete_train_files():
     '''Remove files from train folder'''
     try:
-        delete_create_dir('clauses')
+        #delete_create_dir('clauses')
         delete_create_dir('domains')
         delete_create_dir('models')
         delete_create_dir('test')
         delete_files('mln')
-        delete_files('csv')
+        #delete_files('csv')
     except:
         pass
     
@@ -212,8 +212,8 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
 #        
 #        write_to_file(score(source, len(source_data)), 'score.sh')
 #        
-#        gen_source_bk(target)  
-#        gen_train_files(target, target_data)
+        gen_source_bk(target)  
+        gen_train_files(target, target_data)
 #        
 #        print('Generating templates for target domain')
 #        templating = time.time()  
@@ -250,8 +250,9 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
             print('Learning fold ' + str(i+1))
             
             learning = time.time()
-            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate + ' > todtler-learner.txt 2>&1)'
+            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate.capitalize() + ' > todtler-learner.txt 2>&1)'
             call_process(CALL)
+            raise(Exception('aabbb'))
             learning = time.time() - learning
             json['Learning time'].append(learning)
             print('Time taken: %s' % learning)
@@ -402,7 +403,7 @@ experiments = [
             #{'id': '33', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'companyceo'},
             #{'id': '34', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplayssport', 'to_predicate':'bankchiefexecutiveceo'},
             #{'id': '36', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'athleteplaysforteam', 'to_predicate':'companyceo'},
-            {'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'companyeconomicsector'},
+            {'id': '37', 'source':'nell_sports', 'target':'nell_finances', 'predicate':'teamplayssport', 'to_predicate':'Companyeconomicsector'},
             #{'id': '38', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamalsoknownas'},
             #{'id': '39', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'companyalsoknownas', 'to_predicate':'teamplaysagainstteam'},
             #{'id': '40', 'source':'nell_finances', 'target':'nell_sports', 'predicate':'acquired', 'to_predicate':'teamplaysagainstteam'},
@@ -420,7 +421,7 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 8
+n_runs = 1
 folds = n_folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):
