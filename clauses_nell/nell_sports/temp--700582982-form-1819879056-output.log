@@ -1,0 +1,364 @@
+----------------- parameters ----------------
+-i = ./clauses/nell_sports/temp--700582982-form-1819879056.mln
+-o = ./clauses/nell_sports/temp--700582982-form-1819879056-output.mln
+-t = domains/nell_sports-fold1.db,domains/nell_sports-fold2.db,domains/nell_sports-fold3.db
+-ne = 
+-multipleDatabases = 1
+-beamSize = 5
+-minWt = 0.05
+-maxRunTime = 604800
+-penalty = 0.001
+-maxVars = 6
+-maxNumPredicates = 6
+-cacheSize = 500
+-noSampleClauses = 0
+-delta = 0.05
+-epsilon = 0.2
+-minClauseSamples = -1
+-maxClauseSamples = 1000
+-noSampleAtoms = 0
+-fractAtoms = 1
+-minAtomSamples = -1
+-maxAtomSamples = 1000
+-noPrior = 0
+-priorMean = 0
+-priorStdDev = 100
+-tightMaxIter = 10
+-tightConvThresh = 0.001
+-looseMaxIter = 10
+-looseConvThresh = 0.01
+-numClausesReEval = 10
+-search = 999
+-noWtPredsEqually = 0
+-startFromEmptyMLN = 1
+-useTightParams = 1
+-tryAllFlips = 0
+-bestGainUnchangedLimit = 2
+-partialPrint = 0
+-timeBased = 0
+-maxRunTime = 604800
+-plusType = 2
+-hrs = 24
+-numClauses = 10000
+-minPllGain = 0
+----------------- end of parameters ----------------
+Parsing MLN and creating domains...
+parsing MLN and creating domain 0...
+WARNING in "domains/nell_sports-fold1.db": line 2584, col 49: Duplicate ground predicate Teamplaysagainstteam(Redwings,Columbusbluejackets) found. 
+WARNING in "domains/nell_sports-fold1.db": line 2922, col 72: Duplicate ground predicate Teamplaysinleague(Georgewashingtonuniversityselliottschool,International) found. 
+WARNING in "domains/nell_sports-fold1.db": line 2972, col 39: Duplicate ground predicate Teamplaysinleague(Stlouisbillikens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3458, col 34: Duplicate ground predicate Teamplaysinleague(Trailblazers,Nba) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3476, col 34: Duplicate ground predicate Teamplaysinleague(Stlouisblues,Nhl) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3482, col 43: Duplicate ground predicate Teamplaysinleague(Midtennstblueraiders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3563, col 48: Duplicate ground predicate Teamplaysinleague(Stephenfaustinlumberjacks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3579, col 48: Duplicate ground predicate Teamplaysinleague(Themasterscollegemustangs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3580, col 47: Duplicate ground predicate Teamplaysinleague(Prairieviewaandmpanthers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3598, col 37: Duplicate ground predicate Teamplaysinleague(Ohiostbuckeyes,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3621, col 41: Duplicate ground predicate Teamplaysinleague(Columbusbluejackets,Nhl) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3630, col 46: Duplicate ground predicate Teamplaysinleague(Delawarefightinbluehens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3643, col 40: Duplicate ground predicate Teamplaysinleague(Creightonbluejays,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3690, col 44: Duplicate ground predicate Teamplaysinleague(Stnorbertgreenknights,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3695, col 39: Duplicate ground predicate Teamplaysinleague(Sandiegostaztecs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3700, col 47: Duplicate ground predicate Teamplaysinleague(Mountstmarysmountaineers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3718, col 42: Duplicate ground predicate Teamplaysinleague(Stcloudstatehuskies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3798, col 41: Duplicate ground predicate Teamplaysinleague(Michiganstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3849, col 44: Duplicate ground predicate Teamplaysinleague(Bowlinggreenstfalcons,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3888, col 40: Duplicate ground predicate Teamplaysinleague(Norfolkstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3912, col 38: Duplicate ground predicate Teamplaysinleague(Stlouiscardinals,Mlb) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3922, col 44: Duplicate ground predicate Teamplaysinleague(Centmichiganchippewas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3968, col 39: Duplicate ground predicate Teamplaysinleague(Stpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 3986, col 52: Duplicate ground predicate Teamplaysinleague(Texasaandmkingsvillejavelinas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4005, col 45: Duplicate ground predicate Teamplaysinleague(Washingtonstlouisbears,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4074, col 41: Duplicate ground predicate Teamplaysinleague(Floridastseminoles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4080, col 39: Duplicate ground predicate Teamplaysinleague(Unlvrunninrebels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4092, col 38: Duplicate ground predicate Teamplaysinleague(Saintmarysgaels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4103, col 30: Duplicate ground predicate Teamplaysinleague(Nprobowl,Nfl) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4107, col 38: Duplicate ground predicate Teamplaysinleague(Stjohnsredstorm,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4179, col 39: Duplicate ground predicate Teamplaysinleague(Kansasstwildcats,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4216, col 43: Duplicate ground predicate Teamplaysinleague(Ndakotafightingsioux,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4217, col 55: Duplicate ground predicate Teamplaysinleague(Texasaandmcorpuschristiislanders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4235, col 30: Duplicate ground predicate Teamplaysinleague(Pacgear,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4241, col 47: Duplicate ground predicate Teamplaysinleague(Southernmissgoldeneagles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4257, col 37: Duplicate ground predicate Teamplaysinleague(Murraystracers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4261, col 36: Duplicate ground predicate Teamplaysinleague(Texasamaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4266, col 40: Duplicate ground predicate Teamplaysinleague(Saintjosephshawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4288, col 48: Duplicate ground predicate Teamplaysinleague(Gardnerwebbrunninbulldogs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4289, col 43: Duplicate ground predicate Teamplaysinleague(Stbonaventurebonnies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4299, col 42: Duplicate ground predicate Teamplaysinleague(Mdeasternshorehawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4309, col 30: Duplicate ground predicate Teamplaysinleague(Laangels,Mlb) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4335, col 39: Duplicate ground predicate Teamplaysinleague(Texasaandmaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4359, col 42: Duplicate ground predicate Teamplaysinleague(Saintpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 4374, col 37: Duplicate ground predicate Teamplaysinleague(Iowastcyclones,Ncaa) found. 
+WARNING in "domains/nell_sports-fold1.db": line 5491, col 34: Duplicate ground predicate Athleteplaysinleague(Cococrisp,Mlb) found. 
+WARNING in "domains/nell_sports-fold1.db": line 5522, col 38: Duplicate ground predicate Athleteplaysinleague(Jefffrancoeur,Mlb) found. 
+WARNING in "domains/nell_sports-fold1.db": line 5559, col 32: Duplicate ground predicate Athleteplaysinleague(Cjmiles,Nba) found. 
+WARNING in "domains/nell_sports-fold1.db": line 5637, col 38: Duplicate ground predicate Athleteplaysinleague(Jermaineoneal,Nba) found. 
+WARNING in "domains/nell_sports-fold1.db": line 6415, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold1.db": line 6819, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonesjr,Golf) found. 
+WARNING in "domains/nell_sports-fold1.db": line 6868, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold1.db": line 7047, col 40: Duplicate ground predicate Athleteplayssport(Jefffrancoeur,Baseball) found. 
+WARNING in "domains/nell_sports-fold1.db": line 7299, col 42: Duplicate ground predicate Athleteplayssport(Jermaineoneal,Basketball) found. 
+WARNING in "domains/nell_sports-fold1.db": line 7315, col 33: Duplicate ground predicate Athleteplayssport(Jjputz,Baseball) found. 
+WARNING in "domains/nell_sports-fold1.db": line 8568, col 61: Duplicate ground predicate Athleteplaysforteam(Jefffrancoeur,Atlantabravesspringtraining) found. 
+WARNING in "domains/nell_sports-fold1.db": line 8777, col 40: Duplicate ground predicate Athleteplaysforteam(Jermaineoneal,Pacers) found. 
+WARNING in "domains/nell_sports-fold1.db": line 9268, col 42: Duplicate ground predicate Athleteledsportsteam(Jermaineoneal,Raptors) found. 
+WARNING in "domains/nell_sports-fold1.db": line 9419, col 34: Duplicate ground predicate Teamplayssport(Stlouisblues,Hockey) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 1...
+WARNING in "domains/nell_sports-fold2.db": line 2584, col 49: Duplicate ground predicate Teamplaysagainstteam(Redwings,Columbusbluejackets) found. 
+WARNING in "domains/nell_sports-fold2.db": line 2922, col 72: Duplicate ground predicate Teamplaysinleague(Georgewashingtonuniversityselliottschool,International) found. 
+WARNING in "domains/nell_sports-fold2.db": line 2972, col 39: Duplicate ground predicate Teamplaysinleague(Stlouisbillikens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3458, col 34: Duplicate ground predicate Teamplaysinleague(Trailblazers,Nba) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3476, col 34: Duplicate ground predicate Teamplaysinleague(Stlouisblues,Nhl) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3482, col 43: Duplicate ground predicate Teamplaysinleague(Midtennstblueraiders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3563, col 48: Duplicate ground predicate Teamplaysinleague(Stephenfaustinlumberjacks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3579, col 48: Duplicate ground predicate Teamplaysinleague(Themasterscollegemustangs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3580, col 47: Duplicate ground predicate Teamplaysinleague(Prairieviewaandmpanthers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3598, col 37: Duplicate ground predicate Teamplaysinleague(Ohiostbuckeyes,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3621, col 41: Duplicate ground predicate Teamplaysinleague(Columbusbluejackets,Nhl) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3630, col 46: Duplicate ground predicate Teamplaysinleague(Delawarefightinbluehens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3643, col 40: Duplicate ground predicate Teamplaysinleague(Creightonbluejays,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3690, col 44: Duplicate ground predicate Teamplaysinleague(Stnorbertgreenknights,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3695, col 39: Duplicate ground predicate Teamplaysinleague(Sandiegostaztecs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3700, col 47: Duplicate ground predicate Teamplaysinleague(Mountstmarysmountaineers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3718, col 42: Duplicate ground predicate Teamplaysinleague(Stcloudstatehuskies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3798, col 41: Duplicate ground predicate Teamplaysinleague(Michiganstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3849, col 44: Duplicate ground predicate Teamplaysinleague(Bowlinggreenstfalcons,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3888, col 40: Duplicate ground predicate Teamplaysinleague(Norfolkstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3912, col 38: Duplicate ground predicate Teamplaysinleague(Stlouiscardinals,Mlb) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3922, col 44: Duplicate ground predicate Teamplaysinleague(Centmichiganchippewas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3968, col 39: Duplicate ground predicate Teamplaysinleague(Stpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 3986, col 52: Duplicate ground predicate Teamplaysinleague(Texasaandmkingsvillejavelinas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4005, col 45: Duplicate ground predicate Teamplaysinleague(Washingtonstlouisbears,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4074, col 41: Duplicate ground predicate Teamplaysinleague(Floridastseminoles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4080, col 39: Duplicate ground predicate Teamplaysinleague(Unlvrunninrebels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4092, col 38: Duplicate ground predicate Teamplaysinleague(Saintmarysgaels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4103, col 30: Duplicate ground predicate Teamplaysinleague(Nprobowl,Nfl) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4107, col 38: Duplicate ground predicate Teamplaysinleague(Stjohnsredstorm,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4179, col 39: Duplicate ground predicate Teamplaysinleague(Kansasstwildcats,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4216, col 43: Duplicate ground predicate Teamplaysinleague(Ndakotafightingsioux,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4217, col 55: Duplicate ground predicate Teamplaysinleague(Texasaandmcorpuschristiislanders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4235, col 30: Duplicate ground predicate Teamplaysinleague(Pacgear,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4241, col 47: Duplicate ground predicate Teamplaysinleague(Southernmissgoldeneagles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4257, col 37: Duplicate ground predicate Teamplaysinleague(Murraystracers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4261, col 36: Duplicate ground predicate Teamplaysinleague(Texasamaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4266, col 40: Duplicate ground predicate Teamplaysinleague(Saintjosephshawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4288, col 48: Duplicate ground predicate Teamplaysinleague(Gardnerwebbrunninbulldogs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4289, col 43: Duplicate ground predicate Teamplaysinleague(Stbonaventurebonnies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4299, col 42: Duplicate ground predicate Teamplaysinleague(Mdeasternshorehawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4309, col 30: Duplicate ground predicate Teamplaysinleague(Laangels,Mlb) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4335, col 39: Duplicate ground predicate Teamplaysinleague(Texasaandmaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4359, col 42: Duplicate ground predicate Teamplaysinleague(Saintpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 4374, col 37: Duplicate ground predicate Teamplaysinleague(Iowastcyclones,Ncaa) found. 
+WARNING in "domains/nell_sports-fold2.db": line 5491, col 34: Duplicate ground predicate Athleteplaysinleague(Cococrisp,Mlb) found. 
+WARNING in "domains/nell_sports-fold2.db": line 5522, col 38: Duplicate ground predicate Athleteplaysinleague(Jefffrancoeur,Mlb) found. 
+WARNING in "domains/nell_sports-fold2.db": line 5559, col 32: Duplicate ground predicate Athleteplaysinleague(Cjmiles,Nba) found. 
+WARNING in "domains/nell_sports-fold2.db": line 5637, col 38: Duplicate ground predicate Athleteplaysinleague(Jermaineoneal,Nba) found. 
+WARNING in "domains/nell_sports-fold2.db": line 6415, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold2.db": line 6819, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonesjr,Golf) found. 
+WARNING in "domains/nell_sports-fold2.db": line 6868, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold2.db": line 7047, col 40: Duplicate ground predicate Athleteplayssport(Jefffrancoeur,Baseball) found. 
+WARNING in "domains/nell_sports-fold2.db": line 7299, col 42: Duplicate ground predicate Athleteplayssport(Jermaineoneal,Basketball) found. 
+WARNING in "domains/nell_sports-fold2.db": line 7315, col 33: Duplicate ground predicate Athleteplayssport(Jjputz,Baseball) found. 
+WARNING in "domains/nell_sports-fold2.db": line 8568, col 61: Duplicate ground predicate Athleteplaysforteam(Jefffrancoeur,Atlantabravesspringtraining) found. 
+WARNING in "domains/nell_sports-fold2.db": line 8777, col 40: Duplicate ground predicate Athleteplaysforteam(Jermaineoneal,Pacers) found. 
+WARNING in "domains/nell_sports-fold2.db": line 9268, col 42: Duplicate ground predicate Athleteledsportsteam(Jermaineoneal,Raptors) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 2...
+WARNING in "domains/nell_sports-fold3.db": line 2584, col 49: Duplicate ground predicate Teamplaysagainstteam(Redwings,Columbusbluejackets) found. 
+WARNING in "domains/nell_sports-fold3.db": line 2922, col 72: Duplicate ground predicate Teamplaysinleague(Georgewashingtonuniversityselliottschool,International) found. 
+WARNING in "domains/nell_sports-fold3.db": line 2972, col 39: Duplicate ground predicate Teamplaysinleague(Stlouisbillikens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3458, col 34: Duplicate ground predicate Teamplaysinleague(Trailblazers,Nba) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3476, col 34: Duplicate ground predicate Teamplaysinleague(Stlouisblues,Nhl) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3482, col 43: Duplicate ground predicate Teamplaysinleague(Midtennstblueraiders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3563, col 48: Duplicate ground predicate Teamplaysinleague(Stephenfaustinlumberjacks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3579, col 48: Duplicate ground predicate Teamplaysinleague(Themasterscollegemustangs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3580, col 47: Duplicate ground predicate Teamplaysinleague(Prairieviewaandmpanthers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3598, col 37: Duplicate ground predicate Teamplaysinleague(Ohiostbuckeyes,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3621, col 41: Duplicate ground predicate Teamplaysinleague(Columbusbluejackets,Nhl) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3630, col 46: Duplicate ground predicate Teamplaysinleague(Delawarefightinbluehens,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3643, col 40: Duplicate ground predicate Teamplaysinleague(Creightonbluejays,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3690, col 44: Duplicate ground predicate Teamplaysinleague(Stnorbertgreenknights,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3695, col 39: Duplicate ground predicate Teamplaysinleague(Sandiegostaztecs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3700, col 47: Duplicate ground predicate Teamplaysinleague(Mountstmarysmountaineers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3718, col 42: Duplicate ground predicate Teamplaysinleague(Stcloudstatehuskies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3798, col 41: Duplicate ground predicate Teamplaysinleague(Michiganstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3849, col 44: Duplicate ground predicate Teamplaysinleague(Bowlinggreenstfalcons,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3888, col 40: Duplicate ground predicate Teamplaysinleague(Norfolkstspartans,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3912, col 38: Duplicate ground predicate Teamplaysinleague(Stlouiscardinals,Mlb) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3922, col 44: Duplicate ground predicate Teamplaysinleague(Centmichiganchippewas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3968, col 39: Duplicate ground predicate Teamplaysinleague(Stpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 3986, col 52: Duplicate ground predicate Teamplaysinleague(Texasaandmkingsvillejavelinas,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4005, col 45: Duplicate ground predicate Teamplaysinleague(Washingtonstlouisbears,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4074, col 41: Duplicate ground predicate Teamplaysinleague(Floridastseminoles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4080, col 39: Duplicate ground predicate Teamplaysinleague(Unlvrunninrebels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4092, col 38: Duplicate ground predicate Teamplaysinleague(Saintmarysgaels,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4103, col 30: Duplicate ground predicate Teamplaysinleague(Nprobowl,Nfl) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4107, col 38: Duplicate ground predicate Teamplaysinleague(Stjohnsredstorm,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4179, col 39: Duplicate ground predicate Teamplaysinleague(Kansasstwildcats,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4216, col 43: Duplicate ground predicate Teamplaysinleague(Ndakotafightingsioux,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4217, col 55: Duplicate ground predicate Teamplaysinleague(Texasaandmcorpuschristiislanders,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4235, col 30: Duplicate ground predicate Teamplaysinleague(Pacgear,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4241, col 47: Duplicate ground predicate Teamplaysinleague(Southernmissgoldeneagles,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4257, col 37: Duplicate ground predicate Teamplaysinleague(Murraystracers,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4261, col 36: Duplicate ground predicate Teamplaysinleague(Texasamaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4266, col 40: Duplicate ground predicate Teamplaysinleague(Saintjosephshawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4288, col 48: Duplicate ground predicate Teamplaysinleague(Gardnerwebbrunninbulldogs,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4289, col 43: Duplicate ground predicate Teamplaysinleague(Stbonaventurebonnies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4299, col 42: Duplicate ground predicate Teamplaysinleague(Mdeasternshorehawks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4309, col 30: Duplicate ground predicate Teamplaysinleague(Laangels,Mlb) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4335, col 39: Duplicate ground predicate Teamplaysinleague(Texasaandmaggies,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4359, col 42: Duplicate ground predicate Teamplaysinleague(Saintpeterspeacocks,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 4374, col 37: Duplicate ground predicate Teamplaysinleague(Iowastcyclones,Ncaa) found. 
+WARNING in "domains/nell_sports-fold3.db": line 5491, col 34: Duplicate ground predicate Athleteplaysinleague(Cococrisp,Mlb) found. 
+WARNING in "domains/nell_sports-fold3.db": line 5522, col 38: Duplicate ground predicate Athleteplaysinleague(Jefffrancoeur,Mlb) found. 
+WARNING in "domains/nell_sports-fold3.db": line 5559, col 32: Duplicate ground predicate Athleteplaysinleague(Cjmiles,Nba) found. 
+WARNING in "domains/nell_sports-fold3.db": line 5637, col 38: Duplicate ground predicate Athleteplaysinleague(Jermaineoneal,Nba) found. 
+WARNING in "domains/nell_sports-fold3.db": line 6415, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold3.db": line 6819, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonesjr,Golf) found. 
+WARNING in "domains/nell_sports-fold3.db": line 6868, col 41: Duplicate ground predicate Athleteplayssport(Roberttrentjonessr,Golf) found. 
+WARNING in "domains/nell_sports-fold3.db": line 7047, col 40: Duplicate ground predicate Athleteplayssport(Jefffrancoeur,Baseball) found. 
+WARNING in "domains/nell_sports-fold3.db": line 7299, col 42: Duplicate ground predicate Athleteplayssport(Jermaineoneal,Basketball) found. 
+WARNING in "domains/nell_sports-fold3.db": line 7315, col 33: Duplicate ground predicate Athleteplayssport(Jjputz,Baseball) found. 
+WARNING in "domains/nell_sports-fold3.db": line 8568, col 61: Duplicate ground predicate Athleteplaysforteam(Jefffrancoeur,Atlantabravesspringtraining) found. 
+WARNING in "domains/nell_sports-fold3.db": line 8777, col 40: Duplicate ground predicate Athleteplaysforteam(Jermaineoneal,Pacers) found. 
+WARNING in "domains/nell_sports-fold3.db": line 9268, col 42: Duplicate ground predicate Athleteledsportsteam(Jermaineoneal,Raptors) found. 
+WARNING in "domains/nell_sports-fold3.db": line 9423, col 40: Duplicate ground predicate Teamplayssport(Stlouiscardinals,Baseball) found. 
+Adding clauses to MLN...
+converting to CNF:
+Parsing MLN and creating domains took 0.31 secs
+
+Hrs: 24
+adding unit clauses to MLN...
+
+Clause Evaluation - Jan
+
+domain 0
+sampling predicate Athleteledsportsteam(a1,a2)
+	sampled/total (true ground atoms) = 420/420
+	sampled/total (false ground atoms) = 1000/4609704
+sampling predicate Athleteplaysforteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/1456
+	sampled/total (false ground atoms) = 1000/4608668
+sampling predicate Athleteplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1001
+	sampled/total (false ground atoms) = 1000/50191
+sampling predicate Athleteplayssport(a1,a2)
+	sampled/total (true ground atoms) = 1000/1711
+	sampled/total (false ground atoms) = 1000/49481
+sampling predicate Teamalsoknownas(a1,a2)
+	sampled/total (true ground atoms) = 316/316
+	sampled/total (false ground atoms) = 1000/2627325
+sampling predicate Teamplaysagainstteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/2873
+	sampled/total (false ground atoms) = 1000/2624768
+sampling predicate Teamplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1458
+	sampled/total (false ground atoms) = 1000/27720
+sampling predicate Teamplayssport(a1,a2)
+	sampled/total (true ground atoms) = 132/132
+	sampled/total (false ground atoms) = 1000/29046
+domain 1
+sampling predicate Athleteledsportsteam(a1,a2)
+	sampled/total (true ground atoms) = 420/420
+	sampled/total (false ground atoms) = 1000/4626768
+sampling predicate Athleteplaysforteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/1456
+	sampled/total (false ground atoms) = 1000/4625732
+sampling predicate Athleteplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1001
+	sampled/total (false ground atoms) = 1000/50191
+sampling predicate Athleteplayssport(a1,a2)
+	sampled/total (true ground atoms) = 1000/1711
+	sampled/total (false ground atoms) = 1000/46637
+sampling predicate Teamalsoknownas(a1,a2)
+	sampled/total (true ground atoms) = 316/316
+	sampled/total (false ground atoms) = 1000/2646813
+sampling predicate Teamplaysagainstteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/2873
+	sampled/total (false ground atoms) = 1000/2644256
+sampling predicate Teamplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1458
+	sampled/total (false ground atoms) = 1000/27828
+sampling predicate Teamplayssport(a1,a2)
+	sampled/total (true ground atoms) = 133/133
+	sampled/total (false ground atoms) = 1000/27526
+domain 2
+sampling predicate Athleteledsportsteam(a1,a2)
+	sampled/total (true ground atoms) = 420/420
+	sampled/total (false ground atoms) = 1000/4618236
+sampling predicate Athleteplaysforteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/1456
+	sampled/total (false ground atoms) = 1000/4617200
+sampling predicate Athleteplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1001
+	sampled/total (false ground atoms) = 1000/50191
+sampling predicate Athleteplayssport(a1,a2)
+	sampled/total (true ground atoms) = 1000/1711
+	sampled/total (false ground atoms) = 1000/52325
+sampling predicate Teamalsoknownas(a1,a2)
+	sampled/total (true ground atoms) = 316/316
+	sampled/total (false ground atoms) = 1000/2637060
+sampling predicate Teamplaysagainstteam(a1,a2)
+	sampled/total (true ground atoms) = 1000/2873
+	sampled/total (false ground atoms) = 1000/2634503
+sampling predicate Teamplaysinleague(a1,a2)
+	sampled/total (true ground atoms) = 1000/1458
+	sampled/total (false ground atoms) = 1000/27774
+sampling predicate Teamplayssport(a1,a2)
+	sampled/total (true ground atoms) = 130/130
+	sampled/total (false ground atoms) = 1000/30726
+computing counts for initial MLN clauses...
+computing counts for clauses in domain 0...
+Clause 0: Athleteledsportsteam(a1,a2)
+Clause 1: Athleteplaysforteam(a1,a2)
+Clause 2: Athleteplaysinleague(a1,a2)
+Clause 3: Athleteplayssport(a1,a2)
+Clause 4: Teamalsoknownas(a1,a2)
+Clause 5: Teamplaysagainstteam(a1,a2)
+Clause 6: Teamplaysinleague(a1,a2)
+Clause 7: Teamplayssport(a1,a2)
+computing counts for clauses in domain 1...
+Clause 0: Athleteledsportsteam(a1,a2)
+Clause 1: Athleteplaysforteam(a1,a2)
+Clause 2: Athleteplaysinleague(a1,a2)
+Clause 3: Athleteplayssport(a1,a2)
+Clause 4: Teamalsoknownas(a1,a2)
+Clause 5: Teamplaysagainstteam(a1,a2)
+Clause 6: Teamplaysinleague(a1,a2)
+Clause 7: Teamplayssport(a1,a2)
+computing counts for clauses in domain 2...
+Clause 0: Athleteledsportsteam(a1,a2)
+Clause 1: Athleteplaysforteam(a1,a2)
+Clause 2: Athleteplaysinleague(a1,a2)
+Clause 3: Athleteplayssport(a1,a2)
+Clause 4: Teamalsoknownas(a1,a2)
+Clause 5: Teamplaysagainstteam(a1,a2)
+Clause 6: Teamplaysinleague(a1,a2)
+Clause 7: Teamplayssport(a1,a2)
+computing counts for initial MLN clauses took 2 mins, 29.06 secs
+
+learning the initial weights and score of MLN...
+
+MLN:
+------------------------------------
+0:  -3.19199       Athleteplayssport(a1,a2)
+1:  -4.18081       Teamalsoknownas(a1,a2)
+2:  -4.17396       Athleteplaysforteam(a1,a2)
+3:  -4.14692       Teamplaysagainstteam(a1,a2)
+4:  -4.18183       Athleteledsportsteam(a1,a2)
+5:  -2.83818       Teamplaysinleague(a1,a2)
+6:  -3.56032       Athleteplaysinleague(a1,a2)
+7:  -4.02962       Teamplayssport(a1,a2)
+------------------------------------
+score = -1.64711
+
+learning the initial weights and score of MLN took 1 mins, 4.57 secs
+
+evaluating gain of candidates...
+0.173121 	 !Athleteledsportsteam(a1,a2) v Athleteplaysforteam(a1,a2) v !Athleteplaysforteam(a3,a2)
+evaluating gain of candidates took 1 hrs, 29.6743 mins
+
+Total time taken = 1 hrs, 33.8123 mins
