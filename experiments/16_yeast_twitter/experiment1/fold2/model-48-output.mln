@@ -1,0 +1,9 @@
+//predicate declarations
+Follows(account,account)
+Tweets(account,word)
+Accounttype(account,type)
+
+-2.11909   Tweets(a1,a2)
+-3.17177   Follows(a1,a2)
+-0.597806  Accounttype(a1,a2)
+

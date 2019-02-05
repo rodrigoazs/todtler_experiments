@@ -1,7 +1,7 @@
 ----------------- parameters ----------------
--i = ./experiments_noconstant/1_imdb_uwcse/experiment1/fold1/model.mln
--o = ./experiments_noconstant/1_imdb_uwcse/experiment1/fold1/model-output.mln
--t = domains/nell_sports-fold1.db,domains/nell_sports-fold2.db,domains/nell_sports-fold3.db
+-i = ./experiments/1_imdb_uwcse/experiment1/fold1/model.mln
+-o = ./experiments/1_imdb_uwcse/experiment1/fold1/model-output.mln
+-t = domains/imdb-fold1.db,domains/imdb-fold2.db,domains/imdb-fold3.db,domains/imdb-fold4.db,domains/imdb-fold5.db
 -ne = 
 -multipleDatabases = 1
 -beamSize = 5
@@ -44,13 +44,13 @@
 ----------------- end of parameters ----------------
 Parsing MLN and creating domains...
 parsing MLN and creating domain 0...
-ERROR in "domains/nell_sports-fold1.db": line 1, col 17: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
-ERROR occurs after parsing model.mln21698: type person has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type course has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type prequals has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type title has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type project has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type faculty has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type level has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21698: type year has no constant. A type must have at least one constant
+ERROR in "domains/imdb-fold1.db": line 1, col 6: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
+ERROR occurs after parsing model.mln9779: type person has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type course has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type prequals has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type title has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type project has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type faculty has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type level has no constant. A type must have at least one constant
+ERROR occurs after parsing model.mln9779: type year has no constant. A type must have at least one constant
 Num of errors detected = 9

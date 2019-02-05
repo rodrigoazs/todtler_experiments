@@ -1,0 +1,30 @@
+//predicate declarations
+Proteinclass(protein,class)
+Phenotype(protein,phe)
+Complex(protein,com)
+Interaction(protein,protein)
+Enzyme(protein,enz)
+Function(protein,fun)
+Location(protein,loc)
+
+class = { Pcid11, Pcid201021031, Pcid201099, Pcid41061, Pcid141011011, Pcid181021041, Pcid61021099, Pcid61031, Pcid146011, Pcid201031021, Pcid135021011, Pcid161051011, Pcid201021011, Pcid201031011, Pcid101061, Pcid81051, Pcid51021, Pcid41021, Pcid151, Pcid191099, Pcid161041021, Pcid61021011, Pcid41041, Pcid41011041, Pcid211, Pcid201041061, Pcid101099, Pcid161031011, Pcid141011021, Pcid161041041, Pcid161031021, Pcid71021, Pcid171011, Pcid61021041, Pcid191011, Pcid112021, Pcid201011061, Pcid201021099, Pcid201021021, Pcid201011021, Pcid131021, Pcid161041051, Pcid81021, Pcid161051021, Pcid61099, Pcid41031, Pcid141021, Pcid121, Pcid55011, Pcid61021021 }
+
+-9.23475e-06 Proteinclass(a1,a2)
+-0.000750811 Proteinclass(a1,a2) v Phenotype(a1,a3)
+-4.89702e-05 !Proteinclass(a1,a2) v !Phenotype(a1,a3)
+0.00010991 !Interaction(a1,a2) v !Proteinclass(a1,a3)
+-0.000623509 Proteinclass(a1,a2) v Complex(a1,a3)
+-9.99875e-05 !Proteinclass(a1,a2) v !Function(a1,a3)
+-0.000772527 Proteinclass(a1,a2) v Enzyme(a1,a3)
+-2.28623e-05 !Location(a1,a2) v !Proteinclass(a1,a3)
+-0.000364548 Location(a1,a2) v Proteinclass(a1,a3)
+-0.00010991 !Interaction(a1,a2) v Proteinclass(a1,a3)
+-0.00414731 Interaction(a1,a2) v Proteinclass(a1,a3)
+9.99875e-05 Proteinclass(a1,a2) v !Function(a1,a3)
+-0.00037703 Proteinclass(a1,a2) v Function(a1,a3)
+4.89702e-05 Proteinclass(a1,a2) v !Phenotype(a1,a3)
+0.00412301 Interaction(a1,a2) v Interaction(a2,a1) v !Proteinclass(a1,a3)
+-0.00412301 Interaction(a1,a2) v Interaction(a2,a1) v Proteinclass(a1,a3)
+9.08246e-05 Interaction(a1,a2) v !Interaction(a2,a1) v !Proteinclass(a2,a3)
+-9.08246e-05 Interaction(a1,a2) v !Interaction(a2,a1) v Proteinclass(a2,a3)
+

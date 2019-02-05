@@ -1,7 +1,7 @@
 ----------------- parameters ----------------
--i = ./experiments_noconstant/2_uwcse_imdb/experiment1/fold5/model.mln
--o = ./experiments_noconstant/2_uwcse_imdb/experiment1/fold5/model-output.mln
--t = domains/nell_sports-fold1.db,domains/nell_sports-fold2.db,domains/nell_sports-fold3.db
+-i = ./experiments/2_uwcse_imdb/experiment1/fold5/model.mln
+-o = ./experiments/2_uwcse_imdb/experiment1/fold5/model-output.mln
+-t = domains/imdb-fold1.db,domains/imdb-fold2.db,domains/imdb-fold3.db,domains/imdb-fold4.db,domains/imdb-fold5.db
 -ne = 
 -multipleDatabases = 1
 -beamSize = 5
@@ -44,8 +44,224 @@
 ----------------- end of parameters ----------------
 Parsing MLN and creating domains...
 parsing MLN and creating domain 0...
-ERROR in "domains/nell_sports-fold1.db": line 1, col 17: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
-ERROR occurs after parsing model.mln21845: type person has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21845: type genre has no constant. A type must have at least one constant
-ERROR occurs after parsing model.mln21845: type movie has no constant. A type must have at least one constant
-Num of errors detected = 4
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 1...
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 2...
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 3...
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 4...
+Adding clauses to MLN...
+converting to CNF:
+Parsing MLN and creating domains took 0.03 secs
+
+Hrs: 24
+adding unit clauses to MLN...
+
+Clause Evaluation - Jan
+
+domain 0
+sampling predicate Genre(a1,a2)
+	sampled/total (true ground atoms) = 11/11
+	sampled/total (false ground atoms) = 395/395
+sampling predicate Gender(a1,a2)
+	sampled/total (true ground atoms) = 26/26
+	sampled/total (false ground atoms) = 32/32
+sampling predicate Movie(a1,a2)
+	sampled/total (true ground atoms) = 64/64
+	sampled/total (false ground atoms) = 168/168
+sampling predicate Isa(a1,a2)
+	sampled/total (true ground atoms) = 58/58
+	sampled/total (false ground atoms) = 58/58
+sampling predicate Workedunder(a1,a2)
+	sampled/total (true ground atoms) = 56/56
+	sampled/total (false ground atoms) = 3308/3308
+domain 1
+sampling predicate Genre(a1,a2)
+	sampled/total (true ground atoms) = 12/12
+	sampled/total (false ground atoms) = 401/401
+sampling predicate Gender(a1,a2)
+	sampled/total (true ground atoms) = 17/17
+	sampled/total (false ground atoms) = 42/42
+sampling predicate Movie(a1,a2)
+	sampled/total (true ground atoms) = 62/62
+	sampled/total (false ground atoms) = 174/174
+sampling predicate Isa(a1,a2)
+	sampled/total (true ground atoms) = 59/59
+	sampled/total (false ground atoms) = 59/59
+sampling predicate Workedunder(a1,a2)
+	sampled/total (true ground atoms) = 58/58
+	sampled/total (false ground atoms) = 3423/3423
+domain 2
+sampling predicate Genre(a1,a2)
+	sampled/total (true ground atoms) = 18/18
+	sampled/total (false ground atoms) = 104/104
+sampling predicate Gender(a1,a2)
+	sampled/total (true ground atoms) = 22/22
+	sampled/total (false ground atoms) = 39/39
+sampling predicate Movie(a1,a2)
+	sampled/total (true ground atoms) = 62/62
+	sampled/total (false ground atoms) = 182/182
+sampling predicate Isa(a1,a2)
+	sampled/total (true ground atoms) = 61/61
+	sampled/total (false ground atoms) = 61/61
+sampling predicate Workedunder(a1,a2)
+	sampled/total (true ground atoms) = 178/178
+	sampled/total (false ground atoms) = 3543/3543
+domain 3
+sampling predicate Genre(a1,a2)
+	sampled/total (true ground atoms) = 4/4
+	sampled/total (false ground atoms) = 40/40
+sampling predicate Gender(a1,a2)
+	sampled/total (true ground atoms) = 9/9
+	sampled/total (false ground atoms) = 35/35
+sampling predicate Movie(a1,a2)
+	sampled/total (true ground atoms) = 49/49
+	sampled/total (false ground atoms) = 127/127
+sampling predicate Isa(a1,a2)
+	sampled/total (true ground atoms) = 44/44
+	sampled/total (false ground atoms) = 44/44
+sampling predicate Workedunder(a1,a2)
+	sampled/total (true ground atoms) = 45/45
+	sampled/total (false ground atoms) = 1891/1891
+domain 4
+sampling predicate Genre(a1,a2)
+	sampled/total (true ground atoms) = 2/2
+	sampled/total (false ground atoms) = 44/44
+sampling predicate Gender(a1,a2)
+	sampled/total (true ground atoms) = 21/21
+	sampled/total (false ground atoms) = 25/25
+sampling predicate Movie(a1,a2)
+	sampled/total (true ground atoms) = 49/49
+	sampled/total (false ground atoms) = 135/135
+sampling predicate Isa(a1,a2)
+	sampled/total (true ground atoms) = 46/46
+	sampled/total (false ground atoms) = 46/46
+sampling predicate Workedunder(a1,a2)
+	sampled/total (true ground atoms) = 45/45
+	sampled/total (false ground atoms) = 2071/2071
+computing counts for initial MLN clauses...
+computing counts for clauses in domain 0...
+Clause 0: Genre(a1,a2)
+Clause 1: Gender(a1,Female)
+Clause 2: Gender(a1,a2)
+Clause 3: Movie(a1,a2)
+Clause 4: Isa(a1,Actor)
+Clause 5: Isa(a1,Director)
+Clause 6: Isa(a1,a2)
+Clause 7: Workedunder(a1,a2)
+computing counts for clauses in domain 1...
+Clause 0: Genre(a1,a2)
+Clause 1: Gender(a1,Female)
+Clause 2: Gender(a1,a2)
+Clause 3: Movie(a1,a2)
+Clause 4: Isa(a1,Actor)
+Clause 5: Isa(a1,Director)
+Clause 6: Isa(a1,a2)
+Clause 7: Workedunder(a1,a2)
+computing counts for clauses in domain 2...
+Clause 0: Genre(a1,a2)
+Clause 1: Gender(a1,Female)
+Clause 2: Gender(a1,a2)
+Clause 3: Movie(a1,a2)
+Clause 4: Isa(a1,Actor)
+Clause 5: Isa(a1,Director)
+Clause 6: Isa(a1,a2)
+Clause 7: Workedunder(a1,a2)
+computing counts for clauses in domain 3...
+Clause 0: Genre(a1,a2)
+Clause 1: Gender(a1,Female)
+Clause 2: Gender(a1,a2)
+Clause 3: Movie(a1,a2)
+Clause 4: Isa(a1,Actor)
+Clause 5: Isa(a1,Director)
+Clause 6: Isa(a1,a2)
+Clause 7: Workedunder(a1,a2)
+computing counts for clauses in domain 4...
+Clause 0: Genre(a1,a2)
+Clause 1: Gender(a1,Female)
+Clause 2: Gender(a1,a2)
+Clause 3: Movie(a1,a2)
+Clause 4: Isa(a1,Actor)
+Clause 5: Isa(a1,Director)
+Clause 6: Isa(a1,a2)
+Clause 7: Workedunder(a1,a2)
+computing counts for initial MLN clauses took 0.04 secs
+
+learning the initial weights and score of MLN...
+
+MLN:
+------------------------------------
+0:  -1.03774       Movie(a1,a2)
+1:  2.02613        Isa(a1,Actor)
+2:  -0.28703       Gender(a1,Female)
+3:  -2.02613       Isa(a1,Director)
+4:  -2.64979       Genre(a1,a2)
+5:  9.13789e-18    Isa(a1,a2)
+6:  -0.28703       Gender(a1,a2)
+7:  -3.18141       Workedunder(a1,a2)
+------------------------------------
+score = -9.76456
+
+learning the initial weights and score of MLN took 0.02 secs
+
+evaluating gain of candidates...
+0.00806307 	 Workedunder(a1,a2)
+1.01166 	 !Isa(a1,Actor) v !Workedunder(a2,a1)
+-0.00131605 	 !Genre(a1,a2) v Workedunder(a1,a3)
+0.729374 	 !Genre(a1,a2) v !Workedunder(a3,a1)
+0.0772168 	 Gender(a1,a2) v !Workedunder(a1,a3)
+0.313342 	 !Gender(a1,Female) v !Workedunder(a2,a1)
+-0.00126766 	 Gender(a1,a2) v Workedunder(a1,a3)
+-0.000212756 	 !Isa(a1,a2) v !Workedunder(a3,a1)
+0.841442 	 !Genre(a1,a2) v !Workedunder(a1,a3)
+1.02351 	 !Isa(a1,Director) v !Workedunder(a2,a1)
+0.0707153 	 !Gender(a1,Female) v !Workedunder(a1,a2)
+0.313342 	 !Gender(a1,a2) v !Workedunder(a3,a1)
+0.00308462 	 !Workedunder(a1,a2) v !Workedunder(a2,a1)
+0.0082768 	 Isa(a1,a2) v Isa(a3,a2) v Workedunder(a1,a3)
+0.0331701 	 !Workedunder(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a2,a3)
+-0.002962 	 !Gender(a1,a2) v Workedunder(a1,a3) v Workedunder(a3,a1)
+0.00200864 	 Gender(a1,Female) v !Workedunder(a1,a2) v !Workedunder(a2,a1)
+0.0743788 	 Gender(a1,a2) v Workedunder(a3,a1) v !Workedunder(a1,a3)
+0.00197592 	 Isa(a1,Director) v !Workedunder(a1,a2) v !Workedunder(a2,a1)
+0.00198538 	 !Genre(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a3,a1)
+0.0019388 	 Isa(a1,Actor) v !Workedunder(a1,a2) v !Workedunder(a2,a1)
+0.130643 	 Genre(a1,a2) v !Genre(a3,a2) v !Workedunder(a3,a1)
+0.13588 	 Workedunder(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a3,a2)
+1.07093 	 Isa(a1,a2) v !Isa(a3,a2) v !Workedunder(a3,a1)
+0.00328002 	 Movie(a1,a2) v !Workedunder(a2,a3) v !Workedunder(a3,a2)
+-0.00298386 	 Isa(a1,a2) v Workedunder(a1,a3) v Workedunder(a3,a1)
+0.189095 	 Gender(a1,Female) v !Gender(a2,Female) v !Workedunder(a2,a1)
+1.07093 	 Isa(a1,a2) v !Isa(a3,a2) v !Workedunder(a1,a3)
+0.277036 	 !Gender(a1,Female) v !Gender(a2,Female) v !Workedunder(a1,a2)
+0.063728 	 Gender(a1,Female) v !Gender(a2,Female) v Workedunder(a2,a1)
+0.0043046 	 !Movie(a1,a2) v !Movie(a1,a3) v Workedunder(a2,a3)
+1.89877 	 !Movie(a1,a2) v !Movie(a1,a3) v !Workedunder(a2,a3)
+0.00212923 	 !Movie(a1,a2) v !Workedunder(a2,a3) v !Workedunder(a3,a2)
+0.000660869 	 Genre(a1,a2) v Workedunder(a3,a1) v !Workedunder(a1,a3)
+0.00208462 	 Isa(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a3,a1)
+0.00208462 	 !Isa(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a3,a1)
+0.00200864 	 Gender(a1,a2) v !Workedunder(a1,a3) v !Workedunder(a3,a1)
+-0.0029652 	 Genre(a1,a2) v !Genre(a3,a2) v Workedunder(a3,a1)
+0.0143675 	 Workedunder(a1,a2) v !Workedunder(a2,a3) v !Workedunder(a3,a2)
+0.274252 	 Gender(a1,a2) v !Gender(a3,a2) v !Workedunder(a1,a3)
+0.79794 	 Movie(a1,a2) v !Movie(a1,a3) v !Workedunder(a3,a2)
+1.03149 	 Movie(a1,a2) v !Movie(a1,a3) v !Workedunder(a2,a3)
+0.835598 	 !Genre(a1,a2) v Workedunder(a3,a1) v !Workedunder(a1,a3)
+0.0159737 	 !Genre(a1,a2) v !Genre(a3,a2) v Workedunder(a1,a3)
+0.00306314 	 !Genre(a1,a2) v Workedunder(a1,a3) v Workedunder(a3,a1)
+0.318622 	 !Genre(a1,a2) v !Genre(a3,a2) v !Workedunder(a1,a3)
+0.00552222 	 !Workedunder(a1,a2) v !Workedunder(a2,a1) v !Workedunder(a3,a1)
+0.729929 	 !Genre(a1,a2) v Workedunder(a1,a3) v !Workedunder(a3,a1)
+0.0154918 	 Movie(a1,a2) v !Movie(a1,a3) v Workedunder(a3,a2)
+0.0338012 	 Gender(a1,a2) v Gender(a3,a2) v !Workedunder(a1,a3)
+-0.00298386 	 !Isa(a1,a2) v Workedunder(a1,a3) v Workedunder(a3,a1)
+evaluating gain of candidates took 6.72 secs
+
+Total time taken = 6.82 secs

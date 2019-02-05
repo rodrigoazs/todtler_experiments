@@ -1,0 +1,16 @@
+//predicate declarations
+Genre(person,genre)
+Gender(person,+gender)
+Movie(movie,person)
+Isa(person,+isa)
+Workedunder(person,person)
+
+-1.03774   Movie(a1,a2)
+-2.02613   Isa(a1,Director)
+-0.28703   Gender(a1,Female)
+2.02613    Isa(a1,Actor)
+-2.64979   Genre(a1,a2)
+-9.13789e-18 Isa(a1,a2)
+-0.28703   Gender(a1,a2)
+-3.18141   Workedunder(a1,a2)
+

@@ -1,7 +1,7 @@
 ----------------- parameters ----------------
 -i = ./experiments/22_twitter_yeast/experiment1/fold3/model-11.mln
 -o = ./experiments/22_twitter_yeast/experiment1/fold3/model-11-output.mln
--t = domains/cora-fold1.db,domains/cora-fold2.db,domains/cora-fold3.db,domains/cora-fold4.db,domains/cora-fold5.db
+-t = domains/imdb-fold1.db,domains/imdb-fold2.db,domains/imdb-fold3.db,domains/imdb-fold4.db,domains/imdb-fold5.db
 -ne = 
 -multipleDatabases = 1
 -beamSize = 5
@@ -44,12 +44,12 @@
 ----------------- end of parameters ----------------
 Parsing MLN and creating domains...
 parsing MLN and creating domain 0...
-ERROR in "domains/cora-fold1.db": line 1, col 13: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
-ERROR occurs after parsing model-11.mln24317: type protein has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type class has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type phe has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type com has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type enz has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type fun has no constant. A type must have at least one constant
-ERROR occurs after parsing model-11.mln24317: type loc has no constant. A type must have at least one constant
+ERROR in "domains/imdb-fold1.db": line 1, col 6: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
+ERROR occurs after parsing model-11.mln9835: type protein has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type class has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type phe has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type com has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type enz has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type fun has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln9835: type loc has no constant. A type must have at least one constant
 Num of errors detected = 8

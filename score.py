@@ -54,7 +54,7 @@ def read_from_file(path):
         return lines
     
 def save(data):
-    with open('experiments/transfer_experiment.json', 'w') as fp:
+    with open('scoring_experiment.json', 'w') as fp:
         json.dump(data, fp)
         
 def delete_train_files():
@@ -82,6 +82,27 @@ def delete_create_dir(path):
         pass
     os.makedirs(path)
     
+def return_objects(data):
+    objs = set()
+    for line in data:
+#        m = re.search('^(\w+)\(([\w, ]+)*\).$', line)
+#        if m:
+#            #relation = m.group(1).replace(' ', '')
+#            entities = m.group(2).replace(' ', '').split(',')
+#            print(entities[1])
+#            objs.append(entities[1])
+        e = line.split(',')
+        e = e[1].replace(')', '')
+        objs.add(e)
+    return '{ ' + ', '.join(list(objs)) + ' }'
+        
+    
+def save_scored(data, experiment_title):
+    if not os.path.exists('scored'):
+        os.makedirs('scored')
+    with open('scored/' + experiment_title + '.json', 'w') as fp:
+        json.dump(data, fp)
+
 def save_experiment(data, experiment_title, exp_number):
     if not os.path.exists('experiments/' + experiment_title + '/experiment' + str(exp_number)):
         os.makedirs('experiments/' + experiment_title + '/experiment' + str(exp_number))
@@ -240,10 +261,11 @@ def do_experiment(identifier, source, target, predicate):
     for fold in range(count_dir):
         #start = time.time()
         exp_number = fold + 1
-        
+
         print('Scoring experiment number ' + str(exp_number))
         #gen_source_bk(target)
         
+        results_save = []
         for i in range(len(target_data)):
             #delete_models()
             experiment_path = 'experiments/' + experiment_title + '/experiment' + str(exp_number) + '/fold' + str(i+1)
@@ -255,12 +277,14 @@ def do_experiment(identifier, source, target, predicate):
             pos = set()
             neg = set()
             remaining = [p for p in range(len(target_data)) if p != i]
+            scoring_fold = time.time()
             for p in remaining:
-                tgt_data = datasets.load(target, target=predicate, seed=results['save']['seed'], balanced=1)
+                tgt_data = datasets.load(target, target=predicate, seed=results['save']['seed'], balanced=False)
                 exs = tgt_data[1][p] + tgt_data[2][p]
                 pos = pos.union(set(tgt_data[1][p]))
                 neg = neg.union(set(tgt_data[2][p]))
                 print('Scoring fold ' + str(i+1) + ' with fold ' + str(p+1))
+                #print(return_objects(tgt_data[1][p]))
                 last = get_last_model(experiment_path)
                 #os.remove('test.result')
                 scoring = time.time()
@@ -268,7 +292,7 @@ def do_experiment(identifier, source, target, predicate):
                 write_to_file(model, 'model.mln')
                 #CALL = '(./infer -i ' + experiment_path + '/model-' + str(last) + '.mln -r ' + experiment_path + '/fold' + str(p+1) + '.result -e test/' + source + '-fold' + str(p+1) + '.db -q ' + predicate.capitalize() + ' > infer.txt 2>&1)'
                 #CALL = '(./infer -i model.mln -r test.result -e test/' + target + '-fold' + str(p+1) + '.db -q "' + ','.join(exs) + '" > infer.txt 2>&1)'
-                CALL = '(./infer -i model.mln -r test.result -e test/' + target + '-fold' + str(p+1) + '.db -q ' + predicate.capitalize() + ' > infer.txt 2>&1)'
+                CALL = '(./infer -i model.mln -r test.result -e test/' + target + '-fold' + str(p+1) + '.db -q ' + predicate.capitalize() + ' -maxSteps 100 > infer.txt 2>&1)'
                 call_process(CALL)
                 scoring = time.time() - scoring
                 print('Time taken: %s' % scoring)
@@ -281,10 +305,15 @@ def do_experiment(identifier, source, target, predicate):
             write_to_file(get_test_infer(inferences, pos, neg), 'test.txt')
             CALL = '(java -jar auc.jar test.txt list 0 > testauc.txt 2>&1)'
             call_process(CALL)
+            results_print = get_results(inferences, pos, neg)
+            results_print['Inference time'] = time.time() - scoring_fold
+            results_save.append(results_print)
             try:
-                print(get_results(inferences, pos, neg))
+                #print(get_results(inferences, pos, neg))
+                print(results_print)
             except:
                 pass
+        save_scored(results_save, experiment_title)
     
 #def do_experiment(identifier, source, target, predicate):
 #    global bk
@@ -451,18 +480,22 @@ bk = {
         
 experiments = [
             #{'id': '0', 'source':'dummy', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
-            {'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
-            {'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
-            {'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
-            {'id': '16', 'source':'yeast', 'target':'twitter', 'predicate':'interaction', 'to_predicate':'Follows'},
+            #{'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
+            
+            ##{'id': '15', 'source':'yeast', 'target':'twitter', 'predicate':'proteinclass', 'to_predicate':'Accounttype'},
+            #{'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
+            ##{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
+            #{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
+            #{'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Samevenue'},
+            {'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'Workedunder'},
             ]
 
 firstRun = False
 n_runs = 12
 folds = 3
             
-if os.path.isfile('experiments/transfer_experiment.json'):
-    with open('experiments/transfer_experiment.json', 'r') as fp:
+if os.path.isfile('scoring_experiment.json'):
+    with open('scoring_experiment.json', 'r') as fp:
         results = json.load(fp)
 else:
     results = { 'save': { }}

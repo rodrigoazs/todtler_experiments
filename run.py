@@ -377,7 +377,7 @@ experiments = [
             #{'id': '19', 'source':'yeast', 'target':'twitter', 'predicate':'function', 'to_predicate':'tweets'},
             #{'id': '20', 'source':'yeast', 'target':'twitter', 'predicate':'phenotype', 'to_predicate':'tweets'},
             #{'id': '21', 'source':'yeast', 'target':'twitter', 'predicate':'complex', 'to_predicate':'tweets'},
-            {'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
+            #{'id': '22', 'source':'twitter', 'target':'yeast', 'predicate':'accounttype', 'to_predicate':'Proteinclass'},
             ##{'id': '23', 'source':'twitter', 'target':'yeast', 'predicate':'follows', 'to_predicate':'Interaction'},
             ##{'id': '1', 'source':'imdb', 'target':'uwcse', 'predicate':'workedunder', 'to_predicate':'Advisedby'},
             ##{'id': '2', 'source':'uwcse', 'target':'imdb', 'predicate':'advisedby', 'to_predicate':'Workedunder'},
@@ -386,7 +386,7 @@ experiments = [
             #{'id': '5', 'source':'imdb', 'target':'uwcse', 'predicate':'genre', 'to_predicate':'inphase'},
             #{'id': '6', 'source':'uwcse', 'target':'imdb', 'predicate':'inphase', 'to_predicate':'genre'},
             {'id': '7', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Samevenue'},
-            {'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'Workedunder'},
+            #{'id': '53', 'source':'cora', 'target':'imdb', 'predicate':'samevenue', 'to_predicate':'Workedunder'},
             #{'id': '8', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'samebib'},
             ##{'id': '9', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'Sameauthor'},
             #{'id': '10', 'source':'imdb', 'target':'cora', 'predicate':'workedunder', 'to_predicate':'sametitle'},
@@ -424,7 +424,7 @@ experiments = [
             ]
 
 firstRun = False
-n_runs = 3
+n_runs = 1
 folds = n_folds = 3
             
 if os.path.isfile('experiments/transfer_experiment.json'):

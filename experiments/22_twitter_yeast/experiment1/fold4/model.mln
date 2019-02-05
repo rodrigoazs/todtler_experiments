@@ -1,0 +1,30 @@
+//predicate declarations
+Proteinclass(protein,class)
+Phenotype(protein,phe)
+Complex(protein,com)
+Interaction(protein,protein)
+Enzyme(protein,enz)
+Function(protein,fun)
+Location(protein,loc)
+
+class = { Pcid101021011, Pcid41061, Pcid51011, Pcid121, Pcid161011021, Pcid121, Pcid161031011, Pcid121, Pcid121, Pcid121, Pcid61099, Pcid161041021, Pcid41011011, Pcid51021, Pcid81031, Pcid201031041, Pcid201021031, Pcid191031, Pcid112021, Pcid201011011011, Pcid121, Pcid61031, Pcid41011011, Pcid121, Pcid161021031, Pcid201021031, Pcid41011061, Pcid101061, Pcid55011, Pcid191041, Pcid161041031, Pcid151, Pcid191041, Pcid161031011, Pcid141021, Pcid61021021, Pcid151, Pcid191051, Pcid41061, Pcid201031031, Pcid201021011, Pcid161031021, Pcid51021, Pcid51021, Pcid201031031, Pcid201031011, Pcid171011, Pcid181021011, Pcid161041041, Pcid181011031, Pcid81041, Pcid151, Pcid41011011, Pcid71099, Pcid201021011, Pcid101021011, Pcid41061, Pcid201021031, Pcid41041, Pcid201021031, Pcid201021021, Pcid181021011, Pcid71099, Pcid71041, Pcid41041, Pcid121, Pcid41051, Pcid51011, Pcid101061, Pcid161041041, Pcid151, Pcid141021, Pcid41021, Pcid81051, Pcid201031031, Pcid181021011, Pcid41031, Pcid161011011, Pcid61021011, Pcid101031, Pcid41061, Pcid51011, Pcid161031021, Pcid61099, Pcid61021051, Pcid141021 }
+
+-5.15542e-06 Proteinclass(a1,a2)
+-2.15159e-05 !Location(a1,a2) v !Proteinclass(a1,a3)
+6.44446e-05 !Interaction(a1,a2) v Proteinclass(a1,a3)
+2.15159e-05 !Location(a1,a2) v Proteinclass(a1,a3)
+-7.97037e-05 !Proteinclass(a1,a2) v !Function(a1,a3)
+6.56706e-06 Proteinclass(a1,a2) v !Enzyme(a1,a3)
+-4.32008e-05 !Proteinclass(a1,a2) v !Phenotype(a1,a3)
+7.97037e-05 Proteinclass(a1,a2) v !Function(a1,a3)
+2.48973e-05 !Proteinclass(a1,a2) v !Proteinclass(a1,a3)
+4.32008e-05 Proteinclass(a1,a2) v !Phenotype(a1,a3)
+-6.44446e-05 !Interaction(a1,a2) v !Proteinclass(a1,a3)
+0.00211253 Proteinclass(a1,a2) v !Proteinclass(a3,a2)
+-4.67181e-05 !Interaction(a1,a2) v Proteinclass(a2,a3) v !Proteinclass(a1,a3)
+7.11615e-05 Interaction(a1,a2) v !Interaction(a2,a1) v Proteinclass(a2,a3)
+-7.11615e-05 Interaction(a1,a2) v !Interaction(a2,a1) v !Proteinclass(a2,a3)
+2.60608e-05 !Interaction(a1,a2) v Proteinclass(a1,a3) v Proteinclass(a2,a3)
+-0.0042884 Interaction(a1,a2) v Proteinclass(a1,a3) v Proteinclass(a2,a3)
+-0.00220032 Interaction(a1,a2) v Interaction(a2,a1) v Proteinclass(a1,a3)
+
