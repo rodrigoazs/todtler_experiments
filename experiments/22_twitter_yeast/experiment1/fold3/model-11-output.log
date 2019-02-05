@@ -1,0 +1,55 @@
+----------------- parameters ----------------
+-i = ./experiments/22_twitter_yeast/experiment1/fold3/model-11.mln
+-o = ./experiments/22_twitter_yeast/experiment1/fold3/model-11-output.mln
+-t = domains/cora-fold1.db,domains/cora-fold2.db,domains/cora-fold3.db,domains/cora-fold4.db,domains/cora-fold5.db
+-ne = 
+-multipleDatabases = 1
+-beamSize = 5
+-minWt = 0.05
+-maxRunTime = 604800
+-penalty = 0.001
+-maxVars = 6
+-maxNumPredicates = 6
+-cacheSize = 500
+-noSampleClauses = 0
+-delta = 0.05
+-epsilon = 0.2
+-minClauseSamples = -1
+-maxClauseSamples = 10000
+-noSampleAtoms = 0
+-fractAtoms = 1
+-minAtomSamples = -1
+-maxAtomSamples = 10000
+-noPrior = 0
+-priorMean = 0
+-priorStdDev = 100
+-tightMaxIter = 10
+-tightConvThresh = 0.001
+-looseMaxIter = 10
+-looseConvThresh = 0.01
+-numClausesReEval = 10
+-search = 999
+-noWtPredsEqually = 0
+-startFromEmptyMLN = 1
+-useTightParams = 1
+-tryAllFlips = 0
+-bestGainUnchangedLimit = 2
+-partialPrint = 0
+-timeBased = 0
+-maxRunTime = 604800
+-plusType = 2
+-hrs = 24
+-numClauses = 10000
+-minPllGain = 0
+----------------- end of parameters ----------------
+Parsing MLN and creating domains...
+parsing MLN and creating domain 0...
+ERROR in "domains/cora-fold1.db": line 1, col 13: parse error, unexpected '(', expecting '='Have you declared the predicate/function preceding '('
+ERROR occurs after parsing model-11.mln24317: type protein has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type class has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type phe has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type com has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type enz has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type fun has no constant. A type must have at least one constant
+ERROR occurs after parsing model-11.mln24317: type loc has no constant. A type must have at least one constant
+Num of errors detected = 8

@@ -1,0 +1,910 @@
+----------------- parameters ----------------
+-i = ./experiments/7_imdb_cora/experiment1/fold2/model-38.mln
+-o = ./experiments/7_imdb_cora/experiment1/fold2/model-38-output.mln
+-t = domains/cora-fold1.db,domains/cora-fold2.db,domains/cora-fold3.db,domains/cora-fold4.db,domains/cora-fold5.db
+-ne = 
+-multipleDatabases = 1
+-beamSize = 5
+-minWt = 0.05
+-maxRunTime = 604800
+-penalty = 0.001
+-maxVars = 6
+-maxNumPredicates = 6
+-cacheSize = 500
+-noSampleClauses = 0
+-delta = 0.05
+-epsilon = 0.2
+-minClauseSamples = -1
+-maxClauseSamples = 10000
+-noSampleAtoms = 0
+-fractAtoms = 1
+-minAtomSamples = -1
+-maxAtomSamples = 10000
+-noPrior = 0
+-priorMean = 0
+-priorStdDev = 100
+-tightMaxIter = 10
+-tightConvThresh = 0.001
+-looseMaxIter = 10
+-looseConvThresh = 0.01
+-numClausesReEval = 10
+-search = 999
+-noWtPredsEqually = 0
+-startFromEmptyMLN = 1
+-useTightParams = 1
+-tryAllFlips = 0
+-bestGainUnchangedLimit = 2
+-partialPrint = 0
+-timeBased = 0
+-maxRunTime = 604800
+-plusType = 2
+-hrs = 24
+-numClauses = 10000
+-minPllGain = 0
+----------------- end of parameters ----------------
+Parsing MLN and creating domains...
+parsing MLN and creating domain 0...
+WARNING in "domains/cora-fold1.db": line 516, col 64: Duplicate ground predicate Haswordtitle(Titlelearnabilitydiscretedistributions,Worddiscrete) found. 
+WARNING in "domains/cora-fold1.db": line 517, col 60: Duplicate ground predicate Haswordtitle(Titlelearnabilitydiscretedistributions,Wordtest) found. 
+WARNING in "domains/cora-fold1.db": line 587, col 73: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordalgorithm) found. 
+WARNING in "domains/cora-fold1.db": line 588, col 70: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Worddesign) found. 
+WARNING in "domains/cora-fold1.db": line 590, col 70: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordrecent) found. 
+WARNING in "domains/cora-fold1.db": line 591, col 68: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordtest) found. 
+WARNING in "domains/cora-fold1.db": line 6131, col 99: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6137, col 106: Duplicate ground predicate Samevenue(Venueproceedingstwentysixthsymposiumtheorycomputing,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6142, col 86: Duplicate ground predicate Samevenue(Venueproc26thsympostheorycomput,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6148, col 91: Duplicate ground predicate Samevenue(Venuetthe26thsymposiumheorycomputing,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6149, col 99: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6150, col 106: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venueproceedingstwentysixthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6151, col 86: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venueproc26thsympostheorycomput) found. 
+WARNING in "domains/cora-fold1.db": line 6152, col 91: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venuetthe26thsymposiumheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6153, col 99: Duplicate ground predicate Samevenue(Venueproceedings26thsymposiumtheorycomputing,Venueproceedings26thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold1.db": line 6807, col 87: Duplicate ground predicate Sametitle(Titlelearnabilitydiscretedistributions,Titlelearnabilitydiscretedistributions) found. 
+WARNING in "domains/cora-fold1.db": line 6808, col 87: Duplicate ground predicate Sametitle(Titlelearnabilitydiscretedistributions,Titlelearnabilitydiscretedistributions) found. 
+WARNING in "domains/cora-fold1.db": line 6809, col 87: Duplicate ground predicate Sametitle(Titlelearnabilitydiscretedistributions,Titlelearnabilitydiscretedistributions) found. 
+WARNING in "domains/cora-fold1.db": line 6813, col 103: Duplicate ground predicate Sametitle(Titlelearnabilitydiscretedistributionsextendedabstract,Titlelearnabilitydiscretedistributions) found. 
+WARNING in "domains/cora-fold1.db": line 6814, col 103: Duplicate ground predicate Sametitle(Titlelearnabilitydiscretedistributions,Titlelearnabilitydiscretedistributionsextendedabstract) found. 
+WARNING in "domains/cora-fold1.db": line 6849, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold1.db": line 6852, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold1.db": line 6853, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold1.db": line 6932, col 65: Duplicate ground predicate Haswordvenue(Venueproceedings26thsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold1.db": line 6933, col 66: Duplicate ground predicate Haswordvenue(Venueproceedings26thsymposiumtheorycomputing,Wordtest) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 1...
+WARNING in "domains/cora-fold2.db": line 371, col 91: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Worda) found. 
+WARNING in "domains/cora-fold2.db": line 372, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordan) found. 
+WARNING in "domains/cora-fold2.db": line 373, col 96: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordonline) found. 
+WARNING in "domains/cora-fold2.db": line 374, col 94: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 381, col 91: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Worda) found. 
+WARNING in "domains/cora-fold2.db": line 382, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordan) found. 
+WARNING in "domains/cora-fold2.db": line 383, col 96: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordonline) found. 
+WARNING in "domains/cora-fold2.db": line 384, col 94: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 385, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordto) found. 
+WARNING in "domains/cora-fold2.db": line 386, col 91: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Worda) found. 
+WARNING in "domains/cora-fold2.db": line 387, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordan) found. 
+WARNING in "domains/cora-fold2.db": line 388, col 96: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordonline) found. 
+WARNING in "domains/cora-fold2.db": line 389, col 94: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 390, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordto) found. 
+WARNING in "domains/cora-fold2.db": line 396, col 91: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Worda) found. 
+WARNING in "domains/cora-fold2.db": line 397, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordan) found. 
+WARNING in "domains/cora-fold2.db": line 398, col 96: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordonline) found. 
+WARNING in "domains/cora-fold2.db": line 399, col 94: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 400, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordto) found. 
+WARNING in "domains/cora-fold2.db": line 420, col 94: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordcation) found. 
+WARNING in "domains/cora-fold2.db": line 421, col 96: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordcircuits) found. 
+WARNING in "domains/cora-fold2.db": line 422, col 93: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordexact) found. 
+WARNING in "domains/cora-fold2.db": line 423, col 93: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordfixed) found. 
+WARNING in "domains/cora-fold2.db": line 424, col 94: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordpoints) found. 
+WARNING in "domains/cora-fold2.db": line 425, col 92: Duplicate ground predicate Haswordtitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 464, col 97: Duplicate ground predicate Haswordtitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Wordcriptographic) found. 
+WARNING in "domains/cora-fold2.db": line 466, col 90: Duplicate ground predicate Haswordtitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Wordfinite) found. 
+WARNING in "domains/cora-fold2.db": line 467, col 88: Duplicate ground predicate Haswordtitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 7348, col 93: Duplicate ground predicate Samevenue(Venueproceedingssecondeuropeanconferencecomputationallearningtheory,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7358, col 82: Duplicate ground predicate Samevenue(Venuecomputationallearningtheorysecondeuropeanconference,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7368, col 77: Duplicate ground predicate Samevenue(Venueproc2ndeuropeanconfcomputationallearningtheory,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7378, col 87: Duplicate ground predicate Samevenue(Venueproceedingssecondeuropeanconferencecomputationallearning,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7388, col 79: Duplicate ground predicate Samevenue(Venue2ndeuropeanconferencecomputationallearningtheory,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7400, col 82: Duplicate ground predicate Samevenue(Venuesecondeuropeanconferencecomputationallearningtheory,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7413, col 41: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7424, col 100: Duplicate ground predicate Samevenue(Venueproceedingssecondeuropeanconferencecomputationallearningtheorymar1995,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7435, col 83: Duplicate ground predicate Samevenue(Venuecomputationallearningtheory7secondeuropeanconference,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7437, col 93: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueproceedingssecondeuropeanconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold2.db": line 7438, col 82: Duplicate ground predicate Samevenue(Venueeurocolt95,Venuecomputationallearningtheorysecondeuropeanconference) found. 
+WARNING in "domains/cora-fold2.db": line 7439, col 77: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueproc2ndeuropeanconfcomputationallearningtheory) found. 
+WARNING in "domains/cora-fold2.db": line 7440, col 87: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueproceedingssecondeuropeanconferencecomputationallearning) found. 
+WARNING in "domains/cora-fold2.db": line 7441, col 79: Duplicate ground predicate Samevenue(Venueeurocolt95,Venue2ndeuropeanconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold2.db": line 7442, col 82: Duplicate ground predicate Samevenue(Venueeurocolt95,Venuesecondeuropeanconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold2.db": line 7443, col 41: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7444, col 100: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueproceedingssecondeuropeanconferencecomputationallearningtheorymar1995) found. 
+WARNING in "domains/cora-fold2.db": line 7445, col 83: Duplicate ground predicate Samevenue(Venueeurocolt95,Venuecomputationallearningtheory7secondeuropeanconference) found. 
+WARNING in "domains/cora-fold2.db": line 7446, col 41: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7447, col 43: Duplicate ground predicate Samevenue(Venueeurocolt95,Venueeurocolt95pp) found. 
+WARNING in "domains/cora-fold2.db": line 7451, col 43: Duplicate ground predicate Samevenue(Venueeurocolt95pp,Venueeurocolt95) found. 
+WARNING in "domains/cora-fold2.db": line 7598, col 99: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7609, col 92: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7614, col 99: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7615, col 99: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7616, col 112: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputingstoc89) found. 
+WARNING in "domains/cora-fold2.db": line 7617, col 106: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7618, col 110: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venuepages433444proceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7619, col 97: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21stsymptheorycomputing1989433444) found. 
+WARNING in "domains/cora-fold2.db": line 7620, col 102: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing1989433444) found. 
+WARNING in "domains/cora-fold2.db": line 7621, col 72: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21ststoc) found. 
+WARNING in "domains/cora-fold2.db": line 7622, col 108: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold2.db": line 7623, col 92: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7624, col 72: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21ststpc) found. 
+WARNING in "domains/cora-fold2.db": line 7625, col 76: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21ststoc1989) found. 
+WARNING in "domains/cora-fold2.db": line 7626, col 92: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7627, col 77: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedingsstoc89) found. 
+WARNING in "domains/cora-fold2.db": line 7628, col 99: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venueproceedings21thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7629, col 104: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venue34proceedings21stacmsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7630, col 88: Duplicate ground predicate Samevenue(Venueproceedings21stsymposiumtheorycomputing,Venue21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7632, col 112: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputingstoc89,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7643, col 105: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputingstoc89,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7649, col 106: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7660, col 99: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7666, col 110: Duplicate ground predicate Samevenue(Venuepages433444proceedings21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7677, col 103: Duplicate ground predicate Samevenue(Venuepages433444proceedings21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7683, col 97: Duplicate ground predicate Samevenue(Venueproc21stsymptheorycomputing1989433444,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7694, col 90: Duplicate ground predicate Samevenue(Venueproc21stsymptheorycomputing1989433444,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7700, col 102: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing1989433444,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7711, col 95: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing1989433444,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7717, col 72: Duplicate ground predicate Samevenue(Venueproc21ststoc,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7728, col 65: Duplicate ground predicate Samevenue(Venueproc21ststoc,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7734, col 108: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputingpp,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7745, col 101: Duplicate ground predicate Samevenue(Venueproceedingstwentyfirstsymposiumtheorycomputingpp,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7751, col 92: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7762, col 85: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7768, col 72: Duplicate ground predicate Samevenue(Venueproc21ststpc,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7779, col 65: Duplicate ground predicate Samevenue(Venueproc21ststpc,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7785, col 76: Duplicate ground predicate Samevenue(Venueproc21ststoc1989,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7796, col 69: Duplicate ground predicate Samevenue(Venueproc21ststoc1989,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7801, col 92: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7802, col 92: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7803, col 105: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputingstoc89) found. 
+WARNING in "domains/cora-fold2.db": line 7804, col 99: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7805, col 103: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venuepages433444proceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7806, col 90: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21stsymptheorycomputing1989433444) found. 
+WARNING in "domains/cora-fold2.db": line 7807, col 95: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing1989433444) found. 
+WARNING in "domains/cora-fold2.db": line 7808, col 65: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21ststoc) found. 
+WARNING in "domains/cora-fold2.db": line 7809, col 101: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedingstwentyfirstsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold2.db": line 7810, col 85: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7811, col 65: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21ststpc) found. 
+WARNING in "domains/cora-fold2.db": line 7812, col 69: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21ststoc1989) found. 
+WARNING in "domains/cora-fold2.db": line 7813, col 85: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7814, col 70: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedingsstoc89) found. 
+WARNING in "domains/cora-fold2.db": line 7815, col 92: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venueproceedings21thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7816, col 97: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venue34proceedings21stacmsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7817, col 81: Duplicate ground predicate Samevenue(Venueproc21stsymposiumtheorycomputing,Venue21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7826, col 77: Duplicate ground predicate Samevenue(Venueproceedingsstoc89,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7830, col 70: Duplicate ground predicate Samevenue(Venueproceedingsstoc89,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7836, col 99: Duplicate ground predicate Samevenue(Venueproceedings21thsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7847, col 92: Duplicate ground predicate Samevenue(Venueproceedings21thsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7853, col 104: Duplicate ground predicate Samevenue(Venue34proceedings21stacmsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7864, col 97: Duplicate ground predicate Samevenue(Venue34proceedings21stacmsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7870, col 88: Duplicate ground predicate Samevenue(Venue21stsymposiumtheorycomputing,Venueproceedings21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 7881, col 81: Duplicate ground predicate Samevenue(Venue21stsymposiumtheorycomputing,Venueproc21stsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold2.db": line 8319, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8321, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8322, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8324, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8325, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8326, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8327, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8328, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8329, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8330, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8331, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8333, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8335, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8336, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8338, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8339, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8340, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8341, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8342, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8343, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8344, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8345, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8346, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8347, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8348, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8349, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8350, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8351, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8352, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8354, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8356, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8357, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8359, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8360, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8361, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8362, col 156: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearningitsapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8363, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8364, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8365, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8366, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold2.db": line 8374, col 151: Duplicate ground predicate Sametitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions) found. 
+WARNING in "domains/cora-fold2.db": line 8375, col 151: Duplicate ground predicate Sametitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions) found. 
+WARNING in "domains/cora-fold2.db": line 8376, col 151: Duplicate ground predicate Sametitle(Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions,Titleexactidentificationcircuitsusingfixedpointsamplificationfunctions) found. 
+WARNING in "domains/cora-fold2.db": line 8390, col 143: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8395, col 147: Duplicate ground predicate Sametitle(Title1989cryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8400, col 140: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanmulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8402, col 143: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8403, col 147: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Title1989cryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8404, col 140: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanmulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8405, col 143: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8406, col 143: Duplicate ground predicate Sametitle(Titlecryptographiclimitationslearningbooleanformulaefiniteautomata,Titlecriptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8410, col 143: Duplicate ground predicate Sametitle(Titlecriptographiclimitationslearningbooleanformulaefiniteautomata,Titlecryptographiclimitationslearningbooleanformulaefiniteautomata) found. 
+WARNING in "domains/cora-fold2.db": line 8520, col 37: Duplicate ground predicate Haswordvenue(Venueeurocolt95,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 8591, col 65: Duplicate ground predicate Haswordvenue(Venueproceedings21stsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold2.db": line 8592, col 66: Duplicate ground predicate Haswordvenue(Venueproceedings21stsymposiumtheorycomputing,Wordtest) found. 
+WARNING in "domains/cora-fold2.db": line 8639, col 58: Duplicate ground predicate Haswordvenue(Venueproc21stsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold2.db": line 8641, col 59: Duplicate ground predicate Haswordvenue(Venueproc21stsymposiumtheorycomputing,Wordtest) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 2...
+WARNING in "domains/cora-fold3.db": line 375, col 56: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Wordadvice) found. 
+WARNING in "domains/cora-fold3.db": line 376, col 56: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Wordexpert) found. 
+WARNING in "domains/cora-fold3.db": line 377, col 53: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Wordhow) found. 
+WARNING in "domains/cora-fold3.db": line 378, col 54: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Wordmuth) found. 
+WARNING in "domains/cora-fold3.db": line 379, col 52: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Wordto) found. 
+WARNING in "domains/cora-fold3.db": line 380, col 53: Duplicate ground predicate Haswordtitle(Titlewarmuthhowtouseexpertadvice,Worduse) found. 
+WARNING in "domains/cora-fold3.db": line 402, col 89: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Word1996) found. 
+WARNING in "domains/cora-fold3.db": line 403, col 86: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Word5) found. 
+WARNING in "domains/cora-fold3.db": line 404, col 93: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordapplying) found. 
+WARNING in "domains/cora-fold3.db": line 405, col 87: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordc4) found. 
+WARNING in "domains/cora-fold3.db": line 406, col 93: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordderstand) found. 
+WARNING in "domains/cora-fold3.db": line 407, col 94: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordframework) found. 
+WARNING in "domains/cora-fold3.db": line 408, col 92: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordimprove) found. 
+WARNING in "domains/cora-fold3.db": line 409, col 92: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordmansour) found. 
+WARNING in "domains/cora-fold3.db": line 410, col 89: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordtest) found. 
+WARNING in "domains/cora-fold3.db": line 411, col 87: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordto) found. 
+WARNING in "domains/cora-fold3.db": line 412, col 89: Duplicate ground predicate Haswordtitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Wordweak) found. 
+WARNING in "domains/cora-fold3.db": line 434, col 92: Duplicate ground predicate Haswordtitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Wordalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 435, col 85: Duplicate ground predicate Haswordtitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Wordan) found. 
+WARNING in "domains/cora-fold3.db": line 436, col 86: Duplicate ground predicate Haswordtitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Wordits) found. 
+WARNING in "domains/cora-fold3.db": line 437, col 87: Duplicate ground predicate Haswordtitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Wordtest) found. 
+WARNING in "domains/cora-fold3.db": line 510, col 75: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Word1996) found. 
+WARNING in "domains/cora-fold3.db": line 511, col 72: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Worda) found. 
+WARNING in "domains/cora-fold3.db": line 513, col 80: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Wordalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 514, col 82: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Wordexperiments) found. 
+WARNING in "domains/cora-fold3.db": line 515, col 74: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Wordnew) found. 
+WARNING in "domains/cora-fold3.db": line 516, col 78: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Wordshapire) found. 
+WARNING in "domains/cora-fold3.db": line 517, col 75: Duplicate ground predicate Haswordtitle(Titleschapire1996experimentswithanewboostingalgorithm,Wordtest) found. 
+WARNING in "domains/cora-fold3.db": line 8133, col 123: Duplicate ground predicate Samevenue(Venueproceedings9thconferencecomputationallearningtheory,Venueproceedings9thconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8136, col 123: Duplicate ground predicate Samevenue(Venueproceedings9thconferencecomputationallearningtheory,Venueproceedings9thconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8137, col 123: Duplicate ground predicate Samevenue(Venueproceedings9thconferencecomputationallearningtheory,Venueproceedings9thconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8138, col 125: Duplicate ground predicate Samevenue(Venueproceedings9thconferencecomputationallearningtheory,Venueproceedingsninthconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8139, col 78: Duplicate ground predicate Samevenue(Venueproceedings9thconferencecomputationallearningtheory,Venuecolt96) found. 
+WARNING in "domains/cora-fold3.db": line 8141, col 125: Duplicate ground predicate Samevenue(Venueproceedingsninthconferencecomputationallearningtheory,Venueproceedings9thconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8145, col 78: Duplicate ground predicate Samevenue(Venuecolt96,Venueproceedings9thconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold3.db": line 8635, col 68: Duplicate ground predicate Sametitle(Titlehowtouseexpertadvice,Titlewarmuthhowtouseexpertadvice) found. 
+WARNING in "domains/cora-fold3.db": line 8638, col 75: Duplicate ground predicate Sametitle(Titlewarmuthhowtouseexpertadvice,Titlewarmuthhowtouseexpertadvice) found. 
+WARNING in "domains/cora-fold3.db": line 8639, col 68: Duplicate ground predicate Sametitle(Titlewarmuthhowtouseexpertadvice,Titlehowtouseexpertadvice) found. 
+WARNING in "domains/cora-fold3.db": line 8640, col 75: Duplicate ground predicate Sametitle(Titlewarmuthhowtouseexpertadvice,Titlewarmuthhowtouseexpertadvice) found. 
+WARNING in "domains/cora-fold3.db": line 8641, col 75: Duplicate ground predicate Sametitle(Titlewarmuthhowtouseexpertadvice,Titlewarmuthhowtouseexpertadvice) found. 
+WARNING in "domains/cora-fold3.db": line 8644, col 134: Duplicate ground predicate Sametitle(Titleapplyingweaklearningframeworktounderstandimprovec45,Titlemansour1996applyingweaklearningframeworktounderstandimprovec45) found. 
+WARNING in "domains/cora-fold3.db": line 8647, col 145: Duplicate ground predicate Sametitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Titlemansour1996applyingweaklearningframeworktounderstandimprovec45) found. 
+WARNING in "domains/cora-fold3.db": line 8648, col 134: Duplicate ground predicate Sametitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Titleapplyingweaklearningframeworktounderstandimprovec45) found. 
+WARNING in "domains/cora-fold3.db": line 8649, col 145: Duplicate ground predicate Sametitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Titlemansour1996applyingweaklearningframeworktounderstandimprovec45) found. 
+WARNING in "domains/cora-fold3.db": line 8650, col 145: Duplicate ground predicate Sametitle(Titlemansour1996applyingweaklearningframeworktounderstandimprovec45,Titlemansour1996applyingweaklearningframeworktounderstandimprovec45) found. 
+WARNING in "domains/cora-fold3.db": line 8662, col 141: Duplicate ground predicate Sametitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity) found. 
+WARNING in "domains/cora-fold3.db": line 8663, col 141: Duplicate ground predicate Sametitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity) found. 
+WARNING in "domains/cora-fold3.db": line 8664, col 141: Duplicate ground predicate Sametitle(Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity,Titleanimprovedboostingalgorithmitsimplicationslearningcomplexity) found. 
+WARNING in "domains/cora-fold3.db": line 8704, col 114: Duplicate ground predicate Sametitle(Titleexperimentswithanewboostingalgorithmsaittaled,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8707, col 105: Duplicate ground predicate Sametitle(Titleexperimentswithanewboostingalgorithm,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8711, col 117: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8713, col 114: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titleexperimentswithanewboostingalgorithmsaittaled) found. 
+WARNING in "domains/cora-fold3.db": line 8714, col 105: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titleexperimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8715, col 117: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8716, col 117: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8717, col 109: Duplicate ground predicate Sametitle(Titleschapire1996experimentswithanewboostingalgorithm,Titlesomeexperimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8721, col 109: Duplicate ground predicate Sametitle(Titlesomeexperimentswithanewboostingalgorithm,Titleschapire1996experimentswithanewboostingalgorithm) found. 
+WARNING in "domains/cora-fold3.db": line 8939, col 77: Duplicate ground predicate Haswordvenue(Venueproceedings9thconferencecomputationallearningtheory,Word9th) found. 
+WARNING in "domains/cora-fold3.db": line 8940, col 78: Duplicate ground predicate Haswordvenue(Venueproceedings9thconferencecomputationallearningtheory,Wordtest) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 3...
+WARNING in "domains/cora-fold4.db": line 349, col 63: Duplicate ground predicate Haswordtitle(Titlelinepredictionconversionstrategies,Wordonline) found. 
+WARNING in "domains/cora-fold4.db": line 350, col 67: Duplicate ground predicate Haswordtitle(Titlelinepredictionconversionstrategies,Wordstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 351, col 61: Duplicate ground predicate Haswordtitle(Titlelinepredictionconversionstrategies,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 371, col 62: Duplicate ground predicate Haswordtitle(Titleboostingperformanceneuralnetworks,Wordneural) found. 
+WARNING in "domains/cora-fold4.db": line 372, col 60: Duplicate ground predicate Haswordtitle(Titleboostingperformanceneuralnetworks,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 373, col 61: Duplicate ground predicate Haswordtitle(Titleboostingperformanceneuralnetworks,Wordworks) found. 
+WARNING in "domains/cora-fold4.db": line 387, col 64: Duplicate ground predicate Haswordtitle(Titleboostingaweaklearningalgorithmbymajority,Worda) found. 
+WARNING in "domains/cora-fold4.db": line 388, col 72: Duplicate ground predicate Haswordtitle(Titleboostingaweaklearningalgorithmbymajority,Wordalgorithm) found. 
+WARNING in "domains/cora-fold4.db": line 389, col 65: Duplicate ground predicate Haswordtitle(Titleboostingaweaklearningalgorithmbymajority,Wordby) found. 
+WARNING in "domains/cora-fold4.db": line 390, col 67: Duplicate ground predicate Haswordtitle(Titleboostingaweaklearningalgorithmbymajority,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 391, col 67: Duplicate ground predicate Haswordtitle(Titleboostingaweaklearningalgorithmbymajority,Wordweak) found. 
+WARNING in "domains/cora-fold4.db": line 396, col 71: Duplicate ground predicate Haswordtitle(Titleusingcombiningpredictorsthatspecialize,Wordpredictors) found. 
+WARNING in "domains/cora-fold4.db": line 397, col 71: Duplicate ground predicate Haswordtitle(Titleusingcombiningpredictorsthatspecialize,Wordspecialize) found. 
+WARNING in "domains/cora-fold4.db": line 398, col 65: Duplicate ground predicate Haswordtitle(Titleusingcombiningpredictorsthatspecialize,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 399, col 65: Duplicate ground predicate Haswordtitle(Titleusingcombiningpredictorsthatspecialize,Wordthat) found. 
+WARNING in "domains/cora-fold4.db": line 418, col 110: Duplicate ground predicate Haswordtitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Word1996) found. 
+WARNING in "domains/cora-fold4.db": line 419, col 114: Duplicate ground predicate Haswordtitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Wordbayesian) found. 
+WARNING in "domains/cora-fold4.db": line 420, col 112: Duplicate ground predicate Haswordtitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Wordbounds) found. 
+WARNING in "domains/cora-fold4.db": line 422, col 113: Duplicate ground predicate Haswordtitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Wordshapire) found. 
+WARNING in "domains/cora-fold4.db": line 423, col 110: Duplicate ground predicate Haswordtitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 6379, col 243: Duplicate ground predicate Samevenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference) found. 
+WARNING in "domains/cora-fold4.db": line 6386, col 184: Duplicate ground predicate Samevenue(Venue1993imaeuropeanconferencecomputationallearningtheory,Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference) found. 
+WARNING in "domains/cora-fold4.db": line 6387, col 243: Duplicate ground predicate Samevenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference) found. 
+WARNING in "domains/cora-fold4.db": line 6388, col 184: Duplicate ground predicate Samevenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Venue1993imaeuropeanconferencecomputationallearningtheory) found. 
+WARNING in "domains/cora-fold4.db": line 6389, col 243: Duplicate ground predicate Samevenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference) found. 
+WARNING in "domains/cora-fold4.db": line 6401, col 113: Duplicate ground predicate Samevenue(Venueproceedingstwentyninthsymposiumtheorycomputing,Venueproceedingstwentyninthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6402, col 113: Duplicate ground predicate Samevenue(Venueproceedingstwentyninthsymposiumtheorycomputing,Venueproceedingstwentyninthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6403, col 113: Duplicate ground predicate Samevenue(Venueproceedingstwentyninthsymposiumtheorycomputing,Venueproceedingstwentyninthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6444, col 135: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6469, col 117: Duplicate ground predicate Samevenue(Venue31stsymposiumfoundationscomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6480, col 128: Duplicate ground predicate Samevenue(Venueproceedings31stsymposiumfoundationscomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6657, col 130: Duplicate ground predicate Samevenue(Venueproceedings31stsymposiumfoundationscomputersciencepp,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6667, col 119: Duplicate ground predicate Samevenue(Venue31stsymposiumfoundationscomputersciencepp,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6678, col 95: Duplicate ground predicate Samevenue(Venueproceedingsfocs90,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6684, col 113: Duplicate ground predicate Samevenue(Venueproc31stsymposiumfoundationscompsci,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6695, col 143: Duplicate ground predicate Samevenue(Venueproceedings31stieeesymposiumfoundationscomputerscienceoctober1990,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6700, col 84: Duplicate ground predicate Samevenue(Venuefocs90,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6704, col 135: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6705, col 117: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venue31stsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6706, col 128: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedings31stsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6707, col 130: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedings31stsymposiumfoundationscomputersciencepp) found. 
+WARNING in "domains/cora-fold4.db": line 6708, col 119: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venue31stsymposiumfoundationscomputersciencepp) found. 
+WARNING in "domains/cora-fold4.db": line 6709, col 95: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedingsfocs90) found. 
+WARNING in "domains/cora-fold4.db": line 6710, col 113: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproc31stsymposiumfoundationscompsci) found. 
+WARNING in "domains/cora-fold4.db": line 6711, col 143: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedings31stieeesymposiumfoundationscomputerscienceoctober1990) found. 
+WARNING in "domains/cora-fold4.db": line 6712, col 84: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venuefocs90) found. 
+WARNING in "domains/cora-fold4.db": line 6713, col 135: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6714, col 127: Duplicate ground predicate Samevenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Venueproceedings31stsymposiumfoundationcomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6724, col 127: Duplicate ground predicate Samevenue(Venueproceedings31stsymposiumfoundationcomputerscience,Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience) found. 
+WARNING in "domains/cora-fold4.db": line 6884, col 73: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6885, col 86: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6897, col 74: Duplicate ground predicate Samevenue(Venueproc25thsymptheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6898, col 87: Duplicate ground predicate Samevenue(Venueproc25thsymptheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6910, col 93: Duplicate ground predicate Samevenue(Venueproceedingstwentyfifthsymposiumtheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6911, col 106: Duplicate ground predicate Samevenue(Venueproceedingstwentyfifthsymposiumtheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6923, col 88: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputingpp,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6924, col 101: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputingpp,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6936, col 86: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6937, col 99: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6949, col 77: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput1993,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6950, col 90: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput1993,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6962, col 99: Duplicate ground predicate Samevenue(Venueproceedingstwentyfifthsymposiumtheorycomputingstoc93,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6963, col 112: Duplicate ground predicate Samevenue(Venueproceedingstwentyfifthsymposiumtheorycomputingstoc93,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6975, col 55: Duplicate ground predicate Samevenue(Venue25thstoc,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6976, col 68: Duplicate ground predicate Samevenue(Venue25thstoc,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6980, col 73: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6981, col 74: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6982, col 93: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedingstwentyfifthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6983, col 88: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedings25thsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold4.db": line 6984, col 86: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6985, col 77: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsympostheorycomput1993) found. 
+WARNING in "domains/cora-fold4.db": line 6986, col 99: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedingstwentyfifthsymposiumtheorycomputingstoc93) found. 
+WARNING in "domains/cora-fold4.db": line 6987, col 55: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venue25thstoc) found. 
+WARNING in "domains/cora-fold4.db": line 6988, col 73: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6989, col 86: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6990, col 78: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproc25thsymptheorycomputing1993) found. 
+WARNING in "domains/cora-fold4.db": line 6991, col 57: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueprocstoc93) found. 
+WARNING in "domains/cora-fold4.db": line 6992, col 81: Duplicate ground predicate Samevenue(Venueproc25thsympostheorycomput,Venueproceedings25thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6993, col 86: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 6994, col 87: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6995, col 106: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedingstwentyfifthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6996, col 101: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedings25thsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold4.db": line 6997, col 99: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 6998, col 90: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsympostheorycomput1993) found. 
+WARNING in "domains/cora-fold4.db": line 6999, col 112: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedingstwentyfifthsymposiumtheorycomputingstoc93) found. 
+WARNING in "domains/cora-fold4.db": line 7000, col 68: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venue25thstoc) found. 
+WARNING in "domains/cora-fold4.db": line 7001, col 86: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 7002, col 99: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 7003, col 91: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproc25thsymptheorycomputing1993) found. 
+WARNING in "domains/cora-fold4.db": line 7004, col 70: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueprocstoc93) found. 
+WARNING in "domains/cora-fold4.db": line 7005, col 94: Duplicate ground predicate Samevenue(Venueproceedings25thsymposiumtheorycomputing,Venueproceedings25thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 7020, col 78: Duplicate ground predicate Samevenue(Venueproc25thsymptheorycomputing1993,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 7021, col 91: Duplicate ground predicate Samevenue(Venueproc25thsymptheorycomputing1993,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 7033, col 57: Duplicate ground predicate Samevenue(Venueprocstoc93,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 7034, col 70: Duplicate ground predicate Samevenue(Venueprocstoc93,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 7046, col 81: Duplicate ground predicate Samevenue(Venueproceedings25thsymptheorycomputing,Venueproc25thsympostheorycomput) found. 
+WARNING in "domains/cora-fold4.db": line 7047, col 94: Duplicate ground predicate Samevenue(Venueproceedings25thsymptheorycomputing,Venueproceedings25thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold4.db": line 7388, col 89: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategies,Titlelinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7391, col 89: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategies,Titlelinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7392, col 89: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategies,Titlelinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7393, col 121: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategies,Titlelinepredictionconversionstrategiesproceedingsfirsteurocoltworkshop) found. 
+WARNING in "domains/cora-fold4.db": line 7394, col 108: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategies,Titledphelmboldmkwarmuthlinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7396, col 121: Duplicate ground predicate Sametitle(Titlelinepredictionconversionstrategiesproceedingsfirsteurocoltworkshop,Titlelinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7400, col 108: Duplicate ground predicate Sametitle(Titledphelmboldmkwarmuthlinepredictionconversionstrategies,Titlelinepredictionconversionstrategies) found. 
+WARNING in "domains/cora-fold4.db": line 7404, col 87: Duplicate ground predicate Sametitle(Titleboostingperformanceneuralnetworks,Titleboostingperformanceneuralnetworks) found. 
+WARNING in "domains/cora-fold4.db": line 7406, col 87: Duplicate ground predicate Sametitle(Titleboostingperformanceneuralnetworks,Titleboostingperformanceneuralnetworks) found. 
+WARNING in "domains/cora-fold4.db": line 7407, col 87: Duplicate ground predicate Sametitle(Titleboostingperformanceneuralnetworks,Titleboostingperformanceneuralnetworks) found. 
+WARNING in "domains/cora-fold4.db": line 7408, col 96: Duplicate ground predicate Sametitle(Titleboostingperformanceneuralnetworks,Titlepatriceupboostingperformanceneuralnetworks) found. 
+WARNING in "domains/cora-fold4.db": line 7410, col 96: Duplicate ground predicate Sametitle(Titlepatriceupboostingperformanceneuralnetworks,Titleboostingperformanceneuralnetworks) found. 
+WARNING in "domains/cora-fold4.db": line 7414, col 101: Duplicate ground predicate Sametitle(Titleboostingaweaklearningalgorithmbymajority,Titleboostingaweaklearningalgorithmbymajority) found. 
+WARNING in "domains/cora-fold4.db": line 7415, col 101: Duplicate ground predicate Sametitle(Titleboostingaweaklearningalgorithmbymajority,Titleboostingaweaklearningalgorithmbymajority) found. 
+WARNING in "domains/cora-fold4.db": line 7416, col 101: Duplicate ground predicate Sametitle(Titleboostingaweaklearningalgorithmbymajority,Titleboostingaweaklearningalgorithmbymajority) found. 
+WARNING in "domains/cora-fold4.db": line 7418, col 97: Duplicate ground predicate Sametitle(Titleusingcombiningpredictorsthatspecialize,Titleusingcombiningpredictorsthatspecialize) found. 
+WARNING in "domains/cora-fold4.db": line 7419, col 97: Duplicate ground predicate Sametitle(Titleusingcombiningpredictorsthatspecialize,Titleusingcombiningpredictorsthatspecialize) found. 
+WARNING in "domains/cora-fold4.db": line 7420, col 97: Duplicate ground predicate Sametitle(Titleusingcombiningpredictorsthatspecialize,Titleusingcombiningpredictorsthatspecialize) found. 
+WARNING in "domains/cora-fold4.db": line 7425, col 187: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7429, col 187: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7430, col 187: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7431, col 175: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleboundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7432, col 176: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleboundssamplecomplexitybayesianlearningusinginformationstheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7433, col 176: Duplicate ground predicate Sametitle(Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleboundssamplecomplexitybayesianlearningusinginformationthjeoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7435, col 175: Duplicate ground predicate Sametitle(Titleboundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7440, col 176: Duplicate ground predicate Sametitle(Titleboundssamplecomplexitybayesianlearningusinginformationstheoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7445, col 176: Duplicate ground predicate Sametitle(Titleboundssamplecomplexitybayesianlearningusinginformationthjeoryvcdimension,Titleschapire1991boundssamplecomplexitybayesianlearningusinginformationtheoryvcdimension) found. 
+WARNING in "domains/cora-fold4.db": line 7533, col 136: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Word53) found. 
+WARNING in "domains/cora-fold4.db": line 7534, col 136: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Word93) found. 
+WARNING in "domains/cora-fold4.db": line 7535, col 146: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Worddissertation) found. 
+WARNING in "domains/cora-fold4.db": line 7537, col 143: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordinstitute) found. 
+WARNING in "domains/cora-fold4.db": line 7538, col 137: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordits) found. 
+WARNING in "domains/cora-fold4.db": line 7539, col 137: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordnew) found. 
+WARNING in "domains/cora-fold4.db": line 7540, col 140: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordnumber) found. 
+WARNING in "domains/cora-fold4.db": line 7541, col 138: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 7542, col 140: Duplicate ground predicate Haswordvenue(Venuecomputationallearningtheoryeurocolt93volumenewseriesseriesnumber53institutemathematicsitsapplicationsconference,Wordvolume) found. 
+WARNING in "domains/cora-fold4.db": line 7564, col 72: Duplicate ground predicate Haswordvenue(Venueproceedingstwentyninthsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold4.db": line 7565, col 73: Duplicate ground predicate Haswordvenue(Venueproceedingstwentyninthsymposiumtheorycomputing,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 7714, col 85: Duplicate ground predicate Haswordvenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Wordfirst) found. 
+WARNING in "domains/cora-fold4.db": line 7715, col 83: Duplicate ground predicate Haswordvenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Wordpos) found. 
+WARNING in "domains/cora-fold4.db": line 7716, col 84: Duplicate ground predicate Haswordvenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 7717, col 89: Duplicate ground predicate Haswordvenue(Venueproceedingsthirtyfirstsymposiumfoundationscomputerscience,Wordthirtieth) found. 
+WARNING in "domains/cora-fold4.db": line 7805, col 52: Duplicate ground predicate Haswordvenue(Venueproc25thsympostheorycomput,Word5th) found. 
+WARNING in "domains/cora-fold4.db": line 7806, col 52: Duplicate ground predicate Haswordvenue(Venueproc25thsympostheorycomput,Wordpos) found. 
+WARNING in "domains/cora-fold4.db": line 7807, col 53: Duplicate ground predicate Haswordvenue(Venueproc25thsympostheorycomput,Wordtest) found. 
+WARNING in "domains/cora-fold4.db": line 7809, col 65: Duplicate ground predicate Haswordvenue(Venueproceedings25thsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold4.db": line 7810, col 66: Duplicate ground predicate Haswordvenue(Venueproceedings25thsymposiumtheorycomputing,Wordtest) found. 
+Adding clauses to MLN...
+converting to CNF:
+parsing MLN and creating domain 4...
+WARNING in "domains/cora-fold5.db": line 358, col 91: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Worda) found. 
+WARNING in "domains/cora-fold5.db": line 359, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordan) found. 
+WARNING in "domains/cora-fold5.db": line 360, col 96: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordonline) found. 
+WARNING in "domains/cora-fold5.db": line 361, col 94: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 362, col 92: Duplicate ground predicate Haswordtitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Wordto) found. 
+WARNING in "domains/cora-fold5.db": line 424, col 73: Duplicate ground predicate Haswordtitle(Titleequivalencemodelspolynomiallearnability,Wordequivalence) found. 
+WARNING in "domains/cora-fold5.db": line 425, col 68: Duplicate ground predicate Haswordtitle(Titleequivalencemodelspolynomiallearnability,Wordmodels) found. 
+WARNING in "domains/cora-fold5.db": line 426, col 73: Duplicate ground predicate Haswordtitle(Titleequivalencemodelspolynomiallearnability,Wordpolynomials) found. 
+WARNING in "domains/cora-fold5.db": line 427, col 66: Duplicate ground predicate Haswordtitle(Titleequivalencemodelspolynomiallearnability,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 452, col 54: Duplicate ground predicate Haswordtitle(Titlelearnabilitybooleanformulae,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 457, col 54: Duplicate ground predicate Haswordtitle(Titlelearnabilitybooleanformulae,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 464, col 83: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordas) found. 
+WARNING in "domains/cora-fold5.db": line 466, col 87: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordfinite) found. 
+WARNING in "domains/cora-fold5.db": line 467, col 85: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordhard) found. 
+WARNING in "domains/cora-fold5.db": line 468, col 83: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordis) found. 
+WARNING in "domains/cora-fold5.db": line 469, col 83: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordor) found. 
+WARNING in "domains/cora-fold5.db": line 470, col 85: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 479, col 50: Duplicate ground predicate Haswordtitle(Titlelearningbooleanformulas,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 506, col 116: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Worda) found. 
+WARNING in "domains/cora-fold5.db": line 507, col 124: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordalgorithm) found. 
+WARNING in "domains/cora-fold5.db": line 508, col 120: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordbound) found. 
+WARNING in "domains/cora-fold5.db": line 509, col 127: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordconsequences) found. 
+WARNING in "domains/cora-fold5.db": line 510, col 120: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordcross) found. 
+WARNING in "domains/cora-fold5.db": line 511, col 120: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Worderror) found. 
+WARNING in "domains/cora-fold5.db": line 512, col 120: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordsplit) found. 
+WARNING in "domains/cora-fold5.db": line 513, col 119: Duplicate ground predicate Haswordtitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 527, col 65: Duplicate ground predicate Haswordtitle(Titlediversitybasedinferencefiniteautomata,Wordbased) found. 
+WARNING in "domains/cora-fold5.db": line 528, col 69: Duplicate ground predicate Haswordtitle(Titlediversitybasedinferencefiniteautomata,Worddiversity) found. 
+WARNING in "domains/cora-fold5.db": line 529, col 66: Duplicate ground predicate Haswordtitle(Titlediversitybasedinferencefiniteautomata,Wordfinite) found. 
+WARNING in "domains/cora-fold5.db": line 530, col 64: Duplicate ground predicate Haswordtitle(Titlediversitybasedinferencefiniteautomata,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 552, col 55: Duplicate ground predicate Haswordtitle(Titlestrengthweaklearnability,Wordstrength) found. 
+WARNING in "domains/cora-fold5.db": line 553, col 51: Duplicate ground predicate Haswordtitle(Titlestrengthweaklearnability,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 554, col 51: Duplicate ground predicate Haswordtitle(Titlestrengthweaklearnability,Wordweak) found. 
+WARNING in "domains/cora-fold5.db": line 598, col 73: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordalgorithm) found. 
+WARNING in "domains/cora-fold5.db": line 599, col 70: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Worddesign) found. 
+WARNING in "domains/cora-fold5.db": line 601, col 70: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordrecent) found. 
+WARNING in "domains/cora-fold5.db": line 602, col 68: Duplicate ground predicate Haswordtitle(Titledesignanalysisefficientlearningalgorithms,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 7308, col 78: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7311, col 98: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7325, col 84: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputingstoc87,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7328, col 104: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputingstoc87,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7342, col 80: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputingpp,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7345, col 100: Duplicate ground predicate Samevenue(Venueproceedingsnineteenthsymposiumtheorycomputingpp,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7359, col 72: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7362, col 92: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7376, col 74: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputation,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7379, col 94: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputation,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7393, col 75: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputations,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7396, col 95: Duplicate ground predicate Samevenue(Venueproceedings19thsymposiumtheorycomputations,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7410, col 75: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing1987285295,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7413, col 95: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing1987285295,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7427, col 45: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7430, col 65: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7444, col 75: Duplicate ground predicate Samevenue(Venueproceedings19thacmsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7447, col 95: Duplicate ground predicate Samevenue(Venueproceedings19thacmsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7461, col 60: Duplicate ground predicate Samevenue(Venueproc19thsymptheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7464, col 80: Duplicate ground predicate Samevenue(Venueproc19thsymptheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7468, col 78: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedingsnineteenthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7469, col 84: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedingsnineteenthsymposiumtheorycomputingstoc87) found. 
+WARNING in "domains/cora-fold5.db": line 7470, col 80: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedingsnineteenthsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold5.db": line 7471, col 72: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedings19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7472, col 74: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedings19thsymposiumtheorycomputation) found. 
+WARNING in "domains/cora-fold5.db": line 7473, col 75: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedings19thsymposiumtheorycomputations) found. 
+WARNING in "domains/cora-fold5.db": line 7474, col 75: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsymposiumtheorycomputing1987285295) found. 
+WARNING in "domains/cora-fold5.db": line 7475, col 45: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7476, col 75: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproceedings19thacmsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7477, col 60: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7478, col 45: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7479, col 65: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7480, col 59: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsympostheorycomput) found. 
+WARNING in "domains/cora-fold5.db": line 7481, col 65: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7482, col 61: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venue19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7483, col 39: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venuestoc87) found. 
+WARNING in "domains/cora-fold5.db": line 7484, col 40: Duplicate ground predicate Samevenue(Venueproc19thstoc,Venuestoc87p) found. 
+WARNING in "domains/cora-fold5.db": line 7495, col 65: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7498, col 85: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7512, col 59: Duplicate ground predicate Samevenue(Venueproc19thsympostheorycomput,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7515, col 79: Duplicate ground predicate Samevenue(Venueproc19thsympostheorycomput,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7519, col 98: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedingsnineteenthsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7520, col 104: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedingsnineteenthsymposiumtheorycomputingstoc87) found. 
+WARNING in "domains/cora-fold5.db": line 7521, col 100: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedingsnineteenthsymposiumtheorycomputingpp) found. 
+WARNING in "domains/cora-fold5.db": line 7522, col 92: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedings19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7523, col 94: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedings19thsymposiumtheorycomputation) found. 
+WARNING in "domains/cora-fold5.db": line 7524, col 95: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedings19thsymposiumtheorycomputations) found. 
+WARNING in "domains/cora-fold5.db": line 7525, col 95: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing1987285295) found. 
+WARNING in "domains/cora-fold5.db": line 7526, col 65: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7527, col 95: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproceedings19thacmsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7528, col 80: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsymptheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7529, col 65: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7530, col 85: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7531, col 79: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsympostheorycomput) found. 
+WARNING in "domains/cora-fold5.db": line 7532, col 85: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7533, col 81: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venue19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7534, col 59: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venuestoc87) found. 
+WARNING in "domains/cora-fold5.db": line 7535, col 60: Duplicate ground predicate Samevenue(Venueproc19thsymposiumtheorycomputing,Venuestoc87p) found. 
+WARNING in "domains/cora-fold5.db": line 7546, col 61: Duplicate ground predicate Samevenue(Venue19thsymposiumtheorycomputing,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7549, col 81: Duplicate ground predicate Samevenue(Venue19thsymposiumtheorycomputing,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7563, col 39: Duplicate ground predicate Samevenue(Venuestoc87,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7566, col 59: Duplicate ground predicate Samevenue(Venuestoc87,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 7580, col 40: Duplicate ground predicate Samevenue(Venuestoc87p,Venueproc19thstoc) found. 
+WARNING in "domains/cora-fold5.db": line 7583, col 60: Duplicate ground predicate Samevenue(Venuestoc87p,Venueproc19thsymposiumtheorycomputing) found. 
+WARNING in "domains/cora-fold5.db": line 8018, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8024, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8028, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8029, col 157: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationonlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8030, col 155: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8031, col 305: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninglearningananapplicationtoboostingunpublishedmanuscriptavailablefromauthorshomepageshttpwwwresearchattcomorgsssrpeoplefyoavschapiregextendedabstractappearscomputationaltheory) found. 
+WARNING in "domains/cora-fold5.db": line 8032, col 325: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationlinelearninglearningananapplicationtoboostingatwebsitehttphttpwwwwwwresearchresearchattattcomcomyoavyoavororgsssrpeopleextendedabstractappearsproceedingssecondeuropeanconferencecomputationaltheorybarcelona) found. 
+WARNING in "domains/cora-fold5.db": line 8033, col 283: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting,Titleadecisiontheoreticgeneralizationofonlinelearninglearningananapplicationtoboostingunpublishedmanuscriptavailableelectronicallyourwebpagesorbyemailrequestextendedabstractappearedcomputationaltheory) found. 
+WARNING in "domains/cora-fold5.db": line 8036, col 305: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninglearningananapplicationtoboostingunpublishedmanuscriptavailablefromauthorshomepageshttpwwwresearchattcomorgsssrpeoplefyoavschapiregextendedabstractappearscomputationaltheory,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8042, col 325: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationlinelearninglearningananapplicationtoboostingatwebsitehttphttpwwwwwwresearchresearchattattcomcomyoavyoavororgsssrpeopleextendedabstractappearsproceedingssecondeuropeanconferencecomputationaltheorybarcelona,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8048, col 283: Duplicate ground predicate Sametitle(Titleadecisiontheoreticgeneralizationofonlinelearninglearningananapplicationtoboostingunpublishedmanuscriptavailableelectronicallyourwebpagesorbyemailrequestextendedabstractappearedcomputationaltheory,Titleadecisiontheoreticgeneralizationlinelearninganapplicationtoboosting) found. 
+WARNING in "domains/cora-fold5.db": line 8054, col 99: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnability,Titleequivalencemodelspolynomiallearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8058, col 121: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnabilityinformationcomputation,Titleequivalencemodelspolynomiallearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8060, col 99: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnability,Titleequivalencemodelspolynomiallearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8061, col 121: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnability,Titleequivalencemodelspolynomiallearnabilityinformationcomputation) found. 
+WARNING in "domains/cora-fold5.db": line 8062, col 99: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnability,Titleequivalencemodelspolynomiallearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8063, col 129: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnability,Titleequivalencemodelspolynomiallearnabilityinformationcomputationtoappear) found. 
+WARNING in "domains/cora-fold5.db": line 8066, col 129: Duplicate ground predicate Sametitle(Titleequivalencemodelspolynomiallearnabilityinformationcomputationtoappear,Titleequivalencemodelspolynomiallearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8072, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8075, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8076, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8077, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8078, col 74: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformula) found. 
+WARNING in "domains/cora-fold5.db": line 8079, col 84: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlevaliant1987learnabilitybooleanformul) found. 
+WARNING in "domains/cora-fold5.db": line 8080, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8082, col 74: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformula,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8085, col 74: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformula,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8087, col 84: Duplicate ground predicate Sametitle(Titlevaliant1987learnabilitybooleanformul,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8090, col 84: Duplicate ground predicate Sametitle(Titlevaliant1987learnabilitybooleanformul,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8091, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8092, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8093, col 74: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformula) found. 
+WARNING in "domains/cora-fold5.db": line 8094, col 84: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlevaliant1987learnabilitybooleanformul) found. 
+WARNING in "domains/cora-fold5.db": line 8095, col 75: Duplicate ground predicate Sametitle(Titlelearnabilitybooleanformulae,Titlelearnabilitybooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8097, col 137: Duplicate ground predicate Sametitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring) found. 
+WARNING in "domains/cora-fold5.db": line 8098, col 137: Duplicate ground predicate Sametitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring) found. 
+WARNING in "domains/cora-fold5.db": line 8099, col 137: Duplicate ground predicate Sametitle(Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring,Titlelearningbooleanformulaeorfiniteautomataisasashardfactoring) found. 
+WARNING in "domains/cora-fold5.db": line 8106, col 67: Duplicate ground predicate Sametitle(Titlelearningbooleanformulas,Titlelearningbooleanformulas) found. 
+WARNING in "domains/cora-fold5.db": line 8109, col 67: Duplicate ground predicate Sametitle(Titlelearningbooleanformulae,Titlelearningbooleanformulas) found. 
+WARNING in "domains/cora-fold5.db": line 8110, col 67: Duplicate ground predicate Sametitle(Titlelearningbooleanformulas,Titlelearningbooleanformulas) found. 
+WARNING in "domains/cora-fold5.db": line 8111, col 67: Duplicate ground predicate Sametitle(Titlelearningbooleanformulas,Titlelearningbooleanformulae) found. 
+WARNING in "domains/cora-fold5.db": line 8112, col 67: Duplicate ground predicate Sametitle(Titlelearningbooleanformulas,Titlelearningbooleanformulas) found. 
+WARNING in "domains/cora-fold5.db": line 8116, col 233: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplitneuralinformationprocessing8,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8120, col 205: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8124, col 172: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationwithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8125, col 233: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplitneuralinformationprocessing8) found. 
+WARNING in "domains/cora-fold5.db": line 8126, col 205: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8127, col 172: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationwithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8128, col 205: Duplicate ground predicate Sametitle(Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit,Titleabounderrorcrossvalidationusingapproximationestimationrateswithconsequencestrainingtestsplit) found. 
+WARNING in "domains/cora-fold5.db": line 8132, col 95: Duplicate ground predicate Sametitle(Titlediversitybasedinferencefiniteautomata,Titlediversitybasedinferencefiniteautomata) found. 
+WARNING in "domains/cora-fold5.db": line 8133, col 95: Duplicate ground predicate Sametitle(Titlediversitybasedinferencefiniteautomata,Titlediversitybasedinferencefiniteautomata) found. 
+WARNING in "domains/cora-fold5.db": line 8134, col 95: Duplicate ground predicate Sametitle(Titlediversitybasedinferencefiniteautomata,Titlediversitybasedinferencefiniteautomata) found. 
+WARNING in "domains/cora-fold5.db": line 8139, col 69: Duplicate ground predicate Sametitle(Titlestrengthweaklearnability,Titlestrengthweaklearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8143, col 84: Duplicate ground predicate Sametitle(Titlestrengthweaklearnabilitymachinelearning,Titlestrengthweaklearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8145, col 69: Duplicate ground predicate Sametitle(Titlestrengthweaklearnability,Titlestrengthweaklearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8146, col 84: Duplicate ground predicate Sametitle(Titlestrengthweaklearnability,Titlestrengthweaklearnabilitymachinelearning) found. 
+WARNING in "domains/cora-fold5.db": line 8147, col 69: Duplicate ground predicate Sametitle(Titlestrengthweaklearnability,Titlestrengthweaklearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8148, col 150: Duplicate ground predicate Sametitle(Titlestrengthweaklearnability,Titlestrengthweaklearnabilitymachinelearning5197227thisarticlewasprocessedusinglatexmacropackagewithllncsstyle) found. 
+WARNING in "domains/cora-fold5.db": line 8151, col 150: Duplicate ground predicate Sametitle(Titlestrengthweaklearnabilitymachinelearning5197227thisarticlewasprocessedusinglatexmacropackagewithllncsstyle,Titlestrengthweaklearnability) found. 
+WARNING in "domains/cora-fold5.db": line 8158, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold5.db": line 8161, col 140: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithmsdistinguisheddissertationawardsseries,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold5.db": line 8162, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold5.db": line 8163, col 140: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithmsdistinguisheddissertationawardsseries) found. 
+WARNING in "domains/cora-fold5.db": line 8164, col 103: Duplicate ground predicate Sametitle(Titledesignanalysisefficientlearningalgorithms,Titledesignanalysisefficientlearningalgorithms) found. 
+WARNING in "domains/cora-fold5.db": line 8266, col 39: Duplicate ground predicate Haswordvenue(Venueproc19thstoc,Wordstoc) found. 
+WARNING in "domains/cora-fold5.db": line 8267, col 39: Duplicate ground predicate Haswordvenue(Venueproc19thstoc,Wordtest) found. 
+WARNING in "domains/cora-fold5.db": line 8276, col 58: Duplicate ground predicate Haswordvenue(Venueproc19thsymposiumtheorycomputing,Wordpos) found. 
+WARNING in "domains/cora-fold5.db": line 8277, col 59: Duplicate ground predicate Haswordvenue(Venueproc19thsymposiumtheorycomputing,Wordtest) found. 
+Adding clauses to MLN...
+converting to CNF:
+Parsing MLN and creating domains took 1.06 secs
+
+Hrs: 24
+adding unit clauses to MLN...
+
+Clause Evaluation - Jan
+
+domain 0
+sampling predicate Haswordauthor(a1,a2)
+	sampled/total (true ground atoms) = 97/97
+	sampled/total (false ground atoms) = 9019/9019
+sampling predicate Samevenue(a1,a2)
+	sampled/total (true ground atoms) = 359/359
+	sampled/total (false ground atoms) = 8290/8290
+sampling predicate Sameauthor(a1,a2)
+	sampled/total (true ground atoms) = 209/209
+	sampled/total (false ground atoms) = 1640/1640
+sampling predicate Haswordvenue(a1,a2)
+	sampled/total (true ground atoms) = 287/287
+	sampled/total (false ground atoms) = 10000/19429
+sampling predicate Title(a1,a2)
+	sampled/total (true ground atoms) = 259/259
+	sampled/total (false ground atoms) = 10000/15281
+sampling predicate Author(a1,a2)
+	sampled/total (true ground atoms) = 259/259
+	sampled/total (false ground atoms) = 10000/10878
+sampling predicate Samebib(a1,a2)
+	sampled/total (true ground atoms) = 5231/5231
+	sampled/total (false ground atoms) = 10000/61850
+sampling predicate Venue(a1,a2)
+	sampled/total (true ground atoms) = 259/259
+	sampled/total (false ground atoms) = 10000/23828
+sampling predicate Sametitle(a1,a2)
+	sampled/total (true ground atoms) = 154/154
+	sampled/total (false ground atoms) = 3446/3446
+sampling predicate Haswordtitle(a1,a2)
+	sampled/total (true ground atoms) = 324/324
+	sampled/total (false ground atoms) = 10000/12396
+domain 1
+sampling predicate Haswordauthor(a1,a2)
+	sampled/total (true ground atoms) = 63/63
+	sampled/total (false ground atoms) = 4641/4641
+sampling predicate Samevenue(a1,a2)
+	sampled/total (true ground atoms) = 686/686
+	sampled/total (false ground atoms) = 8150/8150
+sampling predicate Sameauthor(a1,a2)
+	sampled/total (true ground atoms) = 122/122
+	sampled/total (false ground atoms) = 662/662
+sampling predicate Haswordvenue(a1,a2)
+	sampled/total (true ground atoms) = 298/298
+	sampled/total (false ground atoms) = 10000/15494
+sampling predicate Title(a1,a2)
+	sampled/total (true ground atoms) = 267/267
+	sampled/total (false ground atoms) = 9345/9345
+sampling predicate Author(a1,a2)
+	sampled/total (true ground atoms) = 267/267
+	sampled/total (false ground atoms) = 7209/7209
+sampling predicate Samebib(a1,a2)
+	sampled/total (true ground atoms) = 6593/6593
+	sampled/total (false ground atoms) = 10000/64696
+sampling predicate Venue(a1,a2)
+	sampled/total (true ground atoms) = 267/267
+	sampled/total (false ground atoms) = 10000/24831
+sampling predicate Sametitle(a1,a2)
+	sampled/total (true ground atoms) = 88/88
+	sampled/total (false ground atoms) = 1208/1208
+sampling predicate Haswordtitle(a1,a2)
+	sampled/total (true ground atoms) = 195/195
+	sampled/total (false ground atoms) = 5853/5853
+domain 2
+sampling predicate Haswordauthor(a1,a2)
+	sampled/total (true ground atoms) = 86/86
+	sampled/total (false ground atoms) = 5934/5934
+sampling predicate Samevenue(a1,a2)
+	sampled/total (true ground atoms) = 574/574
+	sampled/total (false ground atoms) = 8642/8642
+sampling predicate Sameauthor(a1,a2)
+	sampled/total (true ground atoms) = 151/151
+	sampled/total (false ground atoms) = 1074/1074
+sampling predicate Haswordvenue(a1,a2)
+	sampled/total (true ground atoms) = 299/299
+	sampled/total (false ground atoms) = 10000/16213
+sampling predicate Title(a1,a2)
+	sampled/total (true ground atoms) = 262/262
+	sampled/total (false ground atoms) = 9432/9432
+sampling predicate Author(a1,a2)
+	sampled/total (true ground atoms) = 262/262
+	sampled/total (false ground atoms) = 8908/8908
+sampling predicate Samebib(a1,a2)
+	sampled/total (true ground atoms) = 7054/7054
+	sampled/total (false ground atoms) = 10000/61590
+sampling predicate Venue(a1,a2)
+	sampled/total (true ground atoms) = 262/262
+	sampled/total (false ground atoms) = 10000/24890
+sampling predicate Sametitle(a1,a2)
+	sampled/total (true ground atoms) = 91/91
+	sampled/total (false ground atoms) = 1278/1278
+sampling predicate Haswordtitle(a1,a2)
+	sampled/total (true ground atoms) = 206/206
+	sampled/total (false ground atoms) = 6158/6158
+domain 3
+sampling predicate Haswordauthor(a1,a2)
+	sampled/total (true ground atoms) = 82/82
+	sampled/total (false ground atoms) = 5120/5120
+sampling predicate Samevenue(a1,a2)
+	sampled/total (true ground atoms) = 670/670
+	sampled/total (false ground atoms) = 9330/9330
+sampling predicate Sameauthor(a1,a2)
+	sampled/total (true ground atoms) = 158/158
+	sampled/total (false ground atoms) = 998/998
+sampling predicate Haswordvenue(a1,a2)
+	sampled/total (true ground atoms) = 331/331
+	sampled/total (false ground atoms) = 10000/14969
+sampling predicate Title(a1,a2)
+	sampled/total (true ground atoms) = 263/263
+	sampled/total (false ground atoms) = 10000/10257
+sampling predicate Author(a1,a2)
+	sampled/total (true ground atoms) = 263/263
+	sampled/total (false ground atoms) = 8679/8679
+sampling predicate Samebib(a1,a2)
+	sampled/total (true ground atoms) = 5651/5651
+	sampled/total (false ground atoms) = 10000/63518
+sampling predicate Venue(a1,a2)
+	sampled/total (true ground atoms) = 263/263
+	sampled/total (false ground atoms) = 10000/26037
+sampling predicate Sametitle(a1,a2)
+	sampled/total (true ground atoms) = 102/102
+	sampled/total (false ground atoms) = 1498/1498
+sampling predicate Haswordtitle(a1,a2)
+	sampled/total (true ground atoms) = 202/202
+	sampled/total (false ground atoms) = 5918/5918
+domain 4
+sampling predicate Haswordauthor(a1,a2)
+	sampled/total (true ground atoms) = 81/81
+	sampled/total (false ground atoms) = 6515/6515
+sampling predicate Samevenue(a1,a2)
+	sampled/total (true ground atoms) = 486/486
+	sampled/total (false ground atoms) = 5290/5290
+sampling predicate Sameauthor(a1,a2)
+	sampled/total (true ground atoms) = 172/172
+	sampled/total (false ground atoms) = 984/984
+sampling predicate Haswordvenue(a1,a2)
+	sampled/total (true ground atoms) = 232/232
+	sampled/total (false ground atoms) = 10000/14512
+sampling predicate Title(a1,a2)
+	sampled/total (true ground atoms) = 244/244
+	sampled/total (false ground atoms) = 9516/9516
+sampling predicate Author(a1,a2)
+	sampled/total (true ground atoms) = 244/244
+	sampled/total (false ground atoms) = 8052/8052
+sampling predicate Samebib(a1,a2)
+	sampled/total (true ground atoms) = 6442/6442
+	sampled/total (false ground atoms) = 10000/53094
+sampling predicate Venue(a1,a2)
+	sampled/total (true ground atoms) = 244/244
+	sampled/total (false ground atoms) = 10000/18300
+sampling predicate Sametitle(a1,a2)
+	sampled/total (true ground atoms) = 90/90
+	sampled/total (false ground atoms) = 1510/1510
+sampling predicate Haswordtitle(a1,a2)
+	sampled/total (true ground atoms) = 240/240
+	sampled/total (false ground atoms) = 7520/7520
+computing counts for initial MLN clauses...
+computing counts for clauses in domain 0...
+Clause 0: Haswordauthor(a1,a2)
+Clause 1: Samevenue(a1,a2)
+Clause 2: Sameauthor(a1,a2)
+Clause 3: Haswordvenue(a1,a2)
+Clause 4: Title(a1,a2)
+Clause 5: Author(a1,a2)
+Clause 6: Samebib(a1,a2)
+Clause 7: Venue(a1,a2)
+Clause 8: Sametitle(a1,a2)
+Clause 9: Haswordtitle(a1,a2)
+computing counts for clauses in domain 1...
+Clause 0: Haswordauthor(a1,a2)
+Clause 1: Samevenue(a1,a2)
+Clause 2: Sameauthor(a1,a2)
+Clause 3: Haswordvenue(a1,a2)
+Clause 4: Title(a1,a2)
+Clause 5: Author(a1,a2)
+Clause 6: Samebib(a1,a2)
+Clause 7: Venue(a1,a2)
+Clause 8: Sametitle(a1,a2)
+Clause 9: Haswordtitle(a1,a2)
+computing counts for clauses in domain 2...
+Clause 0: Haswordauthor(a1,a2)
+Clause 1: Samevenue(a1,a2)
+Clause 2: Sameauthor(a1,a2)
+Clause 3: Haswordvenue(a1,a2)
+Clause 4: Title(a1,a2)
+Clause 5: Author(a1,a2)
+Clause 6: Samebib(a1,a2)
+Clause 7: Venue(a1,a2)
+Clause 8: Sametitle(a1,a2)
+Clause 9: Haswordtitle(a1,a2)
+computing counts for clauses in domain 3...
+Clause 0: Haswordauthor(a1,a2)
+Clause 1: Samevenue(a1,a2)
+Clause 2: Sameauthor(a1,a2)
+Clause 3: Haswordvenue(a1,a2)
+Clause 4: Title(a1,a2)
+Clause 5: Author(a1,a2)
+Clause 6: Samebib(a1,a2)
+Clause 7: Venue(a1,a2)
+Clause 8: Sametitle(a1,a2)
+Clause 9: Haswordtitle(a1,a2)
+computing counts for clauses in domain 4...
+Clause 0: Haswordauthor(a1,a2)
+Clause 1: Samevenue(a1,a2)
+Clause 2: Sameauthor(a1,a2)
+Clause 3: Haswordvenue(a1,a2)
+Clause 4: Title(a1,a2)
+Clause 5: Author(a1,a2)
+Clause 6: Samebib(a1,a2)
+Clause 7: Venue(a1,a2)
+Clause 8: Sametitle(a1,a2)
+Clause 9: Haswordtitle(a1,a2)
+computing counts for initial MLN clauses took 2.54 secs
+
+learning the initial weights and score of MLN...
+
+MLN:
+------------------------------------
+0:  -3.44577       Title(a1,a2)
+1:  -3.32481       Author(a1,a2)
+2:  -2.59598       Samevenue(a1,a2)
+3:  -2.24739       Samebib(a1,a2)
+4:  -3.61267       Haswordvenue(a1,a2)
+5:  -3.79704       Venue(a1,a2)
+6:  -1.86121       Sameauthor(a1,a2)
+7:  -2.71182       Sametitle(a1,a2)
+8:  -3.73394       Haswordauthor(a1,a2)
+9:  -3.28878       Haswordtitle(a1,a2)
+------------------------------------
+score = -8.94994
+
+learning the initial weights and score of MLN took 1.15 secs
+
+evaluating gain of candidates...
+0.0373233 	 Samevenue(a1,a2)
+0.00124894 	 Samevenue(a1,a2) v !Samevenue(a2,a3)
+0.00144312 	 Samevenue(a1,a2) v !Haswordvenue(a2,a3)
+0.0287065 	 !Samevenue(a1,a2) v !Samevenue(a3,a1)
+0.000391642 	 Samevenue(a1,a2) v !Samevenue(a1,a3)
+1.21382 	 !Samevenue(a1,a2) v !Samevenue(a2,a1)
+0.00063973 	 Author(a1,a2) v Samebib(a3,a1)
+-0.000281258 	 Samevenue(a1,a2) v Haswordvenue(a2,a3)
+-0.000950892 	 Samevenue(a1,a2) v Samevenue(a3,a2)
+0.223709 	 !Samevenue(a1,a2) v Haswordvenue(a2,a3) v !Haswordvenue(a1,a3)
+0.00346417 	 Samevenue(a1,a2) v Haswordvenue(a2,a3) v !Haswordvenue(a1,a3)
+1.16744 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v !Venue(a3,a1)
+0.0703949 	 Samevenue(a1,a2) v !Haswordvenue(a1,a3) v !Haswordvenue(a2,a3)
+0.0157968 	 !Samevenue(a1,a2) v Venue(a3,a1) v !Venue(a3,a2)
+0.242869 	 Samevenue(a1,a2) v Samevenue(a2,a1) v Haswordvenue(a1,a3)
+1.12826 	 Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a2,a1)
+0.336278 	 Samevenue(a1,a2) v !Venue(a3,a1) v !Venue(a3,a2)
+1.12826 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v !Samevenue(a3,a2)
+0.946408 	 !Samevenue(a1,a2) v !Samevenue(a2,a1) v Haswordvenue(a1,a3)
+1.16744 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v !Venue(a3,a2)
+1.14268 	 Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a2,a3)
+1.16812 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v !Haswordvenue(a1,a3)
+1.16478 	 Samevenue(a1,a2) v Samevenue(a3,a1) v !Samevenue(a1,a3)
+0.0913862 	 !Samevenue(a1,a2) v !Venue(a3,a1) v !Venue(a3,a2)
+1.159 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v Venue(a3,a1)
+0.223709 	 !Samevenue(a1,a2) v Haswordvenue(a1,a3) v !Haswordvenue(a2,a3)
+0.444057 	 !Samevenue(a1,a2) v !Haswordvenue(a1,a3) v !Haswordvenue(a2,a3)
+1.12526 	 Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a3,a2)
+-0.00271301 	 Samevenue(a1,a2) v Samevenue(a2,a1) v !Samevenue(a1,a3)
+-0.00107063 	 Samevenue(a1,a2) v Samevenue(a3,a1) v !Samevenue(a2,a3)
+1.25416 	 Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a3,a1)
+1.16592 	 Samevenue(a1,a2) v !Samevenue(a2,a1) v !Samevenue(a3,a1)
+0.0157968 	 !Samevenue(a1,a2) v Venue(a3,a2) v !Venue(a3,a1)
+1.14268 	 Samevenue(a1,a2) v !Samevenue(a3,a1) v !Samevenue(a3,a2)
+-0.00181886 	 Samevenue(a1,a2) v Samevenue(a3,a2) v !Samevenue(a1,a3)
+0.00280884 	 Samevenue(a1,a2) v Samevenue(a2,a1) v !Venue(a3,a1)
+1.21104 	 Samevenue(a1,a2) v !Samevenue(a2,a3) v !Samevenue(a3,a1)
+0.650889 	 !Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a2,a3)
+0.313381 	 !Samevenue(a1,a2) v !Samevenue(a1,a3) v !Samevenue(a2,a1)
+0.00487181 	 Samevenue(a1,a2) v Venue(a3,a2) v !Venue(a3,a1)
+evaluating gain of candidates took 2 mins, 11.31 secs
+
+Total time taken = 2 mins, 16.26 secs

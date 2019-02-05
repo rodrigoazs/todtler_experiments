@@ -1,0 +1,23 @@
+//predicate declarations
+Proteinclass(protein,class)
+Phenotype(protein,phe)
+Complex(protein,com)
+Interaction(protein,protein)
+Enzyme(protein,enz)
+Function(protein,fun)
+Location(protein,loc)
+
+-5.29111e-06 Proteinclass(a1,a2)
+9.44477e-05 Proteinclass(a1,a2) v !Function(a1,a3)
+-0.00497512 Proteinclass(a1,a2) v Proteinclass(a3,a2)
+2.15056e-05 Proteinclass(a1,a2) v !Phenotype(a1,a3)
+-3.84601e-05 !Interaction(a1,a2) v Proteinclass(a2,a3)
+3.42285e-06 !Location(a1,a2) v Proteinclass(a1,a3)
+-3.32217e-05 !Proteinclass(a1,a2) v !Proteinclass(a3,a2)
+-1.30959e-05 !Proteinclass(a1,a2) v !Complex(a1,a3)
+1.30959e-05 Proteinclass(a1,a2) v !Complex(a1,a3)
+0.00244667 Interaction(a1,a2) v !Proteinclass(a1,a3)
+2.22132e-05 Proteinclass(a1,a2) v !Enzyme(a1,a3)
+-2.19205e-05 !Interaction(a1,a2) v !Proteinclass(a1,a3) v !Proteinclass(a2,a3)
+-8.46655e-05 !Interaction(a1,a2) v Proteinclass(a1,a3) v Proteinclass(a2,a3)
+

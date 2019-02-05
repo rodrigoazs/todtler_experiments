@@ -1,0 +1,69 @@
+Run: 0 22_twitter_yeast
+Doing experiment number 1
+Generating templates for source domain
+Time taken: 2.167832136154175
+Generating templates for target domain
+Time taken: 1.9107725620269775
+Scoring clauses
+Time taken: 267.6808588504791
+Learning fold 1
+Proteinclass
+Time taken: 948.4096586704254
+Learning fold 2
+Proteinclass
+Time taken: 2134.1264686584473
+Learning fold 3
+Proteinclass
+Time taken: 1717.0127892494202
+Learning fold 4
+Proteinclass
+Time taken: 1779.3046085834503
+Total experiment time taken 6850.836783885956
+Run: 1 7_imdb_cora
+Doing experiment number 1
+Generating templates for source domain
+Time taken: 2.1514742374420166
+Generating templates for target domain
+Time taken: 1.9301469326019287
+Scoring clauses
+Time taken: 191.34881401062012
+Learning fold 1
+Samevenue
+Time taken: 1381.6383693218231
+Learning fold 2
+Samevenue
+Time taken: 1913.4710309505463
+Learning fold 3
+Samevenue
+Time taken: 1653.787032842636
+Learning fold 4
+Samevenue
+Time taken: 1441.4393274784088
+Learning fold 5
+Samevenue
+Time taken: 874.2862644195557
+Total experiment time taken 7460.502327680588
+Run: 2 53_cora_imdb
+Doing experiment number 1
+Generating templates for source domain
+Time taken: 2.071174144744873
+Generating templates for target domain
+Time taken: 1.7950799465179443
+Scoring clauses
+Time taken: 5501.588996171951
+Learning fold 1
+Workedunder
+Time taken: 202.06864714622498
+Learning fold 2
+Workedunder
+Time taken: 223.02586674690247
+Learning fold 3
+Workedunder
+Time taken: 253.45890355110168
+Learning fold 4
+Workedunder
+Time taken: 68.32929396629333
+Learning fold 5
+Workedunder
+Time taken: 212.63357663154602
+Total experiment time taken 6465.232793331146
