@@ -154,7 +154,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
     global bk
     
     json = {}
-    delete_train_files()
+    #delete_train_files()
     
     if source not in ['nell_sports', 'nell_finances', 'yago2s']:
         #[tar_train_facts, tar_test_facts] =  datasets.get_kfold_small(i, tar_data[0])
