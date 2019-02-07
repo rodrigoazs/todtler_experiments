@@ -56,7 +56,7 @@ def delete_train_files():
     '''Remove files from train folder'''
     try:
         #delete_create_dir('clauses')
-        delete_create_dir('domains')
+        #delete_create_dir('domains')
         delete_create_dir('models')
         delete_create_dir('test')
         delete_files('mln')
@@ -201,7 +201,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         print('Doing experiment number ' + str(exp_number))
         
         gen_source_bk(source) 
-        gen_train_files(source, source_data)
+        #gen_train_files(source, source_data)
 
 #        print('Generating templates for source domain')
 #        templating = time.time()        
@@ -213,7 +213,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
 #        write_to_file(score(source, len(source_data)), 'score.sh')
 #        
         gen_source_bk(target)  
-        gen_train_files(target, target_data)
+        #gen_train_files(target, target_data)
 #        
 #        print('Generating templates for target domain')
 #        templating = time.time()  
