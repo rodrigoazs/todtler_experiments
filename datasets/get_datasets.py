@@ -186,8 +186,10 @@ class datasets:
                                 if relation in ['ceoof', 'ceoeconomicsector']:
                                     continue
                             if dataset == 'webkb':
-                                if relation == 'link':
+                                if relation == 'linkto':
                                     facts[i].append(relation.capitalize() + '(' + ','.join(example[1:3])+ ')')
+                                if relation in ['hasalphanumericword', 'allwordscapitalized']:
+                                    continue
                             facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
                     else:
                         for ex in value:
