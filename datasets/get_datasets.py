@@ -186,9 +186,12 @@ class datasets:
                                 if relation in ['ceoof', 'ceoeconomicsector']:
                                     continue
                             if dataset == 'webkb':
-                                if relation == 'linkto':
+                                if relation == 'linkto' and len(example) == 3:
                                     facts[i].append(relation.capitalize() + '(' + ','.join(example[1:3])+ ')')
+                                    continue
                                 if relation in ['hasalphanumericword', 'allwordscapitalized', 'coursepage', 'facultypage', 'studentpage', 'researchprojectpage']:
+                                    continue
+                                if len(example) > 2:
                                     continue
                             facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
                     else:
