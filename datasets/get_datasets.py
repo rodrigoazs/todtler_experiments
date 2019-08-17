@@ -30,7 +30,7 @@ class datasets:
             else:
                 train += folds[i]
         return (train, test)
-    
+
     def get_kfold_separated(test_number, folds):
         train = []
         test = []
@@ -40,7 +40,7 @@ class datasets:
             else:
                 train.append(folds[i])
         return (train, test)
-    
+
     def get_kfold_small(train_number, folds):
         '''Separate examples into train and test set.
         It uses 1 single fold for training and k-1 folds for testing'''
@@ -52,14 +52,14 @@ class datasets:
             else:
                 test += folds[i]
         return (train, test)
-    
+
     def group_folds(folds):
         '''Group folds in a single one'''
         train = []
         for i in range(len(folds)):
             train += folds[i]
         return train
-    
+
     def split_into_folds(examples, n_folds=5, seed=None):
         '''For datasets as nell and yago that have only 1 mega-example'''
         temp = list(examples)
@@ -73,7 +73,7 @@ class datasets:
         ret.append(temp)
         random.seed(None)
         return ret
-        
+
     def balance_neg(target, data, size, seed=None):
         '''Receives [facts, pos, neg] and balance neg according to pos'''
         ret = copy.deepcopy(data)
@@ -86,7 +86,7 @@ class datasets:
             example = [x.capitalize() for x in entities]
             neg.append(target.capitalize() + '(' + ','.join(example) + ')')
         return neg
-        
+
     def get_neg(target, data):
         '''Receives [facts, pos, neg] and return neg'''
         ret = copy.deepcopy(data)
@@ -95,7 +95,7 @@ class datasets:
             example = [x.capitalize() for x in entities]
             neg.append(target.capitalize() + '(' + ','.join(example) + ')')
         return neg
-        
+
     def generate_neg(target, data, amount=1, seed=None):
         '''Receives [facts, pos, neg] and generates balanced neg examples in neg according to pos'''
         pos = copy.deepcopy(data)
@@ -119,20 +119,20 @@ class datasets:
                         break
         random.seed(None)
         return neg
-    
+
     def get_json_dataset(dataset):
         '''Load dataset from json'''
         with open(os.path.join(__location__, 'files/json/' + dataset + '.json')) as data_file:
             data_loaded = json.load(data_file)
         return data_loaded
-        
+
     def write_to_file(content, path):
         '''Takes a list (content) and a path/file (path) and writes each line of the list to the file location.'''
         with open(path, 'w') as f:
             for line in content:
                 f.write(line + '\n')
         f.close()
-    
+
     def load(dataset, bk=None, target=None, seed=None, balanced=False):
         '''Load dataset from json and accept only predicates presented in bk'''
         pattern = '^(\w+)\(.*\).$'
@@ -161,21 +161,21 @@ class datasets:
                                 #if len(dummy.intersection(set(example))) == 0:
                                 #    continue
                                 if relation in ['actor', 'director']:
-                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                                 if relation == 'female':
-                                    facts[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    facts[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                             if dataset == 'uwcse':
                                 if relation in ['student', 'professor']:
-                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                                 if len(example) > 2:
                                     continue
                             if dataset == 'twitter':
                                 if relation == 'tweets':
                                     example = [example[0], '"' + example[1].lower() + '"']
-                                    facts[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
+                                    facts[i].append(relation.capitalize() + '(' + ','.join(example) + ')')
                                     continue
                                 if relation == 'typeaccount':
                                     continue
@@ -185,6 +185,9 @@ class datasets:
                             if dataset == 'nell_finances':
                                 if relation in ['ceoof', 'ceoeconomicsector']:
                                     continue
+                            if dataset == 'webkb':
+                                if relation == 'link':
+                                    facts[i].append(relation.capitalize() + '(' + ','.join(example[1:3])+ ')')
                             facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
                     else:
                         for ex in value:
@@ -193,21 +196,21 @@ class datasets:
                                 #if len(dummy.intersection(set(example))) == 0:
                                 #    continue
                                 if relation in ['actor', 'director']:
-                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                                 if relation == 'female':
-                                    pos[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    pos[i].append('Gender' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                             if dataset == 'uwcse':
                                 if relation in ['student', 'professor']:
-                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')  
+                                    pos[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                                 if len(example) > 2:
                                     continue
                             if dataset == 'twitter':
                                 if relation == 'tweets':
                                     example = [example[0], '"' + example[1].lower() + '"']
-                                    pos[i].append(relation.capitalize() + '(' + ','.join(example) + ')')  
+                                    pos[i].append(relation.capitalize() + '(' + ','.join(example) + ')')
                                     continue
                                 if relation == 'typeaccount':
                                     continue
