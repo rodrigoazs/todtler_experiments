@@ -188,7 +188,7 @@ class datasets:
                             if dataset == 'webkb':
                                 if relation == 'linkto':
                                     facts[i].append(relation.capitalize() + '(' + ','.join(example[1:3])+ ')')
-                                if relation in ['hasalphanumericword', 'allwordscapitalized']:
+                                if relation in ['hasalphanumericword', 'allwordscapitalized', 'coursepage', 'facultypage', 'studentpage', 'researchprojectpage']:
                                     continue
                             facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
                     else:
