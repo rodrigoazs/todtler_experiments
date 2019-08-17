@@ -168,7 +168,7 @@ class datasets:
                                     continue
                             if dataset == 'uwcse':
                                 if relation in ['student', 'professor']:
-                                    facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
+                                    #facts[i].append('Isa' + '(' + ','.join(example + [relation.capitalize()]) + ')')
                                     continue
                                 if len(example) > 2:
                                     continue
