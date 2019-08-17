@@ -286,7 +286,7 @@ bk = {
               'Isa(person,+isa)',
               'Movie(movie,person)',
               'Genre(person,genre)'],
-      'uwcse': ['Isa(person,+isa)',
+      'uwcse': [#'Isa(person,+isa)',
         'Advisedby(person,person)',
         'Tempadvisedby(person,person)',
         #'Ta(course,person,quarter).',
