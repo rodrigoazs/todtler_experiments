@@ -310,7 +310,7 @@ bk = {
               'Haswordauthor(author,word)',
               'Haswordtitle(title,word)',
               'Haswordvenue(venue,word)'],
-      'webkb': ['Link(page,page)',
+      'webkb': ['Linkto(page,page)',
                 'Has(word,page)',
                 'Instructorsof(page,page)',
                 'Hasanchor(word,page)',
