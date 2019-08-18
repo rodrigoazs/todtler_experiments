@@ -276,7 +276,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         json['Total experiment time'] = end - start
         print('Total experiment time taken %s' % json['Total experiment time'])
         save_experiment(json, experiment_title, exp_number)
-    delete_train_files()
+    #delete_train_files()
 
 bk = {
       'dummy': ['Follows(person,person)',
