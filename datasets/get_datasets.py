@@ -193,6 +193,12 @@ class datasets:
                                     continue
                                 if len(example) > 2:
                                     continue
+                                if relation in ['has', 'hasanchor']:
+                                    facts[i].append(relation.capitalize() + '(' + ','.join(['Word' + example[0], example[1]])+ ')')
+                                    continue
+                                if relation in ['pageclass']:
+                                    facts[i].append(relation.capitalize() + '(' + ','.join([example[0], 'Class' + example[1]])+ ')')
+                                    continue
                             facts[i].append(relation.capitalize() + '(' + ','.join(example)+ ')')
                     else:
                         for ex in value:
