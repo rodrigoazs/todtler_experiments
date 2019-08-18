@@ -253,7 +253,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
             print(predicate)
 
             learning = time.time()
-            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate.capitalize() + ' > todtler-learner.txt 2>&1)'
+            CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate.capitalize() + ' > todtler-learner' + str(i) + '.txt 2>&1)'
             print(CALL)
             call_process(CALL)
             learning = time.time() - learning
