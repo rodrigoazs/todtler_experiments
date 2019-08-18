@@ -254,6 +254,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
 
             learning = time.time()
             CALL = '(java -jar todtler-learner.jar -sourceDirectory clauses/' + source + ' -targetDirectory clauses/' + target + ' -templateFileSource ' + source + '-templates.csv -formulaFileSource ' + source + '-formulas.csv -templateFileTarget ' + target + '-templates.csv -formulaFileTarget ' + target + '-formulas.csv -outputDirectory ' + experiment_path + ' -domainFile domains/' + target + '.mln -train domains/' + target + '-fold' + str(i+1) + '.db -ne ' + predicate.capitalize() + ' > todtler-learner.txt 2>&1)'
+            print(CALL)
             call_process(CALL)
             learning = time.time() - learning
             json['Learning time'].append(learning)
@@ -275,7 +276,7 @@ def do_experiment(identifier, source, target, src_predicate, predicate):
         json['Total experiment time'] = end - start
         print('Total experiment time taken %s' % json['Total experiment time'])
         save_experiment(json, experiment_title, exp_number)
-    #delete_train_files()
+    delete_train_files()
 
 bk = {
       'dummy': ['Follows(person,person)',
